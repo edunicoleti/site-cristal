@@ -10,7 +10,7 @@ export function Footer() {
           {/* Cristal Poços */}
           <div>
             <div className="flex items-center gap-[12px] mb-[24px]">
-              <img src={imgCristalLogoDark} alt="Cristal Poços" className="h-[36px] md:h-[40px]" />
+              <img src={imgCristalLogoDark} alt="Cristal Poços" className="h-[72px] md:h-[72px]" />
             </div>
             <p className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-[#9ca3af] leading-[22px]">
               Referência em perfuração de poços há mais de 25 anos, comprometida com a qualidade e o meio
