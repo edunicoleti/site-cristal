@@ -32,4 +32,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/   # Envia apenas a pasta gerada pelo build
-          server-dir: ./public_html/ # Ajuste se o seu painel indicar outra pasta principal
+          server-dir: ./ # Ajustado para a raiz da conta FTP
