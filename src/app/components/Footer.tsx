@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { motion } from "motion/react";
-import imgCristalLogo from "figma:asset/2a3d4d6193e931ad4cdcad44d0a2dfef321b2778.png";
+import imgCristalLogoDark from "@/assets/logo-dark.png";
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
           {/* Cristal Poços */}
           <div>
             <div className="flex items-center gap-[12px] mb-[24px]">
-              <img src={imgCristalLogo} alt="Cristal Poços" className="h-[36px] md:h-[40px]" />
+              <img src={imgCristalLogoDark} alt="Cristal Poços" className="h-[36px] md:h-[40px]" />
             </div>
             <p className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-[#9ca3af] leading-[22px]">
               Referência em perfuração de poços há mais de 25 anos, comprometida com a qualidade e o meio
@@ -105,7 +105,7 @@ export function Footer() {
                   aria-label={social.label}
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d={social.icon}/>
+                    <path d={social.icon} />
                   </svg>
                 </motion.a>
               ))}

@@ -52,11 +52,10 @@ export function Header() {
   return (
     <>
       <header
-        className={`bg-white sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`bg-white sticky top-0 z-50 transition-all duration-300 ${isScrolled
             ? "shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-b border-transparent"
             : "border-b border-[#e5e7eb]"
-        }`}
+          }`}
       >
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px] flex items-center justify-between h-[64px] md:h-[77px]">
           <Link to="/" className="flex items-center">
@@ -65,7 +64,7 @@ export function Header() {
               transition={{ duration: 0.2 }}
               src={imgCristalLogo}
               alt="Cristal Poços"
-              className="h-[36px] md:h-[48px]"
+              className="h-[44px] md:h-[58px]"
             />
           </Link>
 
@@ -75,12 +74,11 @@ export function Header() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`font-['Inter:Medium',sans-serif] font-medium text-[14px] relative ${
-                  isActive(item.path) &&
-                  (item.path === "/" ? location.pathname === "/" : true)
+                className={`font-['Inter:Medium',sans-serif] font-medium text-[14px] relative ${isActive(item.path) &&
+                    (item.path === "/" ? location.pathname === "/" : true)
                     ? "text-[#137fec]"
                     : "text-[#111418] hover:text-[#137fec]"
-                } transition-colors`}
+                  } transition-colors`}
               >
                 {item.label}
                 {isActive(item.path) &&
@@ -152,7 +150,7 @@ export function Header() {
                 <img
                   src={imgCristalLogo}
                   alt="Cristal Poços"
-                  className="h-[32px]"
+                  className="h-[38px]"
                 />
                 <motion.button
                   whileTap={{ scale: 0.95 }}
@@ -175,12 +173,11 @@ export function Header() {
                     <Link
                       to={item.path}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`font-['Inter:Medium',sans-serif] font-medium text-[16px] px-[16px] py-[14px] rounded-[12px] block transition-all ${
-                        isActive(item.path) &&
-                        (item.path === "/" ? location.pathname === "/" : true)
+                      className={`font-['Inter:Medium',sans-serif] font-medium text-[16px] px-[16px] py-[14px] rounded-[12px] block transition-all ${isActive(item.path) &&
+                          (item.path === "/" ? location.pathname === "/" : true)
                           ? "text-[#137fec] bg-[#eff6ff] shadow-sm"
                           : "text-[#111418] hover:bg-[#f6f7f8]"
-                      }`}
+                        }`}
                     >
                       {item.label}
                     </Link>

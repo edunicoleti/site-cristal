@@ -319,18 +319,18 @@ function UnitPin({
   const labelText = `${marker.label} · ${marker.city}/${marker.state}`;
 
   // Dimensions
-  const fontSize = isMobile ? 9.5 : 11;
+  const fontSize = isMobile ? 18 : 11;
   const charWidth = fontSize * 0.56;
   const textWidth = labelText.length * charWidth;
-  const iconSize = isMobile ? 12 : 14;
-  const dotGap = 6;
-  const pillH = isMobile ? 28 : 32;
-  const pillPadX = 12;
+  const iconSize = isMobile ? 24 : 14;
+  const dotGap = isMobile ? 10 : 6;
+  const pillH = isMobile ? 48 : 32;
+  const pillPadX = isMobile ? 20 : 12;
   const pillW = pillPadX + iconSize + dotGap + textWidth + pillPadX;
   const pillR = pillH / 2;
   const pillX = -pillW / 2;
   const pillY = -(pillH + 16);
-  const pointerTip = -6;
+  const pointerTip = isMobile ? -10 : -6;
 
   return (
     <Marker coordinates={marker.coordinates}>
@@ -381,7 +381,7 @@ function UnitPin({
           ry={pillR}
           fill="white"
           stroke={`${color}30`}
-          strokeWidth={1.2}
+          strokeWidth={isMobile ? 2.4 : 1.2}
         />
 
         {/* Instead of a dot inside the pill, we render an SVG path for MapPin */}
@@ -426,7 +426,7 @@ function UnitPin({
       </g>
 
       {/* Central anchor pin instead of dot */}
-      <g transform={`translate(-8, -16) scale(0.66)`}>
+      <g transform={`translate(${isMobile ? -12 : -8}, ${isMobile ? -24 : -16}) scale(${isMobile ? 1 : 0.66})`}>
         <path
           d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
           fill={color}
@@ -492,9 +492,9 @@ export function BrazilMapInteractive() {
   const mapConfig = useMemo(
     () => ({
       width: 800,
-      height: isMobile ? 880 : 540,
-      scale: isMobile ? 600 : 850,
-      centerY: isMobile ? -13 : -15,
+      height: isMobile ? 1060 : 540,
+      scale: isMobile ? 1050 : 850,
+      centerY: isMobile ? -12.5 : -15,
     }),
     [isMobile]
   );
@@ -629,12 +629,12 @@ export function BrazilMapInteractive() {
                   aria-hidden="true"
                   style={{
                     fontFamily: "Inter, system-ui, sans-serif",
-                    fontSize: isMobile ? 11 : 13,
+                    fontSize: isMobile ? 22 : 13,
                     fontWeight: 800,
                     fill: isUnit ? "#ffffff" : "#1e3a5f",
                     paintOrder: "stroke",
                     stroke: isUnit ? "rgba(0,0,0,0.25)" : "rgba(255,255,255,0.95)",
-                    strokeWidth: isUnit ? 3 : 4,
+                    strokeWidth: isUnit ? (isMobile ? 5 : 3) : (isMobile ? 6 : 4),
                     strokeLinejoin: "round",
                     pointerEvents: "none",
                     userSelect: "none",
@@ -882,89 +882,7 @@ export function BrazilMapInteractive() {
 
       {/* ═══════════ MOBILE EXTRAS (below map) ═══════════ */}
 
-      {/* Mobile legend (collapsible) */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.15 }}
-        className="md:hidden"
-      >
-        <button
-          onClick={() => setShowMobileLegend((v) => !v)}
-          className="flex items-center justify-between w-full rounded-[14px] px-[16px] py-[12px]"
-          aria-expanded={showMobileLegend}
-          aria-controls="mobile-map-legend"
-          style={{
-            background: "linear-gradient(135deg, rgba(255,255,255,0.98), rgba(248,250,255,0.95))",
-            border: "1px solid rgba(19,127,236,0.1)",
-            boxShadow: "0 4px 16px rgba(19,127,236,0.06), 0 1px 3px rgba(0,0,0,0.04)",
-          }}
-        >
-          <span className="font-['Inter',sans-serif] text-[13px] text-[#374151] flex items-center gap-[8px]" style={{ fontWeight: 600 }}>
-            <MapPin size={14} className="text-[#137fec]" />
-            Legenda do mapa
-          </span>
-          <motion.div animate={{ rotate: showMobileLegend ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={16} className="text-[#9ca3af]" />
-          </motion.div>
-        </button>
 
-        <AnimatePresence>
-          {showMobileLegend && (
-            <motion.div
-              id="mobile-map-legend"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <div className="grid grid-cols-2 gap-[8px] pt-[10px]">
-                {[
-                  { color: BRAND_ORANGE, label: "2 Unidades", sub: "Cristal Poços", Icon: Building },
-                  { color: "#bfdbfe", label: "Atendido", sub: "9 estados", Icon: MapPin },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-[10px] rounded-[12px] px-[12px] py-[10px]"
-                    style={{
-                      background: "linear-gradient(135deg, #ffffff, #fafbff)",
-                      border: `1px solid ${item.color === "#e8ecf1" ? "#e5e7eb" : `${item.color}20`}`,
-                    }}
-                  >
-                    <div
-                      className="w-[28px] h-[28px] rounded-[8px] shrink-0 flex items-center justify-center"
-                      style={{
-                        backgroundColor: `${item.color}20`,
-                        border: `1.5px solid ${item.color}30`,
-                      }}
-                    >
-                      {item.Icon ? (
-                        <item.Icon
-                          size={13}
-                          style={{
-                            color:
-                              item.color === "#bfdbfe" ? "#3b82f6" : item.color === "#e8ecf1" ? "#9ca3af" : item.color,
-                          }}
-                        />
-                      ) : (
-                        <div className="w-[10px] h-[10px] rounded-[3px]" style={{ backgroundColor: item.color }} />
-                      )}
-                    </div>
-                    <div>
-                      <p className="font-['Inter',sans-serif] text-[12px] text-[#111418] leading-tight" style={{ fontWeight: 700 }}>
-                        {item.label}
-                      </p>
-                      <p className="font-['Inter',sans-serif] text-[10px] text-[#617589]">{item.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
 
       {/* ── Mobile stats — premium cards with icon, accent line, description ── */}
       <motion.div
