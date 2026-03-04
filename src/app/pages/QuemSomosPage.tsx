@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
 import svgPaths from "../../imports/svg-z6zitnfa74";
-import imgHeroSection from "figma:asset/843f31ec72aaf24de3202b9d6243ec3a3732fd11.png";
+import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 import imgSedeCristal from "figma:asset/c09dd4bf03d4b6a4a043f0ba702ed84e9d181e05.png";
 import imgAb6AXuAl6BxAw5F1XwwBaOsLsVePkjoKh6MQgcwzTkcH6Etvid6M1JMe80KdHcrqLx4U7ITepntN6PgKamwUbyAuwwqy9ZqNy7Yt73XVjGnLdbx9X4JXyLqIf8UsGizPoSzftMa4CWaIloeNby4Yfb4EQ1TeXp3AjkXkFPhW9RjNeYy3LvzdGNaFPqH9SdsPt8URvnwzWzM1GOlnUOvUBcNotbMiyaw2IsxM9LQKjXlOndfYySnjfjwwhYmTkaA8WKmPpalPnAbi0E from "figma:asset/fa0e2d147a58c6e2d212e1a94f7a89dba2806dc5.png";
 import imgAb6AXuCbfq8RbFgKUrm4GsZ2I0F4L66ETWlzN0A2OcEdt8MeQhdRmycItv3Owb2XIpEAmyLv3AdJ1VK82L5NWggQtNzwKcScIuts3RP7BFk0Qm72XQppssQwJyGx8Zupc4UvAne1CBrwm610SozOezyGi6UkedCjxLtodny7KxGftWmfWJscjMcToJyW7GmMMo3HdMv2EiDmll3QIiI7DiSxAt4QYos0E43N49Jw1UYeUaV3HXtFz63R7Zemdj7IxHk4PuEy from "figma:asset/034e49cb80791c49f75dd5cb7776dafe792ad22f.png";
@@ -53,15 +53,17 @@ export function QuemSomosPage() {
 
       {/* Hero Section */}
       <section className="relative h-[500px] md:h-[450px] flex items-center justify-center overflow-clip">
-        <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              alt=""
-              className="absolute h-[284.44%] left-0 max-w-none top-[-92.22%] w-full object-cover"
-              src={imgHeroSection}
-            />
-          </div>
-          <div className="absolute bg-[rgba(16,25,34,0.7)] inset-0" />
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute h-full w-full object-cover"
+          >
+            <source src={fundoVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-[#0a0f1a] mix-blend-multiply opacity-80" />
         </div>
 
         <motion.div

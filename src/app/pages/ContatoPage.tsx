@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { SEOHead } from "../components/SEOHead";
 import { BrazilMapInteractive } from "../components/BrazilMapInteractive";
+import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 
 const WHATSAPP_URL =
   "https://wa.me/5549999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
@@ -74,8 +75,21 @@ export function ContatoPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#137fec] to-[#0c5fb8] py-[80px] md:py-[120px]">
-        <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
+      <section className="relative py-[80px] md:py-[120px] overflow-hidden">
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute h-full w-full object-cover"
+          >
+            <source src={fundoVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-[#0a0f1a] mix-blend-multiply opacity-80" />
+        </div>
+
+        <div className="relative max-w-[1280px] mx-auto px-[16px] md:px-[24px] z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -185,8 +199,8 @@ export function ContatoPage() {
                       minLength: { value: 3, message: "Nome muito curto" },
                     })}
                     className={`w-full px-[16px] py-[14px] border rounded-[12px] font-['Inter:Regular',sans-serif] text-[16px] focus:outline-none focus:ring-2 transition-all ${errors.name
-                        ? "border-red-400 focus:ring-red-300 bg-red-50"
-                        : "border-[#dbe0e6] focus:ring-[#137fec]"
+                      ? "border-red-400 focus:ring-red-300 bg-red-50"
+                      : "border-[#dbe0e6] focus:ring-[#137fec]"
                       }`}
                   />
                   {errors.name && (
@@ -213,8 +227,8 @@ export function ContatoPage() {
                         },
                       })}
                       className={`w-full px-[16px] py-[14px] border rounded-[12px] font-['Inter:Regular',sans-serif] text-[16px] focus:outline-none focus:ring-2 transition-all ${errors.email
-                          ? "border-red-400 focus:ring-red-300 bg-red-50"
-                          : "border-[#dbe0e6] focus:ring-[#137fec]"
+                        ? "border-red-400 focus:ring-red-300 bg-red-50"
+                        : "border-[#dbe0e6] focus:ring-[#137fec]"
                         }`}
                     />
                     {errors.email && (
@@ -236,8 +250,8 @@ export function ContatoPage() {
                       })}
                       onChange={handlePhoneChange}
                       className={`w-full px-[16px] py-[14px] border rounded-[12px] font-['Inter:Regular',sans-serif] text-[16px] focus:outline-none focus:ring-2 transition-all ${errors.phone
-                          ? "border-red-400 focus:ring-red-300 bg-red-50"
-                          : "border-[#dbe0e6] focus:ring-[#137fec]"
+                        ? "border-red-400 focus:ring-red-300 bg-red-50"
+                        : "border-[#dbe0e6] focus:ring-[#137fec]"
                         }`}
                     />
                     {errors.phone && (
@@ -279,8 +293,8 @@ export function ContatoPage() {
                       minLength: { value: 20, message: "Mensagem muito curta (mínimo 20 caracteres)" },
                     })}
                     className={`w-full px-[16px] py-[14px] border rounded-[12px] font-['Inter:Regular',sans-serif] text-[16px] focus:outline-none focus:ring-2 transition-all resize-none ${errors.message
-                        ? "border-red-400 focus:ring-red-300 bg-red-50"
-                        : "border-[#dbe0e6] focus:ring-[#137fec]"
+                      ? "border-red-400 focus:ring-red-300 bg-red-50"
+                      : "border-[#dbe0e6] focus:ring-[#137fec]"
                       }`}
                   />
                   {errors.message && (

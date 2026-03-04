@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
 import svgPaths from "../../imports/svg-wcjskpv9i9";
-import imgHeroSection from "figma:asset/6f3f1e25c33a868dc8533d3ce96ab231c98b4d58.png";
+import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 import { ProjectGallery } from "../components/ProjectGallery";
 import { FAQ } from "../components/FAQ";
 import { SEOHead } from "../components/SEOHead";
@@ -20,15 +20,17 @@ export function ServicosPage() {
 
       {/* Hero Section */}
       <section className="relative h-[380px] md:h-[400px] flex flex-col items-start justify-center overflow-clip">
-        <div aria-hidden="true" className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              alt=""
-              className="absolute h-[200%] left-0 max-w-none top-[-50%] w-full object-cover"
-              src={imgHeroSection}
-            />
-          </div>
-          <div className="absolute bg-[rgba(16,25,34,0.7)] inset-0" />
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute h-full w-full object-cover"
+          >
+            <source src={fundoVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-[#0a0f1a] mix-blend-multiply opacity-80" />
         </div>
 
         <div className="relative max-w-[1280px] w-full mx-auto px-[20px] md:px-[24px] z-10">
