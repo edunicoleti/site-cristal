@@ -147,18 +147,6 @@ export function QuemSomosPage() {
                 </p>
 
                 <div className="flex items-center gap-[16px] pt-[16px]">
-                  <div className="flex items-center -space-x-4">
-                    <img
-                      src={imgAb6AXuAl6BxAw5F1XwwBaOsLsVePkjoKh6MQgcwzTkcH6Etvid6M1JMe80KdHcrqLx4U7ITepntN6PgKamwUbyAuwwqy9ZqNy7Yt73XVjGnLdbx9X4JXyLqIf8UsGizPoSzftMa4CWaIloeNby4Yfb4EQ1TeXp3AjkXkFPhW9RjNeYy3LvzdGNaFPqH9SdsPt8URvnwzWzM1GOlnUOvUBcNotbMiyaw2IsxM9LQKjXlOndfYySnjfjwwhYmTkaA8WKmPpalPnAbi0E}
-                      alt=""
-                      className="rounded-full size-[40px] md:size-[48px] border-4 border-white"
-                    />
-                    <img
-                      src={imgAb6AXuCbfq8RbFgKUrm4GsZ2I0F4L66ETWlzN0A2OcEdt8MeQhdRmycItv3Owb2XIpEAmyLv3AdJ1VK82L5NWggQtNzwKcScIuts3RP7BFk0Qm72XQppssQwJyGx8Zupc4UvAne1CBrwm610SozOezyGi6UkedCjxLtodny7KxGftWmfWJscjMcToJyW7GmMMo3HdMv2EiDmll3QIiI7DiSxAt4QYos0E43N49Jw1UYeUaV3HXtFz63R7Zemdj7IxHk4PuEy}
-                      alt=""
-                      className="rounded-full size-[40px] md:size-[48px] border-4 border-white"
-                    />
-                  </div>
                   <div>
                     <p className="font-['Inter:Medium',sans-serif] font-medium text-[13px] md:text-[14px] text-[#6b7280] leading-[18px] md:leading-[20px]">
                       Nossa equipe de especialistas está pronta para seu projeto.
