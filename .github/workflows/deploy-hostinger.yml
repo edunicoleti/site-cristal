@@ -26,10 +26,13 @@ jobs:
         run: npm run build
 
       - name: 🚀 Deploy para a Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v8.0.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/   # Envia apenas a pasta gerada pelo build
           server-dir: ./ # Ajustado para a raiz da conta FTP
+          protocol: ftp
+          dangerous-clean-slate: false
+          timeout: 600000
