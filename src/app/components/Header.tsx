@@ -53,8 +53,8 @@ export function Header() {
     <>
       <header
         className={`bg-white sticky top-0 z-50 transition-all duration-300 ${isScrolled
-            ? "shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-b border-transparent"
-            : "border-b border-[#e5e7eb]"
+          ? "shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-b border-transparent"
+          : "border-b border-[#e5e7eb]"
           }`}
       >
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px] flex items-center justify-between h-[64px] md:h-[77px]">
@@ -75,9 +75,9 @@ export function Header() {
                 key={item.path}
                 to={item.path}
                 className={`font-['Inter:Medium',sans-serif] font-medium text-[14px] relative ${isActive(item.path) &&
-                    (item.path === "/" ? location.pathname === "/" : true)
-                    ? "text-[#137fec]"
-                    : "text-[#111418] hover:text-[#137fec]"
+                  (item.path === "/" ? location.pathname === "/" : true)
+                  ? "text-[#137fec]"
+                  : "text-[#111418] hover:text-[#137fec]"
                   } transition-colors`}
               >
                 {item.label}
@@ -85,8 +85,17 @@ export function Header() {
                   (item.path === "/" ? location.pathname === "/" : true) && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute -bottom-[24px] left-0 right-0 h-[3px] bg-[#137fec]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      className="absolute -bottom-[8px] left-0 right-0 h-[3px] bg-[#137fec] rounded-full"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25,
+                        mass: 0.8,
+                        bounce: 0.4
+                      }}
                     />
                   )}
               </Link>
@@ -174,9 +183,9 @@ export function Header() {
                       to={item.path}
                       onClick={() => setMobileMenuOpen(false)}
                       className={`font-['Inter:Medium',sans-serif] font-medium text-[16px] px-[16px] py-[14px] rounded-[12px] block transition-all ${isActive(item.path) &&
-                          (item.path === "/" ? location.pathname === "/" : true)
-                          ? "text-[#137fec] bg-[#eff6ff] shadow-sm"
-                          : "text-[#111418] hover:bg-[#f6f7f8]"
+                        (item.path === "/" ? location.pathname === "/" : true)
+                        ? "text-[#137fec] bg-[#eff6ff] shadow-sm"
+                        : "text-[#111418] hover:bg-[#f6f7f8]"
                         }`}
                     >
                       {item.label}

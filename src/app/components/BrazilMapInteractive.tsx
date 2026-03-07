@@ -306,31 +306,13 @@ function MobileStateToast({ sigla }: { sigla: string }) {
 function UnitPin({
   marker,
   isMobile,
-  onMouseEnter,
-  onMouseLeave
 }: {
   marker: UnitMarker;
   isMobile: boolean;
-  onMouseEnter?: (e: React.MouseEvent) => void;
-  onMouseLeave?: () => void;
 }) {
   const isHQ = marker.type === "headquarters";
-  const color = BRAND_ORANGE;
-  const labelText = `${marker.label} · ${marker.city}/${marker.state}`;
-
-  // Dimensions
-  const fontSize = isMobile ? 18 : 11;
-  const charWidth = fontSize * 0.56;
-  const textWidth = labelText.length * charWidth;
-  const iconSize = isMobile ? 24 : 14;
-  const dotGap = isMobile ? 10 : 6;
-  const pillH = isMobile ? 48 : 32;
-  const pillPadX = isMobile ? 20 : 12;
-  const pillW = pillPadX + iconSize + dotGap + textWidth + pillPadX;
-  const pillR = pillH / 2;
-  const pillX = -pillW / 2;
-  const pillY = -(pillH + 16);
-  const pointerTip = isMobile ? -10 : -6;
+  const info = getTooltipData(marker.state);
+  const color = info.color;
 
   return (
     <Marker coordinates={marker.coordinates}>
@@ -350,81 +332,6 @@ function UnitPin({
         transition={{ duration: 2.5, repeat: Infinity, delay: isHQ ? 0.4 : 1.6, ease: "easeOut" }}
       />
 
-      {/* Shadow filter */}
-      <defs>
-        <filter id={`pin-shadow-${marker.state}`} x="-20%" y="-20%" width="140%" height="160%">
-          <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#000" floodOpacity="0.16" />
-        </filter>
-      </defs>
-
-      {/* Pill + pointer group */}
-      <g
-        filter={`url(#pin-shadow-${marker.state})`}
-        aria-label={`${marker.label}: ${marker.city}, ${marker.state}`}
-        style={{ cursor: "pointer" }}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        {/* Pointer triangle */}
-        <polygon
-          points={`0,${pointerTip} -6,${pillY + pillH} 6,${pillY + pillH}`}
-          fill="white"
-        />
-
-        {/* White pill */}
-        <rect
-          x={pillX}
-          y={pillY}
-          width={pillW}
-          height={pillH}
-          rx={pillR}
-          ry={pillR}
-          fill="white"
-          stroke={`${color}30`}
-          strokeWidth={isMobile ? 2.4 : 1.2}
-        />
-
-        {/* Instead of a dot inside the pill, we render an SVG path for MapPin */}
-        {/* We use the path data of lucide MapPin scaled down to fit */}
-        <g transform={`translate(${pillX + pillPadX}, ${pillY + (pillH - iconSize) / 2}) scale(${iconSize / 24})`}>
-          <path
-            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-            fill="none"
-            stroke={color}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <circle
-            cx="12"
-            cy="10"
-            r="3"
-            fill="none"
-            stroke={color}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </g>
-
-        {/* Label text */}
-        <text
-          x={pillX + pillPadX + iconSize + dotGap}
-          y={pillY + pillH / 2}
-          dominantBaseline="central"
-          style={{
-            fontFamily: "Inter, system-ui, sans-serif",
-            fontSize,
-            fontWeight: 700,
-            fill: "#1f2937",
-            pointerEvents: "none",
-            userSelect: "none",
-          }}
-        >
-          {labelText}
-        </text>
-      </g>
-
       {/* Central anchor pin instead of dot */}
       <g transform={`translate(${isMobile ? -12 : -8}, ${isMobile ? -24 : -16}) scale(${isMobile ? 1 : 0.66})`}>
         <path
@@ -442,6 +349,53 @@ function UnitPin({
           fill="white"
         />
       </g>
+
+      {/* Permanently open card using foreignObject */}
+      <foreignObject
+        x={isMobile ? -105 : (marker.state === "SC" ? 65 : -210)}
+        y={isMobile ? -95 : -40}
+        width={250}
+        height={100}
+        style={{ pointerEvents: "none", overflow: "visible" }}
+      >
+        <div
+          className="bg-white rounded-[12px] px-[14px] py-[10px] w-max max-w-[210px]"
+          style={{
+            border: `1px solid ${color}30`,
+            boxShadow: `0 8px 24px ${color}15`,
+            background: "rgba(255, 255, 255, 0.96)",
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <div className="flex items-center gap-[8px] mb-[6px]">
+            <div
+              className="w-[24px] h-[24px] rounded-[7px] flex items-center justify-center shrink-0"
+              style={{ backgroundColor: `${color}15` }}
+            >
+              <MapPin size={12} style={{ color }} />
+            </div>
+            <div>
+              <span className="font-['Inter',sans-serif] text-[13px] text-[#0f172a] block leading-none mb-[3px]" style={{ fontWeight: 800 }}>
+                {info.title}
+              </span>
+              <span className="font-['Inter',sans-serif] text-[10px] text-[#64748b] leading-tight block">
+                {info.sub}
+              </span>
+            </div>
+          </div>
+          <div className="pt-[6px] border-t border-slate-100 flex items-center gap-[8px]">
+            <span
+              className="rounded-[4px] px-[6px] py-[2px] text-[9px] text-white tracking-[0.5px]"
+              style={{ backgroundColor: color, fontWeight: 700 }}
+            >
+              {info.badge}
+            </span>
+            <span className="font-['Inter',sans-serif] text-[9px] text-[#9ca3af] font-medium">
+              Cristal Poços
+            </span>
+          </div>
+        </div>
+      </foreignObject>
     </Marker>
   );
 }
@@ -540,7 +494,7 @@ export function BrazilMapInteractive() {
   /* ── Legend items ────────────────────────────────────────────────── */
 
   const legendItems = [
-    { color: BRAND_ORANGE, label: "2 Unidades Cristal Poços", Icon: Building },
+    { color: BRAND_ORANGE, label: "2 Unidades Cristal Poços", Icon: MapPin },
     { color: "#bfdbfe", label: "Estado atendido", Icon: MapPin },
   ];
 
@@ -647,23 +601,12 @@ export function BrazilMapInteractive() {
             );
           })}
 
-          {/* ── Unit Pins (simple pill markers) ── */}
+          {/* ── Unit Pins (permanently open markers) ── */}
           {UNIT_MARKERS.map((m) => (
             <UnitPin
               key={m.state}
               marker={m}
               isMobile={isMobile}
-              onMouseEnter={(e) => {
-                if (containerRef.current) {
-                  const rect = containerRef.current.getBoundingClientRect();
-                  setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-                }
-                setHoveredState(m.state);
-              }}
-              onMouseLeave={() => {
-                setHoveredState(null);
-                setTooltipPos(null);
-              }}
             />
           ))}
         </ComposableMap>
@@ -672,190 +615,134 @@ export function BrazilMapInteractive() {
 
         {/* Desktop tooltip */}
         <AnimatePresence>
-          {!isMobile && hoveredState && tooltipPos && (
+          {!isMobile && hoveredState && hoveredState !== "SC" && hoveredState !== "MA" && tooltipPos && (
             <StateTooltip key={hoveredState} sigla={hoveredState} x={tooltipPos.x} y={tooltipPos.y} containerW={containerWidth} />
           )}
         </AnimatePresence>
 
         {/* Mobile state toast */}
         <AnimatePresence>
-          {isMobile && selectedState && (
+          {isMobile && selectedState && selectedState !== "SC" && selectedState !== "MA" && (
             <MobileStateToast key={selectedState} sigla={selectedState} />
           )}
         </AnimatePresence>
 
         {/* ── Desktop overlays ── */}
 
-        {/* Title badge (top-left) — premium glassmorphism */}
+        {/* Title badge & Stats (top-left) — redesigned ultra-premium card */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-          className="absolute top-[24px] left-[24px] z-20 flex flex-col gap-[16px] hidden md:flex"
+          className="absolute top-[24px] left-[24px] z-20 flex flex-col hidden md:flex"
         >
           <div
-            className="relative overflow-hidden rounded-[18px] px-[20px] py-[14px] self-start"
+            className="w-[280px] rounded-[24px] overflow-hidden"
             style={{
-              background: "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,247,255,0.92) 100%)",
-              backdropFilter: "blur(20px)",
-              boxShadow: "0 8px 32px rgba(19,127,236,0.12), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9)",
-              border: "1px solid rgba(19,127,236,0.1)",
+              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 255, 0.96) 100%)",
+              backdropFilter: "blur(32px)",
+              boxShadow: "0 12px 48px -12px rgba(19,127,236,0.15), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1)",
+              border: "1px solid rgba(19, 127, 236, 0.12)",
             }}
           >
-            {/* Decorative gradient bar */}
-            <div
-              className="absolute top-0 left-0 right-0 h-[3px]"
-              style={{ background: `linear-gradient(90deg, ${BRAND_BLUE}, #60a5fa, ${BRAND_ORANGE})` }}
-            />
-            <div className="flex items-center gap-[12px]">
+            {/* Header Section */}
+            <div className="px-[24px] py-[20px] relative">
+              {/* Subtle top glow */}
               <div
-                className="w-[40px] h-[40px] rounded-[12px] flex items-center justify-center shrink-0"
-                style={{
-                  background: `linear-gradient(135deg, ${BRAND_BLUE}15, ${BRAND_BLUE}08)`,
-                  border: `1px solid ${BRAND_BLUE}15`,
-                }}
-              >
-                <Droplets size={20} className="text-[#137fec]" />
-              </div>
-              <div>
-                <p className="font-['Inter',sans-serif] text-[15px] text-[#111418] leading-tight" style={{ fontWeight: 800 }}>
-                  Presença Nacional
-                </p>
-                <p className="font-['Inter',sans-serif] text-[11px] text-[#617589] mt-[2px]">
-                  Cobertura estratégica em todo o Brasil
-                </p>
+                className="absolute top-0 left-[10%] right-[10%] h-[3px] rounded-b-full opacity-80"
+                style={{ background: `linear-gradient(90deg, transparent, ${BRAND_BLUE}, ${BRAND_ORANGE}, transparent)` }}
+              />
+
+              <div className="flex items-center gap-[16px]">
+                <div
+                  className="w-[44px] h-[44px] rounded-[14px] flex items-center justify-center shrink-0"
+                  style={{
+                    background: `linear-gradient(135deg, ${BRAND_BLUE}15, ${BRAND_BLUE}05)`,
+                    border: `1px solid ${BRAND_BLUE}20`,
+                    boxShadow: `0 4px 12px ${BRAND_BLUE}10`
+                  }}
+                >
+                  <MapPin size={22} className="text-[#137fec]" />
+                </div>
+                <div className="flex-1">
+                  <p className="font-['Inter',sans-serif] text-[16px] text-[#0f172a] leading-tight tracking-[-0.2px] mb-[2px]" style={{ fontWeight: 850 }}>
+                    Presença Nacional
+                  </p>
+                  <p className="font-['Inter',sans-serif] text-[11px] text-[#64748b] leading-snug">
+                    Nossa área de atuação no Brasil
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* STATS CARDS MOVED HERE BELOW PRESENÇA NACIONAL */}
-          <div className="flex flex-col gap-[12px]">
-            {[
-              {
-                value: "9",
-                label: "Estados",
-                sub: "Atendidos",
-                accent: BRAND_BLUE,
-                gradient: `linear-gradient(135deg, ${BRAND_BLUE}, #3b82f6)`,
-                bgGrad: "linear-gradient(135deg, rgba(19,127,236,0.06) 0%, rgba(59,130,246,0.03) 100%)",
-                Icon: Map,
-              },
-              {
-                value: "2",
-                label: "Unidades",
-                sub: "SC, MA",
-                accent: BRAND_ORANGE,
-                gradient: `linear-gradient(135deg, ${BRAND_ORANGE}, #fb923c)`,
-                bgGrad: "linear-gradient(135deg, rgba(249,115,22,0.06) 0%, rgba(251,146,60,0.03) 100%)",
-                Icon: MapPin,
-              },
-              {
-                value: "25+",
-                label: "Anos",
-                sub: "de Experiência",
-                accent: BRAND_BLUE,
-                gradient: `linear-gradient(135deg, ${BRAND_BLUE}, #60a5fa)`,
-                bgGrad: "linear-gradient(135deg, rgba(19,127,236,0.06) 0%, rgba(96,165,250,0.03) 100%)",
-                Icon: Calendar,
-              },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 + i * 0.1, duration: 0.4 }}
-                className="relative overflow-hidden rounded-[14px] px-[16px] py-[12px] w-[220px]"
-                style={{
-                  background: "linear-gradient(145deg, rgba(255,255,255,0.96) 0%, rgba(248,250,255,0.93) 100%)",
-                  backdropFilter: "blur(24px)",
-                  boxShadow: `0 4px 20px ${stat.accent}12, 0 1px 4px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9)`,
-                  border: `1px solid ${stat.accent}15`,
-                }}
-              >
-                {/* Top accent line */}
-                <div
-                  className="absolute top-0 left-[12px] right-[12px] h-[2px] rounded-b-full"
-                  style={{ background: stat.gradient }}
-                />
+            {/* Separator line */}
+            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent opacity-80" />
 
-                <div className="relative flex items-center gap-[12px]">
-                  {/* Icon */}
-                  <div
-                    className="w-[36px] h-[36px] rounded-[10px] flex items-center justify-center shrink-0"
-                    style={{
-                      background: stat.bgGrad,
-                      border: `1.5px solid ${stat.accent}18`,
-                    }}
-                  >
-                    <stat.Icon size={18} style={{ color: stat.accent }} />
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="flex items-baseline gap-[6px]">
-                      <span className="font-['Inter',sans-serif] text-[20px] tracking-tight leading-none" style={{ fontWeight: 800, color: stat.accent }}>
+            {/* Stats Section */}
+            <div className="px-[24px] pt-[18px] pb-[22px] flex flex-col gap-[16px]">
+              {[
+                {
+                  value: "9",
+                  label: "Estados Atendidos",
+                  sub: "Cobertura regional",
+                  color: BRAND_BLUE,
+                },
+                {
+                  value: "2",
+                  label: "Unidades Operacionais",
+                  sub: "Matriz em SC e Filial no MA",
+                  color: BRAND_ORANGE,
+                },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + i * 0.1, duration: 0.4 }}
+                  className="relative group"
+                >
+                  <div className="flex items-center gap-[16px]">
+                    <div
+                      className="w-[42px] flex items-center justify-center shrink-0"
+                    >
+                      <span
+                        className="font-['Inter',sans-serif] text-[32px] tracking-tighter leading-none"
+                        style={{ fontWeight: 900, color: stat.color, textShadow: `0 4px 12px ${stat.color}30` }}
+                      >
                         {stat.value}
                       </span>
-                      <span className="font-['Inter',sans-serif] text-[13px] text-[#111418] leading-none" style={{ fontWeight: 700 }}>
+                    </div>
+
+                    <div className="flex-1 flex flex-col justify-center">
+                      <span
+                        className="font-['Inter',sans-serif] text-[13px] text-[#334155] leading-tight mb-[2px]"
+                        style={{ fontWeight: 700 }}
+                      >
                         {stat.label}
                       </span>
+                      <span className="font-['Inter',sans-serif] text-[10px] text-[#94a3b8] leading-tight">
+                        {stat.sub}
+                      </span>
                     </div>
-                    <span className="font-['Inter',sans-serif] text-[11px] text-[#617589] mt-[2px] block leading-none">
-                      {stat.sub}
-                    </span>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-
-        {/* Legend (top-right, desktop) — refined card */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="absolute top-[16px] right-[16px] z-20 hidden md:block"
-        >
-          <div
-            className="relative overflow-hidden rounded-[18px] p-[18px]"
-            style={{
-              background: "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,255,0.92) 100%)",
-              backdropFilter: "blur(20px)",
-              boxShadow: "0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.9)",
-              border: "1px solid rgba(19,127,236,0.08)",
-            }}
-          >
-            <p
-              className="font-['Inter',sans-serif] text-[9px] text-[#9ca3af] uppercase tracking-[2px] mb-[14px]"
-              style={{ fontWeight: 700 }}
-            >
-              Legenda
-            </p>
-            <div className="space-y-[10px]">
-              {legendItems.map((item) => (
-                <div key={item.label} className="flex items-center gap-[10px]">
-                  <div
-                    className="w-[20px] h-[20px] rounded-[6px] shrink-0 flex items-center justify-center"
-                    style={{
-                      backgroundColor: `${item.color}20`,
-                      border: `1.5px solid ${item.color}40`,
-                    }}
-                  >
-                    {item.Icon ? (
-                      <item.Icon size={12} style={{ color: item.color }} />
-                    ) : (
-                      <div className="w-[8px] h-[8px] rounded-[3px]" style={{ backgroundColor: item.color }} />
-                    )}
-                  </div>
-                  <span className="font-['Inter',sans-serif] text-[11px] text-[#374151] whitespace-nowrap" style={{ fontWeight: 500 }}>
-                    {item.label}
-                  </span>
-                </div>
+                </motion.div>
               ))}
+
+              {/* Legend/Hint Footer */}
+              <div
+                className="mt-[4px] pt-[14px] border-t border-dashed border-slate-200 flex items-center gap-[8px]"
+              >
+                <div className="flex items-center gap-[6px]">
+                  <div className="w-[12px] h-[12px] rounded-[4px] bg-[#bfdbfe] border border-[#93c5fd]" />
+                  <span className="font-['Inter',sans-serif] text-[10px] text-[#64748b] font-medium">Área com cobertura</span>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
+
+
+        {/* Removed redundant legend - now conceptually integrated into the stats card */}
 
         {/* Removido o Desktop Stats bar redundante inferior */}
 
@@ -884,92 +771,39 @@ export function BrazilMapInteractive() {
 
 
 
-      {/* ── Mobile stats — premium cards with icon, accent line, description ── */}
+      {/* ── Mobile stats — clean unified panel ── */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.25 }}
-        className="md:hidden grid grid-cols-3 gap-[10px]"
+        className="md:hidden w-full rounded-[20px] overflow-hidden my-[16px]"
+        style={{
+          background: "rgba(255,255,255,0.9)",
+          backdropFilter: "blur(24px)",
+          boxShadow: "0 10px 40px -10px rgba(0,0,0,0.08), inset 0 0 0 1px rgba(255,255,255,1)",
+          border: "1px solid rgba(226, 232, 240, 0.6)",
+        }}
       >
-        {[
-          {
-            value: "9",
-            label: "Estados",
-            sub: "Atendidos",
-            color: BRAND_BLUE,
-            gradient: `linear-gradient(135deg, ${BRAND_BLUE}, #3b82f6)`,
-            Icon: Map,
-          },
-          {
-            value: "2",
-            label: "Unidades",
-            sub: "Operacionais",
-            color: BRAND_ORANGE,
-            gradient: `linear-gradient(135deg, ${BRAND_ORANGE}, #fb923c)`,
-            Icon: Building,
-          },
-          {
-            value: "25+",
-            label: "Anos",
-            sub: "Experiência",
-            color: BRAND_BLUE,
-            gradient: `linear-gradient(135deg, ${BRAND_BLUE}, #60a5fa)`,
-            Icon: Calendar,
-          },
-        ].map((stat, i) => (
-          <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 + i * 0.08 }}
-            className="relative overflow-hidden rounded-[16px] py-[16px] px-[12px] text-center"
-            style={{
-              background: "linear-gradient(160deg, #ffffff 0%, #fafbff 100%)",
-              border: `1px solid ${stat.color}15`,
-              boxShadow: `0 6px 24px ${stat.color}10, 0 2px 6px rgba(0,0,0,0.03)`,
-            }}
-          >
-            {/* Top gradient accent */}
-            <div
-              className="absolute top-0 left-[20%] right-[20%] h-[2.5px] rounded-b-full"
-              style={{ background: stat.gradient }}
-            />
-
-            {/* Subtle corner glow */}
-            <div
-              className="absolute top-[-15px] right-[-15px] w-[50px] h-[50px] rounded-full opacity-40"
-              style={{ background: `radial-gradient(circle, ${stat.color}12, transparent 70%)` }}
-            />
-
-            {/* Icon */}
-            <div className="flex justify-center mb-[8px]">
-              <div
-                className="w-[32px] h-[32px] rounded-[10px] flex items-center justify-center"
-                style={{
-                  background: `linear-gradient(135deg, ${stat.color}10, ${stat.color}05)`,
-                  border: `1.5px solid ${stat.color}15`,
-                }}
+        <div className="flex justify-between items-center px-[20px] py-[18px] divide-x divide-slate-200/60">
+          {[
+            { value: "9", label: "Estados", color: BRAND_BLUE },
+            { value: "2", label: "Unidades", color: BRAND_ORANGE },
+            { value: "25+", label: "Anos", color: BRAND_BLUE },
+          ].map((stat) => (
+            <div key={stat.label} className="flex-1 flex flex-col items-center justify-center text-center px-[4px]">
+              <span
+                className="font-['Inter',sans-serif] text-[26px] tracking-tight leading-none mb-[2px]"
+                style={{ fontWeight: 800, color: stat.color }}
               >
-                <stat.Icon size={15} style={{ color: stat.color }} />
-              </div>
+                {stat.value}
+              </span>
+              <span className="font-['Inter',sans-serif] text-[12px] text-[#475569] leading-tight" style={{ fontWeight: 500 }}>
+                {stat.label}
+              </span>
             </div>
-
-            <p
-              className="font-['Inter',sans-serif] text-[28px] leading-none tracking-[-0.5px]"
-              style={{ fontWeight: 900, color: stat.color }}
-            >
-              {stat.value}
-            </p>
-            <p className="font-['Inter',sans-serif] text-[11px] text-[#374151] mt-[4px]" style={{ fontWeight: 700 }}>
-              {stat.label}
-            </p>
-            <p className="font-['Inter',sans-serif] text-[9px] text-[#9ca3af] mt-[1px]" style={{ fontWeight: 500 }}>
-              {stat.sub}
-            </p>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </motion.div>
     </div >
   );
