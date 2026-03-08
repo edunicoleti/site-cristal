@@ -727,16 +727,6 @@ export function BrazilMapInteractive() {
                   </div>
                 </motion.div>
               ))}
-
-              {/* Legend/Hint Footer */}
-              <div
-                className="mt-[4px] pt-[14px] border-t border-dashed border-slate-200 flex items-center gap-[8px]"
-              >
-                <div className="flex items-center gap-[6px]">
-                  <div className="w-[12px] h-[12px] rounded-[4px] bg-[#bfdbfe] border border-[#93c5fd]" />
-                  <span className="font-['Inter',sans-serif] text-[10px] text-[#64748b] font-medium">Área com cobertura</span>
-                </div>
-              </div>
             </div>
           </div>
         </motion.div>
