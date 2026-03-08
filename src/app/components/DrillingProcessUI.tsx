@@ -466,7 +466,9 @@ export function DrillingProcessUI() {
                             })}
                         </div>
 
-                        <DrillingSimulation currentStep={activeStep} />
+                        <div className="lg:col-span-7">
+                            <DrillingSimulation currentStep={activeStep} />
+                        </div>
                     </div>
 
                 </div>
