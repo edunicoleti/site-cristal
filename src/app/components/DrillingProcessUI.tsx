@@ -377,7 +377,7 @@ export function DrillingProcessUI() {
 
                 <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px] relative z-10 w-full py-[60px] md:py-[80px]">
                     {/* Section Header */}
-                    <div className="text-center max-w-2xl mx-auto mb-[64px]">
+                    <div className="text-center max-w-4xl mx-auto mb-[64px]">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -394,7 +394,7 @@ export function DrillingProcessUI() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="font-['Outfit',sans-serif] text-[36px] md:text-[48px] font-extrabold text-[#0f172a] leading-tight mb-[16px]"
+                            className="font-['Outfit',sans-serif] text-[32px] md:text-[48px] font-extrabold text-[#0f172a] leading-tight mb-[16px] whitespace-nowrap whitespace-normal md:whitespace-nowrap"
                         >
                             A Jornada até a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#137fec] to-[#3b82f6]">Água Pura</span>
                         </motion.h2>
