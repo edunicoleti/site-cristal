@@ -11,6 +11,7 @@ import imgAb6AXuDDcYwplx3ZheCuXpjk29Z92Bde0XuzsHxXwllXiofurF3SdaoJ8QA3PjMj5MbkRx
 import { Timeline } from "../components/Timeline";
 import { SEOHead } from "../components/SEOHead";
 import { useCountUp } from "../hooks/useCountUp";
+import { DrillingProcessUI } from "../components/DrillingProcessUI";
 
 const WHATSAPP_URL =
   "https://wa.me/5549999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
@@ -343,8 +344,8 @@ export function QuemSomosPage() {
         </div>
       </section>
 
-      {/* Evolution Section */}
-      <Timeline />
+      {/* Interactive Drilling Process Section */}
+      <DrillingProcessUI />
 
       {/* CTA Section */}
       <section className="py-[64px] md:py-[96px]">
