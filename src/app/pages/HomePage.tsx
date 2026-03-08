@@ -267,9 +267,8 @@ export function HomePage() {
             />
 
             <div className="relative max-w-[768px] mx-auto text-center">
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px]">
-                Pronto para ter sua própria fonte
-                <br className="hidden md:block" /> de água cristalina?
+              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px] max-w-[800px] mx-auto">
+                Pronto para ter sua própria fonte de água cristalina?
               </h2>
 
               <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[24px] md:mb-[32px]">
