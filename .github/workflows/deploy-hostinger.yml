@@ -33,6 +33,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/   # Envia apenas a pasta gerada pelo build
           server-dir: ./ # Ajustado para a raiz da conta FTP
-          protocol: ftp
-          dangerous-clean-slate: false
+          protocol: ftps
+          security: loose
           timeout: 600000
