@@ -357,10 +357,8 @@ export function QuemSomosPage() {
             />
 
             <div className="relative">
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px]">
-                Pronto para garantir sua independência
-                <br className="hidden md:block" />
-                hídrica?
+              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] max-w-[800px] mx-auto">
+                Pronto para ter sua própria fonte de água cristalina?
               </h2>
 
               <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[32px] max-w-[700px] mx-auto">

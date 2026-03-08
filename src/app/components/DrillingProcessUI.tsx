@@ -273,8 +273,11 @@ const DrillingSimulation = ({ currentStep }: { currentStep: number }) => {
                         <line x1="340" y1="160" x2="360" y2="160" stroke="#c2410c" strokeWidth="2" />
 
                         {/* Marca */}
-                        <text x="265" y="155" fill="#ffffff" fontSize="12" fontWeight="900" fontFamily="Inter, sans-serif" letterSpacing="1.5">
-                            CRISTAL POÇOS
+                        <text x="296" y="148" fill="#ffffff" fontSize="12" fontWeight="900" fontFamily="Inter, sans-serif" letterSpacing="1.5" textAnchor="middle">
+                            CRISTAL
+                        </text>
+                        <text x="296" y="164" fill="#ffffff" fontSize="12" fontWeight="900" fontFamily="Inter, sans-serif" letterSpacing="1.5" textAnchor="middle">
+                            POÇOS
                         </text>
 
                         {/* Torre de Perfuração */}
