@@ -251,26 +251,72 @@ const DrillingSimulation = ({ currentStep }: { currentStep: number }) => {
                         }}
                         transition={{ duration: 0.8 }}
                     >
-                        {/* Caminhão / Base */}
-                        <rect x="250" y="140" width="160" height="60" rx="8" fill="#f97316" />
+                        {/* Cabine Caminhão */}
+                        <path d="M 210 130 L 240 130 Q 250 130 255 145 L 260 160 L 260 190 L 210 190 Z" fill="#e2e8f0" />
+                        <path d="M 225 135 L 240 135 Q 245 135 248 145 L 255 160 L 225 160 Z" fill="#0f172a" opacity="0.8" />
 
-                        {/* Texto no Caminhão */}
-                        <text x="260" y="175" fill="#ffffff" fontSize="16" fontWeight="bold" fontFamily="Inter, sans-serif">
-                            Cristal Poços
+                        {/* Chassi Base */}
+                        <rect x="190" y="180" width="240" height="20" rx="4" fill="#334155" />
+
+                        {/* Corpo Traseiro (Motor e Bombas) */}
+                        <rect x="260" y="140" width="120" height="40" rx="4" fill="#f97316" />
+                        <rect x="265" y="145" width="40" height="15" fill="#ea580c" />
+                        <rect x="310" y="145" width="20" height="30" fill="#cbd5e1" />
+
+                        {/* Marca */}
+                        <text x="265" y="172" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="Inter, sans-serif" letterSpacing="1">
+                            CRISTAL POÇOS
                         </text>
 
-                        <circle cx="280" cy="200" r="15" fill="#1f2937" />
-                        <circle cx="370" cy="200" r="15" fill="#1f2937" />
-                        {/* Cabine */}
-                        <rect x="230" y="110" width="50" height="50" rx="5" fill="#cbd5e1" />
-                        <rect x="235" y="115" width="20" height="25" rx="3" fill="#64748b" />
-                        {/* Torre de perfuração */}
-                        <rect x="380" y="40" width="20" height="150" fill="#f97316" />
-                        {/* Motor rotativo */}
+                        {/* Torre de Perfuração */}
+                        <rect x="385" y="40" width="30" height="150" fill="#f97316" rx="2" />
+                        <path d="M 385 40 L 415 40 L 400 20 Z" fill="#ea580c" />
+                        {/* Grades da Torre */}
+                        <line x1="390" y1="50" x2="410" y2="70" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="410" y1="50" x2="390" y2="70" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="390" y1="80" x2="410" y2="100" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="410" y1="80" x2="390" y2="100" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="390" y1="110" x2="410" y2="130" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="410" y1="110" x2="390" y2="130" stroke="#c2410c" strokeWidth="2" />
+
+                        {/* Motor rotativo (Cabeçote) */}
+                        <motion.g
+                            animate={{ y: currentStep === 2 ? [0, 80, 0] : 0 }}
+                            transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                        >
+                            <rect x="375" y="50" width="50" height="40" rx="4" fill="#1e293b" />
+                            <rect x="385" y="45" width="30" height="10" fill="#94a3b8" />
+                            {/* Eixo de rotação visual */}
+                            <motion.rect
+                                x="395" y="90" width="10" height="15" fill="#facc15"
+                                animate={{ scaleX: [-1, 1] }}
+                                transition={{ repeat: Infinity, duration: 0.1 }}
+                            />
+                        </motion.g>
+
+                        {/* Rodas (4 eixos) - estilo pesadas */}
+                        <circle cx="220" cy="200" r="16" fill="#111827" stroke="#475569" strokeWidth="3" />
+                        <circle cx="220" cy="200" r="6" fill="#cbd5e1" />
+
+                        <circle cx="280" cy="200" r="16" fill="#111827" stroke="#475569" strokeWidth="3" />
+                        <circle cx="280" cy="200" r="6" fill="#cbd5e1" />
+
+                        <circle cx="340" cy="200" r="16" fill="#111827" stroke="#475569" strokeWidth="3" />
+                        <circle cx="340" cy="200" r="6" fill="#cbd5e1" />
+
+                        <circle cx="400" cy="200" r="16" fill="#111827" stroke="#475569" strokeWidth="3" />
+                        <circle cx="400" cy="200" r="6" fill="#cbd5e1" />
+
+                        {/* Estabilizadores (patolas descendo no passo 2) */}
                         <motion.rect
-                            animate={{ y: currentStep === 2 ? [0, 60, 0] : 0 }}
-                            transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-                            x="370" y="40" width="40" height="30" fill="#334155"
+                            x="190" y="200" width="10" height="20" fill="#facc15"
+                            initial={{ height: 0 }}
+                            animate={{ height: currentStep >= 2 ? 20 : 0 }}
+                        />
+                        <motion.rect
+                            x="420" y="200" width="10" height="20" fill="#facc15"
+                            initial={{ height: 0 }}
+                            animate={{ height: currentStep >= 2 ? 20 : 0 }}
                         />
                     </motion.g>
 
@@ -413,55 +459,47 @@ export function DrillingProcessUI() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-[48px] items-center">
 
                         {/* Left Side: Steps Navigation */}
-                        <div className="lg:col-span-5 flex flex-col gap-[16px]">
+                        <div className="lg:col-span-5 flex flex-col relative pl-[20px] pb-[80px]">
+                            {/* Vertical Progress Line Background */}
+                            <div className="absolute left-[38px] top-[40px] bottom-[100px] w-[2px] bg-slate-200" />
+
                             {DRILLING_STEPS.map((step, index) => {
                                 const isActive = activeStep === step.id;
                                 const isPast = activeStep > step.id;
 
                                 return (
-                                    <button
+                                    <div
                                         key={step.id}
-                                        onClick={() => setActiveStep(step.id)}
-                                        className={`relative text-left w-full rounded-[20px] p-[24px] transition-all duration-300 border ${isActive
-                                            ? "bg-white border-[#137fec]/20 shadow-[0_12px_40px_-12px_rgba(19,127,236,0.15)]"
-                                            : "bg-transparent border-transparent hover:bg-slate-50"
+                                        className={`relative text-left w-full py-[24px] pr-[24px] transition-all duration-500 flex items-start gap-[20px] ${isActive ? "opacity-100" : "opacity-40"
                                             }`}
                                     >
-                                        <div className="flex items-start gap-[16px]">
-                                            <div
-                                                className={`w-[48px] h-[48px] rounded-[14px] flex items-center justify-center shrink-0 transition-all duration-500 ${isActive
-                                                    ? "bg-gradient-to-br from-[#137fec] to-[#3b82f6] text-white shadow-lg shadow-blue-500/30"
-                                                    : isPast
-                                                        ? "bg-slate-800 text-white"
-                                                        : "bg-slate-100 text-slate-400"
+                                        <div
+                                            className={`relative z-10 w-[38px] h-[38px] md:w-[48px] md:h-[48px] rounded-[14px] flex items-center justify-center shrink-0 transition-all duration-500 border-2 ${isActive
+                                                ? "bg-gradient-to-br from-[#137fec] to-[#3b82f6] border-transparent text-white shadow-[0_0_20px_rgba(19,127,236,0.5)] scale-110"
+                                                : isPast
+                                                    ? "bg-slate-800 border-transparent text-white"
+                                                    : "bg-white border-slate-300 text-slate-400"
+                                                }`}
+                                        >
+                                            <step.icon size={22} />
+                                        </div>
+                                        <div className="flex-1 mt-[2px] md:mt-[6px]">
+                                            <h3
+                                                className={`font-['Inter',sans-serif] text-[18px] md:text-[20px] mb-[8px] transition-colors duration-300 ${isActive ? "font-bold text-[#0f172a]" : "font-semibold text-slate-500"
                                                     }`}
                                             >
-                                                <step.icon size={22} />
-                                            </div>
-                                            <div>
-                                                <h3
-                                                    className={`font-['Inter',sans-serif] text-[18px] mb-[6px] transition-colors duration-300 ${isActive ? "font-bold text-[#0f172a]" : "font-semibold text-slate-500"
-                                                        }`}
-                                                >
-                                                    {step.title}
-                                                </h3>
-                                                <AnimatePresence>
-                                                    {isActive && (
-                                                        <motion.div
-                                                            initial={{ opacity: 0, height: 0 }}
-                                                            animate={{ opacity: 1, height: "auto" }}
-                                                            exit={{ opacity: 0, height: 0 }}
-                                                            transition={{ duration: 0.3 }}
-                                                        >
-                                                            <p className="font-['Inter',sans-serif] text-[14px] text-slate-500 leading-relaxed mt-[4px]">
-                                                                {step.description}
-                                                            </p>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
+                                                {step.title}
+                                            </h3>
+                                            <div
+                                                className={`overflow-hidden transition-all duration-500 ${isActive ? "max-h-[200px] opacity-100 mt-[8px]" : "max-h-0 opacity-0"
+                                                    }`}
+                                            >
+                                                <p className="font-['Inter',sans-serif] text-[15px] md:text-[16px] text-slate-600 leading-relaxed">
+                                                    {step.description}
+                                                </p>
                                             </div>
                                         </div>
-                                    </button>
+                                    </div>
                                 );
                             })}
                         </div>
