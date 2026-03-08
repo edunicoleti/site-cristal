@@ -121,14 +121,11 @@ export function QuemSomosPage() {
               className="flex-1"
             >
               <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] leading-[32px] md:leading-[40px] mb-[24px]">
-                Uma trajetória marcada
-                <br />
-                pela{" "}
+                Uma trajetória marcada pela{" "}
                 <span className="text-[#137fec] underline decoration-[#f97316]">
                   precisão técnica
                 </span>{" "}
-                e<br className="hidden md:block" />
-                inovação.
+                e inovação.
               </h2>
 
               <div className="space-y-[20px] md:space-y-[24px]">
@@ -181,6 +178,9 @@ export function QuemSomosPage() {
           </div>
         </div>
       </section>
+
+      {/* Interactive Drilling Process Section */}
+      <DrillingProcessUI />
 
       {/* Mission Vision Values Section */}
       <section className="bg-[#111418] py-[64px] md:py-[96px]">
@@ -343,9 +343,6 @@ export function QuemSomosPage() {
           </div>
         </div>
       </section>
-
-      {/* Interactive Drilling Process Section */}
-      <DrillingProcessUI />
 
       {/* CTA Section */}
       <section className="py-[64px] md:py-[96px]">
