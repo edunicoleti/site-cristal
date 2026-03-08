@@ -251,20 +251,29 @@ const DrillingSimulation = ({ currentStep }: { currentStep: number }) => {
                         }}
                         transition={{ duration: 0.8 }}
                     >
-                        {/* Cabine Caminhão */}
-                        <path d="M 210 130 L 240 130 Q 250 130 255 145 L 260 160 L 260 190 L 210 190 Z" fill="#e2e8f0" />
-                        <path d="M 225 135 L 240 135 Q 245 135 248 145 L 255 160 L 225 160 Z" fill="#0f172a" opacity="0.8" />
-
                         {/* Chassi Base */}
-                        <rect x="190" y="180" width="240" height="20" rx="4" fill="#334155" />
+                        <rect x="180" y="180" width="250" height="20" rx="4" fill="#334155" />
+                        {/* Para-choque dianteiro */}
+                        <rect x="175" y="182" width="10" height="15" rx="3" fill="#1e293b" />
+
+                        {/* Cabine Caminhão (Virada para a esquerda) */}
+                        <path d="M 250 120 L 220 120 L 190 160 L 190 180 L 250 180 Z" fill="#e2e8f0" />
+                        <path d="M 245 125 L 222 125 L 195 160 L 245 160 Z" fill="#0f172a" opacity="0.8" />
+                        {/* Divisória porta/vidro */}
+                        <line x1="225" y1="125" x2="225" y2="180" stroke="#cbd5e1" strokeWidth="2" />
+                        <rect x="230" y="165" width="8" height="4" rx="1" fill="#94a3b8" />
 
                         {/* Corpo Traseiro (Motor e Bombas) */}
-                        <rect x="260" y="140" width="120" height="40" rx="4" fill="#f97316" />
-                        <rect x="265" y="145" width="40" height="15" fill="#ea580c" />
-                        <rect x="310" y="145" width="20" height="30" fill="#cbd5e1" />
+                        <rect x="260" y="130" width="110" height="50" rx="4" fill="#f97316" />
+                        {/* Grade de ventilação Lateral */}
+                        <rect x="340" y="140" width="20" height="30" rx="2" fill="#ea580c" />
+                        <line x1="340" y1="145" x2="360" y2="145" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="340" y1="150" x2="360" y2="150" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="340" y1="155" x2="360" y2="155" stroke="#c2410c" strokeWidth="2" />
+                        <line x1="340" y1="160" x2="360" y2="160" stroke="#c2410c" strokeWidth="2" />
 
                         {/* Marca */}
-                        <text x="265" y="172" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="Inter, sans-serif" letterSpacing="1">
+                        <text x="265" y="155" fill="#ffffff" fontSize="12" fontWeight="900" fontFamily="Inter, sans-serif" letterSpacing="1.5">
                             CRISTAL POÇOS
                         </text>
 
@@ -459,31 +468,36 @@ export function DrillingProcessUI() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-[48px] items-center">
 
                         {/* Left Side: Steps Navigation */}
-                        <div className="lg:col-span-5 flex flex-col relative pl-[20px] pb-[80px]">
-                            {/* Vertical Progress Line Background */}
-                            <div className="absolute left-[38px] top-[40px] bottom-[100px] w-[2px] bg-slate-200" />
-
+                        <div className="lg:col-span-5 flex flex-col pt-[20px] pb-[80px]">
                             {DRILLING_STEPS.map((step, index) => {
                                 const isActive = activeStep === step.id;
                                 const isPast = activeStep > step.id;
+                                const isLast = index === DRILLING_STEPS.length - 1;
 
                                 return (
                                     <div
                                         key={step.id}
-                                        className={`relative text-left w-full py-[24px] pr-[24px] transition-all duration-500 flex items-start gap-[20px] ${isActive ? "opacity-100" : "opacity-40"
+                                        className={`relative text-left w-full transition-all duration-500 flex items-start gap-[24px] ${isActive ? "opacity-100" : "opacity-40"
                                             }`}
                                     >
+                                        {/* Linha de Conexão (Não renderiza no último item) */}
+                                        {!isLast && (
+                                            <div className={`absolute left-[23px] top-[56px] bottom-[-16px] w-[2px] rounded-full transition-colors duration-500 ${isPast ? "bg-[#137fec]" : "bg-slate-200"}`} />
+                                        )}
+
+                                        {/* Ícone Container */}
                                         <div
-                                            className={`relative z-10 w-[38px] h-[38px] md:w-[48px] md:h-[48px] rounded-[14px] flex items-center justify-center shrink-0 transition-all duration-500 border-2 ${isActive
-                                                ? "bg-gradient-to-br from-[#137fec] to-[#3b82f6] border-transparent text-white shadow-[0_0_20px_rgba(19,127,236,0.5)] scale-110"
+                                            className={`relative z-10 w-[48px] h-[48px] rounded-[14px] flex items-center justify-center shrink-0 transition-all duration-500 border-2 ${isActive
+                                                ? "bg-gradient-to-br from-[#137fec] to-[#3b82f6] border-[#137fec] text-white shadow-[0_0_24px_rgba(19,127,236,0.3)] scale-110"
                                                 : isPast
-                                                    ? "bg-slate-800 border-transparent text-white"
-                                                    : "bg-white border-slate-300 text-slate-400"
+                                                    ? "bg-slate-800 border-slate-800 text-white"
+                                                    : "bg-white border-slate-200 text-slate-400"
                                                 }`}
                                         >
-                                            <step.icon size={22} />
+                                            <step.icon size={22} strokeWidth={isActive ? 2.5 : 2} />
                                         </div>
-                                        <div className="flex-1 mt-[2px] md:mt-[6px]">
+                                        {/* Texto Content */}
+                                        <div className="flex-1 mt-[10px] pb-[40px]">
                                             <h3
                                                 className={`font-['Inter',sans-serif] text-[18px] md:text-[20px] mb-[8px] transition-colors duration-300 ${isActive ? "font-bold text-[#0f172a]" : "font-semibold text-slate-500"
                                                     }`}
@@ -494,7 +508,7 @@ export function DrillingProcessUI() {
                                                 className={`overflow-hidden transition-all duration-500 ${isActive ? "max-h-[200px] opacity-100 mt-[8px]" : "max-h-0 opacity-0"
                                                     }`}
                                             >
-                                                <p className="font-['Inter',sans-serif] text-[15px] md:text-[16px] text-slate-600 leading-relaxed">
+                                                <p className="font-['Inter',sans-serif] text-[15px] md:text-[16px] text-slate-600 leading-relaxed pr-[16px]">
                                                     {step.description}
                                                 </p>
                                             </div>
