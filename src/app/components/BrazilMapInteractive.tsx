@@ -350,52 +350,54 @@ function UnitPin({
         />
       </g>
 
-      {/* Permanently open card using foreignObject */}
-      <foreignObject
-        x={isMobile ? -125 : (marker.state === "SC" ? 65 : -210)}
-        y={isMobile ? -115 : -40}
-        width={isMobile ? 280 : 250}
-        height={isMobile ? 120 : 100}
-        style={{ pointerEvents: "none", overflow: "visible" }}
-      >
-        <div
-          className={`bg-white ${isMobile ? 'rounded-[16px] px-[16px] py-[12px]' : 'rounded-[12px] px-[14px] py-[10px]'} w-max ${isMobile ? 'max-w-[250px]' : 'max-w-[210px]'}`}
-          style={{
-            border: `${isMobile ? 2 : 1}px solid ${color}30`,
-            boxShadow: `0 ${isMobile ? 12 : 8}px ${isMobile ? 32 : 24}px ${color}15`,
-            background: "rgba(255, 255, 255, 0.96)",
-            backdropFilter: "blur(12px)",
-          }}
+      {/* Permanently open card using foreignObject — DESKTOP ONLY */}
+      {!isMobile && (
+        <foreignObject
+          x={marker.state === "SC" ? 65 : -210}
+          y={-40}
+          width={250}
+          height={100}
+          style={{ pointerEvents: "none", overflow: "visible" }}
         >
-          <div className={`flex items-center gap-[${isMobile ? 10 : 8}px] mb-[${isMobile ? 8 : 6}px]`}>
-            <div
-              className={`${isMobile ? 'w-[30px] h-[30px] rounded-[9px]' : 'w-[24px] h-[24px] rounded-[7px]'} flex items-center justify-center shrink-0`}
-              style={{ backgroundColor: `${color}15` }}
-            >
-              <MapPin size={isMobile ? 15 : 12} style={{ color }} />
+          <div
+            className="bg-white rounded-[12px] px-[14px] py-[10px] w-max max-w-[210px]"
+            style={{
+              border: `1px solid ${color}30`,
+              boxShadow: `0 8px 24px ${color}15`,
+              background: "rgba(255, 255, 255, 0.96)",
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            <div className="flex items-center gap-[8px] mb-[6px]">
+              <div
+                className="w-[24px] h-[24px] rounded-[7px] flex items-center justify-center shrink-0"
+                style={{ backgroundColor: `${color}15` }}
+              >
+                <MapPin size={12} style={{ color }} />
+              </div>
+              <div>
+                <span className="font-['Inter',sans-serif] text-[13px] text-[#0f172a] block leading-none mb-[3px]" style={{ fontWeight: 800 }}>
+                  {info.title}
+                </span>
+                <span className="font-['Inter',sans-serif] text-[10px] text-[#64748b] leading-tight block">
+                  {info.sub}
+                </span>
+              </div>
             </div>
-            <div>
-              <span className={`font-['Inter',sans-serif] ${isMobile ? 'text-[15px]' : 'text-[13px]'} text-[#0f172a] block leading-none mb-[3px]`} style={{ fontWeight: 800 }}>
-                {info.title}
+            <div className="pt-[6px] border-t border-slate-100 flex items-center gap-[8px]">
+              <span
+                className="rounded-[4px] text-[9px] text-white tracking-[0.5px]"
+                style={{ backgroundColor: color, fontWeight: 700, padding: "2px 8px" }}
+              >
+                {info.badge}
               </span>
-              <span className={`font-['Inter',sans-serif] ${isMobile ? 'text-[12px]' : 'text-[10px]'} text-[#64748b] leading-tight block`}>
-                {info.sub}
+              <span className="font-['Inter',sans-serif] text-[9px] text-[#9ca3af] font-medium">
+                Cristal Poços
               </span>
             </div>
           </div>
-          <div className="pt-[6px] border-t border-slate-100 flex items-center gap-[8px]">
-            <span
-              className={`rounded-[${isMobile ? 5 : 4}px] px-[${isMobile ? 8 : 6}px] py-[${isMobile ? 3 : 2}px] ${isMobile ? 'text-[11px]' : 'text-[9px]'} text-white tracking-[0.5px]`}
-              style={{ backgroundColor: color, fontWeight: 700 }}
-            >
-              {info.badge}
-            </span>
-            <span className={`font-['Inter',sans-serif] ${isMobile ? 'text-[11px]' : 'text-[9px]'} text-[#9ca3af] font-medium`}>
-              Cristal Poços
-            </span>
-          </div>
-        </div>
-      </foreignObject>
+        </foreignObject>
+      )}
     </Marker>
   );
 }
@@ -759,7 +761,49 @@ export function BrazilMapInteractive() {
 
       {/* ═══════════ MOBILE EXTRAS (below map) ═══════════ */}
 
-
+      {/* ── Mobile Unit Cards — Matriz & Filial ── */}
+      <div className="md:hidden flex flex-col gap-[10px] mt-[12px]">
+        {UNIT_MARKERS.map((m) => {
+          const unitInfo = getTooltipData(m.state);
+          return (
+            <div
+              key={m.state}
+              className="w-full rounded-[16px] flex items-center gap-[12px]"
+              style={{
+                background: "rgba(255,255,255,0.96)",
+                border: `2px solid ${unitInfo.color}20`,
+                boxShadow: `0 4px 16px ${unitInfo.color}10`,
+                padding: "14px 16px",
+              }}
+            >
+              <div
+                className="w-[36px] h-[36px] rounded-[10px] flex items-center justify-center shrink-0"
+                style={{ backgroundColor: `${unitInfo.color}12` }}
+              >
+                {m.type === "headquarters" ? (
+                  <Building size={18} style={{ color: unitInfo.color }} />
+                ) : (
+                  <MapPin size={18} style={{ color: unitInfo.color }} />
+                )}
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="font-['Inter',sans-serif] text-[15px] text-[#0f172a] block leading-tight" style={{ fontWeight: 800 }}>
+                  {unitInfo.title}
+                </span>
+                <span className="font-['Inter',sans-serif] text-[13px] text-[#64748b] leading-tight block">
+                  {unitInfo.sub}
+                </span>
+              </div>
+              <span
+                className="shrink-0 rounded-[6px] text-[11px] text-white tracking-[0.5px]"
+                style={{ backgroundColor: unitInfo.color, fontWeight: 700, padding: "3px 10px" }}
+              >
+                {unitInfo.badge}
+              </span>
+            </div>
+          );
+        })}
+      </div>
 
       {/* ── Mobile stats — clean unified panel ── */}
       <motion.div
