@@ -6,6 +6,7 @@ import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 import { BrazilMapInteractive } from "../components/BrazilMapInteractive";
 import { Testimonials } from "../components/Testimonials";
 import { Partners } from "../components/Partners";
+import { DrillingProcessUI } from "../components/DrillingProcessUI";
 import { SEOHead } from "../components/SEOHead";
 import { useCountUp } from "../hooks/useCountUp";
 
@@ -250,6 +251,9 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Drilling Process Animation */}
+      <DrillingProcessUI />
 
       {/* Testimonials — Sprint 3.1 */}
       <Testimonials />

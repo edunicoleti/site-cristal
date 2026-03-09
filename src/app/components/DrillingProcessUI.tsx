@@ -431,7 +431,7 @@ export function DrillingProcessUI() {
     });
 
     return (
-        <section ref={containerRef} className="relative bg-white w-full h-[300vh]">
+        <section ref={containerRef} className="relative bg-white w-full h-[500vh]">
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
                 {/* Background decorations */}
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#137fec]/[0.02] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
@@ -439,7 +439,7 @@ export function DrillingProcessUI() {
 
                 <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px] relative z-10 w-full py-[60px] md:py-[80px]">
                     {/* Section Header */}
-                    <div className="text-center max-w-4xl mx-auto mb-[64px]">
+                    <div className="text-center max-w-4xl mx-auto mb-[32px] md:mb-[64px]">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -456,7 +456,7 @@ export function DrillingProcessUI() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="font-['Outfit',sans-serif] text-[32px] md:text-[48px] font-extrabold text-[#0f172a] leading-tight mb-[16px] whitespace-nowrap whitespace-normal md:whitespace-nowrap"
+                            className="font-['Outfit',sans-serif] text-[26px] sm:text-[32px] md:text-[48px] font-extrabold text-[#0f172a] leading-tight mb-[16px]"
                         >
                             A Jornada até a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#137fec] to-[#3b82f6]">Água Pura</span>
                         </motion.h2>

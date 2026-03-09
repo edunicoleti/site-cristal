@@ -269,27 +269,27 @@ function MobileStateToast({ sigla }: { sigla: string }) {
       className="absolute top-[12px] left-[12px] right-[12px] z-30 pointer-events-none flex justify-center"
     >
       <div
-        className="bg-white/97 backdrop-blur-lg rounded-[12px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] border-2 px-[14px] py-[10px] flex items-center gap-[10px]"
+        className="bg-white/97 backdrop-blur-lg rounded-[14px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] border-2 px-[16px] py-[12px] flex items-center gap-[12px]"
         style={{ borderColor: `${info.color}25` }}
       >
         <div
-          className="w-[28px] h-[28px] rounded-[8px] flex items-center justify-center shrink-0"
+          className="w-[36px] h-[36px] rounded-[10px] flex items-center justify-center shrink-0"
           style={{ backgroundColor: `${info.color}15` }}
         >
           {info.icon === "hq" ? (
-            <Building size={14} style={{ color: info.color }} />
+            <Building size={18} style={{ color: info.color }} />
           ) : (
-            <MapPin size={14} style={{ color: info.color }} />
+            <MapPin size={18} style={{ color: info.color }} />
           )}
         </div>
         <div className="min-w-0">
-          <span className="font-['Inter',sans-serif] text-[13px] text-[#111418] block leading-tight" style={{ fontWeight: 700 }}>
+          <span className="font-['Inter',sans-serif] text-[15px] text-[#111418] block leading-tight" style={{ fontWeight: 700 }}>
             {info.title}
           </span>
-          <span className="font-['Inter',sans-serif] text-[11px] text-[#617589]">{info.sub}</span>
+          <span className="font-['Inter',sans-serif] text-[13px] text-[#617589]">{info.sub}</span>
         </div>
         <span
-          className="shrink-0 rounded-[5px] px-[7px] py-[2px] text-[9px] text-white"
+          className="shrink-0 rounded-[6px] px-[8px] py-[3px] text-[11px] text-white"
           style={{ backgroundColor: info.color, fontWeight: 700 }}
         >
           {info.badge}
@@ -321,19 +321,19 @@ function UnitPin({
         r={0}
         fill="none"
         stroke={color}
-        strokeWidth={1.5}
-        animate={{ r: [6, 22], opacity: [0.5, 0] }}
+        strokeWidth={isMobile ? 2 : 1.5}
+        animate={{ r: [6, isMobile ? 28 : 22], opacity: [0.5, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, delay: isHQ ? 0 : 1.2, ease: "easeOut" }}
       />
       <motion.circle
         r={0}
         fill={color}
-        animate={{ r: [3, 16], opacity: [0.25, 0] }}
+        animate={{ r: [3, isMobile ? 20 : 16], opacity: [0.25, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, delay: isHQ ? 0.4 : 1.6, ease: "easeOut" }}
       />
 
       {/* Central anchor pin instead of dot */}
-      <g transform={`translate(${isMobile ? -12 : -8}, ${isMobile ? -24 : -16}) scale(${isMobile ? 1 : 0.66})`}>
+      <g transform={`translate(${isMobile ? -14 : -8}, ${isMobile ? -28 : -16}) scale(${isMobile ? 1.15 : 0.66})`}>
         <path
           d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
           fill={color}
@@ -352,45 +352,45 @@ function UnitPin({
 
       {/* Permanently open card using foreignObject */}
       <foreignObject
-        x={isMobile ? -105 : (marker.state === "SC" ? 65 : -210)}
-        y={isMobile ? -95 : -40}
-        width={250}
-        height={100}
+        x={isMobile ? -125 : (marker.state === "SC" ? 65 : -210)}
+        y={isMobile ? -115 : -40}
+        width={isMobile ? 280 : 250}
+        height={isMobile ? 120 : 100}
         style={{ pointerEvents: "none", overflow: "visible" }}
       >
         <div
-          className="bg-white rounded-[12px] px-[14px] py-[10px] w-max max-w-[210px]"
+          className={`bg-white ${isMobile ? 'rounded-[16px] px-[16px] py-[12px]' : 'rounded-[12px] px-[14px] py-[10px]'} w-max ${isMobile ? 'max-w-[250px]' : 'max-w-[210px]'}`}
           style={{
-            border: `1px solid ${color}30`,
-            boxShadow: `0 8px 24px ${color}15`,
+            border: `${isMobile ? 2 : 1}px solid ${color}30`,
+            boxShadow: `0 ${isMobile ? 12 : 8}px ${isMobile ? 32 : 24}px ${color}15`,
             background: "rgba(255, 255, 255, 0.96)",
             backdropFilter: "blur(12px)",
           }}
         >
-          <div className="flex items-center gap-[8px] mb-[6px]">
+          <div className={`flex items-center gap-[${isMobile ? 10 : 8}px] mb-[${isMobile ? 8 : 6}px]`}>
             <div
-              className="w-[24px] h-[24px] rounded-[7px] flex items-center justify-center shrink-0"
+              className={`${isMobile ? 'w-[30px] h-[30px] rounded-[9px]' : 'w-[24px] h-[24px] rounded-[7px]'} flex items-center justify-center shrink-0`}
               style={{ backgroundColor: `${color}15` }}
             >
-              <MapPin size={12} style={{ color }} />
+              <MapPin size={isMobile ? 15 : 12} style={{ color }} />
             </div>
             <div>
-              <span className="font-['Inter',sans-serif] text-[13px] text-[#0f172a] block leading-none mb-[3px]" style={{ fontWeight: 800 }}>
+              <span className={`font-['Inter',sans-serif] ${isMobile ? 'text-[15px]' : 'text-[13px]'} text-[#0f172a] block leading-none mb-[3px]`} style={{ fontWeight: 800 }}>
                 {info.title}
               </span>
-              <span className="font-['Inter',sans-serif] text-[10px] text-[#64748b] leading-tight block">
+              <span className={`font-['Inter',sans-serif] ${isMobile ? 'text-[12px]' : 'text-[10px]'} text-[#64748b] leading-tight block`}>
                 {info.sub}
               </span>
             </div>
           </div>
           <div className="pt-[6px] border-t border-slate-100 flex items-center gap-[8px]">
             <span
-              className="rounded-[4px] px-[6px] py-[2px] text-[9px] text-white tracking-[0.5px]"
+              className={`rounded-[${isMobile ? 5 : 4}px] px-[${isMobile ? 8 : 6}px] py-[${isMobile ? 3 : 2}px] ${isMobile ? 'text-[11px]' : 'text-[9px]'} text-white tracking-[0.5px]`}
               style={{ backgroundColor: color, fontWeight: 700 }}
             >
               {info.badge}
             </span>
-            <span className="font-['Inter',sans-serif] text-[9px] text-[#9ca3af] font-medium">
+            <span className={`font-['Inter',sans-serif] ${isMobile ? 'text-[11px]' : 'text-[9px]'} text-[#9ca3af] font-medium`}>
               Cristal Poços
             </span>
           </div>
