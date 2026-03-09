@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
 import imgSection from "figma:asset/ec85bce54266d7aaaf8f0e10d293c5227cd2f32f.png";
-import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
+import fundoVideo from "../../assets/fundo-hero-cristal-compressed.mp4";
 import { BrazilMapInteractive } from "../components/BrazilMapInteractive";
 import { Testimonials } from "../components/Testimonials";
 import { Partners } from "../components/Partners";
