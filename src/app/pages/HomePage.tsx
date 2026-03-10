@@ -1,10 +1,9 @@
 import { Link } from "react-router";
 import { motion } from "motion/react";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Settings, CalendarCheck, ClipboardCheck } from "lucide-react";
 import imgSection from "figma:asset/ec85bce54266d7aaaf8f0e10d293c5227cd2f32f.png";
 import fundoVideo from "../../assets/fundo-hero-cristal-compressed.mp4";
 import { BrazilMapInteractive } from "../components/BrazilMapInteractive";
-import { Testimonials } from "../components/Testimonials";
 import { Partners } from "../components/Partners";
 import { DrillingProcessUI } from "../components/DrillingProcessUI";
 import { SEOHead } from "../components/SEOHead";
@@ -87,7 +86,7 @@ export function HomePage() {
             >
               <div className="bg-[#137fec] rounded-[9999px] size-[8px]" />
               <span className="font-['Inter:Bold',sans-serif] font-bold text-[12px] text-white tracking-[0.6px] uppercase">
-                Líder em Perfuração de Poços
+                Líder em Perfuração de Poços Artesianos
               </span>
             </motion.div>
 
@@ -183,42 +182,19 @@ export function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] md:gap-[32px]">
             {[
               {
-                icon: (
-                  <svg width="18" height="19" viewBox="0 0 18 19" fill="none">
-                    <path d="M9 0L0 4.75L9 9.5L18 4.75L9 0Z" fill="#137FEC" />
-                    <path
-                      d="M0 7.125V14.25L9 19L18 14.25V7.125L9 11.875L0 7.125Z"
-                      fill="#137FEC"
-                    />
-                  </svg>
-                ),
+                icon: <Settings size={28} className="text-[#137fec]" />,
                 title: "Tecnologia Avançada",
                 description:
                   "Utilizamos perfuratrizes roto-pneumáticas modernas e técnicas geofísicas de alta precisão para garantir o melhor fluxo de água.",
               },
               {
-                icon: (
-                  <svg width="22" height="21" viewBox="0 0 22 21" fill="none">
-                    <path
-                      d="M11 0L13.708 7.604H22L15.646 12.292L18.354 19.896L11 15.208L3.646 19.896L6.354 12.292L0 7.604H8.292L11 0Z"
-                      fill="#137FEC"
-                    />
-                  </svg>
-                ),
+                icon: <CalendarCheck size={28} className="text-[#137fec]" />,
                 title: "25+ Anos de Experiência",
                 description:
                   "Uma trajetória sólida marcada pelo sucesso técnico e a satisfação contínua de centenas de clientes rurais, industriais e residenciais.",
               },
               {
-                icon: (
-                  <svg width="18" height="19" viewBox="0 0 18 19" fill="none">
-                    <path
-                      d="M9 0C4.032 0 0 4.032 0 9C0 13.968 4.032 18 9 18C13.968 18 18 13.968 18 9C18 4.032 13.968 0 9 0ZM9 16.2C5.022 16.2 1.8 12.978 1.8 9C1.8 5.022 5.022 1.8 9 1.8C12.978 1.8 16.2 5.022 16.2 9C16.2 12.978 12.978 16.2 9 16.2Z"
-                      fill="#137FEC"
-                    />
-                    <path d="M13.5 8.1H9.9V4.5H8.1V9.9H13.5V8.1Z" fill="#137FEC" />
-                  </svg>
-                ),
+                icon: <ClipboardCheck size={28} className="text-[#137fec]" />,
                 title: "Transparência Total",
                 description:
                   "Processos claros, orçamentos detalhados sem custos ocultos e auxílio completo em todo o licenciamento ambiental e outorga.",
@@ -255,8 +231,27 @@ export function HomePage() {
       {/* Drilling Process Animation */}
       <DrillingProcessUI />
 
-      {/* Testimonials — Sprint 3.1 */}
-      <Testimonials />
+      {/* Coverage Section */}
+      <section className="bg-white py-[64px] md:py-[96px]">
+        <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-[48px] md:mb-[64px]"
+          >
+            <p className="font-['Inter:Bold',sans-serif] font-bold text-[12px] md:text-[14px] text-[#137fec] tracking-[2.8px] uppercase mb-[8px] md:mb-[16px]">
+              Presença Nacional
+            </p>
+            <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px] md:mb-[16px]">
+              Onde Atuamos
+            </h2>
+            <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[80px]" />
+          </motion.div>
+
+          <BrazilMapInteractive />
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-[64px] md:py-[96px]">
@@ -316,28 +311,6 @@ export function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Coverage Section */}
-      <section className="bg-white py-[64px] md:py-[96px]">
-        <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-[48px] md:mb-[64px]"
-          >
-            <p className="font-['Inter:Bold',sans-serif] font-bold text-[12px] md:text-[14px] text-[#137fec] tracking-[2.8px] uppercase mb-[8px] md:mb-[16px]">
-              Presença Nacional
-            </p>
-            <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px] md:mb-[16px]">
-              Onde Atuamos
-            </h2>
-            <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[80px]" />
-          </motion.div>
-
-          <BrazilMapInteractive />
         </div>
       </section>
 

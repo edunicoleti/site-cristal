@@ -414,30 +414,35 @@ const DrillingSimulation = ({ currentStep }: { currentStep: number }) => {
 export function DrillingProcessUI() {
     const [activeStep, setActiveStep] = useState(1);
     const containerRef = useRef<HTMLDivElement>(null);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Scroll tracking logic
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"]
-    });
+    const startTimer = () => {
+        if (timerRef.current) clearInterval(timerRef.current);
+        timerRef.current = setInterval(() => {
+            setActiveStep((prev) => (prev >= 5 ? 1 : prev + 1));
+        }, 3000);
+    };
 
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        // Divide the scroll progress (0 to 1) into 5 segments
-        if (latest < 0.2) setActiveStep(1);
-        else if (latest < 0.4) setActiveStep(2);
-        else if (latest < 0.6) setActiveStep(3);
-        else if (latest < 0.8) setActiveStep(4);
-        else setActiveStep(5);
-    });
+    useEffect(() => {
+        startTimer();
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, []);
+
+    const handleStepClick = (stepId: number) => {
+        setActiveStep(stepId);
+        startTimer(); // Restart the timer when the user manually clicks
+    };
 
     return (
-        <section ref={containerRef} className="relative bg-white w-full h-[500vh]">
-            <div className="sticky top-0 h-screen w-full flex items-start lg:items-center justify-center overflow-hidden">
+        <section ref={containerRef} className="relative bg-white w-full py-[64px] md:py-[96px] overflow-hidden">
+            <div className="w-full flex items-start lg:items-center justify-center">
                 {/* Background decorations */}
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#137fec]/[0.02] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#ea580c]/[0.02] rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
 
-                <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px] relative z-10 w-full pt-[16px] pb-[16px] md:py-[80px]">
+                <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px] relative z-10 w-full">
                     {/* Section Header */}
                     <div className="text-center max-w-4xl mx-auto mb-[32px] md:mb-[64px]">
                         <motion.div
@@ -458,7 +463,7 @@ export function DrillingProcessUI() {
                             transition={{ delay: 0.1 }}
                             className="font-['Outfit',sans-serif] text-[26px] sm:text-[32px] md:text-[48px] font-extrabold text-[#0f172a] leading-tight mb-[16px]"
                         >
-                            A Jornada até a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#137fec] to-[#3b82f6]">Água Pura</span>
+                            A Jornada do <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#137fec] to-[#3b82f6]">Poço Artesiano</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -501,7 +506,8 @@ export function DrillingProcessUI() {
                                     return (
                                         <div
                                             key={`mob-nav-${step.id}`}
-                                            className={`relative z-10 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all duration-300 border-2
+                                            onClick={() => handleStepClick(step.id)}
+                                            className={`relative z-10 w-[32px] h-[32px] rounded-full flex items-center justify-center transition-all duration-300 border-2 cursor-pointer
                                                  ${isActive ? 'bg-[#137fec] border-[#137fec] text-white scale-110 shadow-md' :
                                                     isPast ? 'bg-slate-700 border-slate-700 text-white' :
                                                         'bg-white border-slate-300 text-slate-300'}`
@@ -549,7 +555,8 @@ export function DrillingProcessUI() {
                                 return (
                                     <div
                                         key={step.id}
-                                        className={`relative text-left w-full transition-all duration-500 flex items-start gap-[24px] ${isActive ? "opacity-100" : "opacity-40"
+                                        onClick={() => handleStepClick(step.id)}
+                                        className={`relative text-left w-full transition-all duration-500 flex items-start gap-[24px] cursor-pointer ${isActive ? "opacity-100" : "opacity-40"
                                             }`}
                                     >
                                         {/* Linha de Conexão (Não renderiza no último item) */}
