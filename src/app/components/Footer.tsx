@@ -113,10 +113,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[rgba(255,255,255,0.1)] mt-[32px] md:mt-[48px] pt-[24px] text-center">
+        <div className="border-t border-[rgba(255,255,255,0.1)] mt-[32px] md:mt-[48px] pt-[24px] text-center relative flex justify-center items-center">
           <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] md:text-[14px] text-[#6b7280]">
             © 2026 Cristal Poços Artesianos. Todos os direitos reservados.
           </p>
+          <Link 
+            to="/admin" 
+            className="absolute right-0 text-[#6b7280] opacity-0 hover:opacity-100 transition-opacity p-2 text-xs"
+            title="Área Administrativa"
+          >
+            Admin
+          </Link>
         </div>
       </div>
     </footer>

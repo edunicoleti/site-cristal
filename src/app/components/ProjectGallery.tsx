@@ -1,67 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
-import imgDrill1 from "figma:asset/145b06104c62a105d64b89c462a49012380334e9.png";
-import imgDrill2 from "figma:asset/e1e020bf3f79d06191993874fdfc207aaa5232e4.png";
-import imgDrill3 from "figma:asset/0656843a12860fbdfee4826abc4ceac9143b243e.png";
-
-const projects = [
-  {
-    url: imgDrill1,
-    title: "Perfuração em Área Agrícola",
-    location: "Chapecó - SC",
-    depth: "280m",
-    type: "Poço Artesiano",
-  },
-  {
-    url: imgDrill2,
-    title: "Perfuração às Margens do Rio",
-    location: "Balsas - MA",
-    depth: "340m",
-    type: "Aquífero Guarani",
-  },
-  {
-    url: imgDrill3,
-    title: "Operação em Lavoura",
-    location: "Cascavel - PR",
-    depth: "260m",
-    type: "Poço Sedimentar",
-  },
-  {
-    url: imgDrill1,
-    title: "Frota Dupla em Campo",
-    location: "Lages - SC",
-    depth: "220m",
-    type: "Sistema Completo",
-  },
-  {
-    url: imgDrill2,
-    title: "Perfuratriz com Retroescavadeira",
-    location: "São Luís - MA",
-    depth: "310m",
-    type: "Bombeamento Solar",
-  },
-  {
-    url: imgDrill3,
-    title: "Canteiro de Perfuração Rural",
-    location: "Xanxerê - SC",
-    depth: "175m",
-    type: "Sistema Hidráulico",
-  },
-];
+import { getProjects, Project } from "../../utils/cms";
 
 export function ProjectGallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    setProjects(getProjects());
+
+    const handleStorageChange = () => {
+      setProjects(getProjects());
+    };
+    
+    // Listen for custom event to update projects when changed in admin
+    window.addEventListener("projectsUpdated", handleStorageChange);
+    return () => {
+      window.removeEventListener("projectsUpdated", handleStorageChange);
+    };
+  }, []);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
   const prevImage = () =>
     setLightboxIndex((prev) =>
-      prev !== null ? (prev - 1 + projects.length) % projects.length : null
+      prev !== null && projects.length > 0 ? (prev - 1 + projects.length) % projects.length : null
     );
   const nextImage = () =>
     setLightboxIndex((prev) =>
-      prev !== null ? (prev + 1) % projects.length : null
+      prev !== null && projects.length > 0 ? (prev + 1) % projects.length : null
     );
 
   return (
@@ -87,7 +55,7 @@ export function ProjectGallery() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[16px] md:gap-[24px]">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.id || index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -104,7 +72,7 @@ export function ProjectGallery() {
               </div>
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.85)] via-[rgba(0,0,0,0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-[20px]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.85)] via-[rgba(0,0,0,0.3)] to-transparent opacity-100 transition-opacity duration-300 flex flex-col justify-end p-[20px]">
                 <div className="bg-[#137fec] text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold px-[10px] py-[4px] rounded-[6px] w-fit mb-[8px] uppercase tracking-wide">
                   {project.type}
                 </div>

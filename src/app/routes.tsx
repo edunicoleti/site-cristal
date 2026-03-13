@@ -3,6 +3,7 @@ import { HomePage } from "./pages/HomePage";
 import { QuemSomosPage } from "./pages/QuemSomosPage";
 import { ServicosPage } from "./pages/ServicosPage";
 import { ContatoPage } from "./pages/ContatoPage";
+import { AdminPage } from "./pages/AdminPage";
 import { Layout } from "./components/Layout";
 
 export const router = createBrowserRouter([
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       { 
         path: "contato", 
         element: <ContatoPage /> 
+      },
+      { 
+        path: "admin", 
+        element: <AdminPage /> 
       },
     ],
   },
