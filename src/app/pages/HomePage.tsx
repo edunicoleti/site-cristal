@@ -111,8 +111,7 @@ export function HomePage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="font-['Inter:Medium',sans-serif] font-medium text-[15px] sm:text-[17px] md:text-[20px] text-[#e5e7eb] leading-[22px] sm:leading-[26px] md:leading-[28px]"
             >
-              Mais de 25 anos de experiência transformando o acesso à água com
-              tecnologia de ponta e máxima transparência para sua propriedade.
+              Mais de 27 anos de experiência transformando o acesso à água com tecnologia de ponta e máxima transparência para o seu projeto.
             </motion.p>
 
             <motion.div
@@ -157,11 +156,10 @@ export function HomePage() {
       {/* Stats Section — com CountUp */}
       <section className="bg-white py-[32px] md:py-[48px]">
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-[24px] md:gap-[32px]">
-            <StatItem end={25} suffix="+" label="Anos de Experiência" />
-            <StatItem end={1200} suffix="+" label="Poços Perfurados" format="dot" />
-            <StatItem end={100} suffix="%" label="Legalizado" />
-            <StatItem end={24} suffix="h" label="Suporte Técnico" />
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-[24px] md:gap-[32px]">
+            <StatItem end={27} suffix="+" label="Anos de Experiência" />
+            <StatItem end={7000} suffix="+" label="Poços Perfurados" format="dot" />
+            <StatItem end={24} suffix="h" label="Assistência Técnica" />
           </div>
         </div>
       </section>
@@ -182,22 +180,22 @@ export function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px] md:gap-[32px]">
             {[
               {
+                icon: <CalendarCheck size={28} className="text-[#137fec]" />,
+                title: "27+ Anos de Experiência",
+                description:
+                  "Uma trajetória sólida marcada pelo sucesso técnico e a satisfação contínua de milhares de clientes rurais, industriais e residenciais em todo território nacional.",
+              },
+              {
                 icon: <Settings size={28} className="text-[#137fec]" />,
                 title: "Tecnologia Avançada",
                 description:
-                  "Utilizamos perfuratrizes roto-pneumáticas modernas e técnicas geofísicas de alta precisão para garantir o melhor fluxo de água.",
-              },
-              {
-                icon: <CalendarCheck size={28} className="text-[#137fec]" />,
-                title: "25+ Anos de Experiência",
-                description:
-                  "Uma trajetória sólida marcada pelo sucesso técnico e a satisfação contínua de centenas de clientes rurais, industriais e residenciais.",
+                  "Investimos continuamente em tecnologia e inovação, aplicando equipamentos modernos e estudos geológicos precisos para definir a melhor solução para cada projeto, conforme a necessidade do cliente e as características do terreno.",
               },
               {
                 icon: <ClipboardCheck size={28} className="text-[#137fec]" />,
-                title: "Transparência Total",
+                title: "Transparência e Eficiência",
                 description:
-                  "Processos claros, orçamentos detalhados sem custos ocultos e auxílio completo em todo o licenciamento ambiental e outorga.",
+                  "Propostas claras, sem custos ocultos, com execução completa desde o licenciamento ambiental prévio, execução da obra e outorga.",
               },
             ].map((feature, index) => (
               <motion.div
@@ -228,8 +226,8 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Drilling Process Animation */}
-      <DrillingProcessUI />
+      {/* Drilling Process Animation — oculto temporariamente, manter para uso futuro */}
+      {/* <DrillingProcessUI /> */}
 
       {/* Coverage Section */}
       <section className="bg-white py-[64px] md:py-[96px]">
@@ -267,7 +265,7 @@ export function HomePage() {
 
             <div className="relative max-w-[768px] mx-auto text-center">
               <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px] max-w-[800px] mx-auto">
-                Pronto para ter sua própria fonte de água cristalina?
+                Fale com nossos especialistas
               </h2>
 
               <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[24px] md:mb-[32px]">

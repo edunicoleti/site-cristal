@@ -11,7 +11,7 @@ const GEO_URL =
   "https://raw.githubusercontent.com/codeforgermany/click_that_hood/master/public/data/brazil-states.geojson";
 
 const COVERAGE_STATES = new Set([
-  "RS", "PR", "SP", "SC", "TO", "BA", "CE", "PA", "MA",
+  "RS", "PR", "SP", "SC", "TO", "BA", "CE", "PA", "MA", "PI", "MT",
 ]);
 
 const STATE_NAMES: Record<string, string> = {
@@ -48,6 +48,8 @@ const COVERAGE_CENTROIDS: Record<string, [number, number]> = {
   CE: [-39.4, -5.4],
   PA: [-52.5, -3.9],
   MA: [-44.5, -5.5],
+  PI: [-42.8, -7.7],
+  MT: [-55.8, -12.5],
 };
 
 interface UnitMarker {
@@ -155,7 +157,7 @@ function MapSkeleton({ isMobile }: { isMobile: boolean }) {
             Carregando mapa interativo...
           </p>
           <p className="font-['Inter',sans-serif] text-[12px] text-[#9ca3af] mt-[4px]">
-            Presença em 9 estados brasileiros
+            Presença em 11 estados brasileiros
           </p>
         </div>
         <div className="flex gap-[6px]">
@@ -684,7 +686,7 @@ export function BrazilMapInteractive() {
             <div className="px-[24px] pt-[18px] pb-[22px] flex flex-col gap-[16px]">
               {[
                 {
-                  value: "9",
+                  value: "11",
                   label: "Estados Atendidos",
                   sub: "Cobertura regional",
                   color: BRAND_BLUE,
@@ -821,7 +823,7 @@ export function BrazilMapInteractive() {
       >
         <div className="flex justify-between items-center px-[20px] py-[18px] divide-x divide-slate-200/60">
           {[
-            { value: "9", label: "Estados", color: BRAND_BLUE },
+            { value: "11", label: "Estados", color: BRAND_BLUE },
             { value: "2", label: "Unidades", color: BRAND_ORANGE },
             { value: "25+", label: "Anos", color: BRAND_BLUE },
           ].map((stat) => (
