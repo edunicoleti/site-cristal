@@ -146,7 +146,7 @@ export function ProjectGallery() {
   };
 
   return (
-    <section className="bg-[#0a0f1a] py-[56px] md:py-[80px]">
+    <section className="bg-[#f9fafb] py-[56px] md:py-[80px]">
       <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
 
         {/* ── Header ── */}
@@ -227,7 +227,7 @@ export function ProjectGallery() {
             >
               {/* ── Hero Image ── */}
               <div
-                className="relative rounded-[16px] md:rounded-[20px] overflow-hidden bg-[#111418] select-none"
+                className="relative rounded-[16px] md:rounded-[20px] overflow-hidden bg-[#e5e7eb] select-none"
                 style={{ height: "clamp(280px, 60vh, 640px)" }}
                 onMouseEnter={() => setIsPlaying(false)}
                 onMouseLeave={() => setIsPlaying(true)}

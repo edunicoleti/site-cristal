@@ -105,13 +105,13 @@ export function QuemSomosPage() {
       {/* Narrative Section */}
       <section className="py-[64px] md:py-[96px]">
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[48px] lg:px-[160px]">
-          <div className="flex flex-col md:flex-row gap-[48px] md:gap-[64px] items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[48px] md:gap-[64px] items-start">
+            {/* Left Column - Text (Top) */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex-1"
             >
               <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] leading-[32px] md:leading-[40px] mb-[24px]">
                 Uma trajetória marcada pela{" "}
@@ -147,89 +147,49 @@ export function QuemSomosPage() {
               </div>
             </motion.div>
 
-            <div className="flex-1 relative w-full">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
-                className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full aspect-square overflow-hidden cursor-pointer"
-              >
-                <img
-                  src="/sede-cristal-po%C3%A7os-artesianos-chapec%C3%B3.png"
-                  alt="Sede Cristal Poços Artesianos — Chapecó SC"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Works Section — Team and Equipment Photos */}
-      <section className="py-[64px] md:py-[96px] bg-[#f9fafb]">
-        <div className="max-w-[1280px] mx-auto px-[16px] md:px-[48px] lg:px-[96px]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-[48px] md:mb-[64px] text-center"
-          >
-            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[44px] text-[#111418] tracking-[-0.7px] leading-[32px] md:leading-[48px] mb-[12px]">
-              Nossas Obras em Ação
-            </h2>
-            <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] md:text-[18px] text-[#617589] leading-[26px] max-w-[680px] mx-auto">
-              Conheça a equipe qualificada e os equipamentos de última geração que tornam cada projeto um sucesso.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px] md:gap-[40px]">
-            {/* Team Photo */}
+            {/* Right Column - Sede Photo (Top) */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.3 }}
+              className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full overflow-hidden cursor-pointer"
+            >
+              <img
+                src="/sede-cristal-po%C3%A7os-artesianos-chapec%C3%B3.png"
+                alt="Sede Cristal Poços Artesianos — Chapecó SC"
+                className="w-full h-full object-cover aspect-square rounded-[16px]"
+              />
+            </motion.div>
+
+            {/* Left Column - Team Photo (Bottom) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.02 }}
-              className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.15)] overflow-hidden cursor-pointer h-[300px] md:h-[400px]"
+              whileHover={{ scale: 1.03 }}
+              className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full overflow-hidden cursor-pointer"
             >
               <img
                 src="/fotos%20projetos/poco-artesiano-aereo-drone-chapeco-18.jpg"
                 alt="Equipe Cristal Poços — Profissionais qualificados"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover aspect-square rounded-[16px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-[24px]">
-                <p className="font-['Inter:Bold',sans-serif] font-bold text-[20px] text-white">
-                  Equipe Qualificada
-                </p>
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-white/80 mt-[8px]">
-                  Profissionais com +27 anos de expertise
-                </p>
-              </div>
             </motion.div>
 
-            {/* Equipment Photo */}
+            {/* Right Column - Equipment Photo (Bottom) */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.15)] overflow-hidden cursor-pointer h-[300px] md:h-[400px]"
+              whileHover={{ scale: 1.03 }}
+              className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full overflow-hidden cursor-pointer"
             >
               <img
                 src="/fotos%20projetos/poco-artesiano-sonda-perfuracao-chapeco-02.jpg"
                 alt="Equipamentos Cristal Poços — Sonda de perfuração em obra"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover aspect-square rounded-[16px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-[24px]">
-                <p className="font-['Inter:Bold',sans-serif] font-bold text-[20px] text-white">
-                  Equipamentos de Ponta
-                </p>
-                <p className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-white/80 mt-[8px]">
-                  Tecnologia moderna e confiável em campo
-                </p>
-              </div>
             </motion.div>
           </div>
         </div>
