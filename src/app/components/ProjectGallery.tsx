@@ -160,7 +160,7 @@ export function ProjectGallery() {
             <p className="font-['Inter:Bold',sans-serif] font-bold text-[11px] md:text-[13px] text-[#137fec] tracking-[2.8px] uppercase mb-[8px]">
               Portfólio
             </p>
-            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-white tracking-[-0.7px] md:tracking-[-0.9px] mb-[12px]">
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[12px]">
               Projetos Realizados
             </h2>
             <div className="bg-[#137fec] h-[3px] rounded-full w-[56px]" />
@@ -172,7 +172,7 @@ export function ProjectGallery() {
             className={`flex items-center gap-[8px] px-[14px] py-[9px] rounded-[10px] border text-[13px] font-['Inter:Medium',sans-serif] font-medium transition-all duration-200 ${
               showGrid
                 ? "bg-[#137fec] border-[#137fec] text-white"
-                : "bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:text-white/90"
+                : "bg-[#f0f1f3] border-[#e5e7eb] text-[#6b7280] hover:bg-[#e5e7eb] hover:text-[#111418]"
             }`}
           >
             <Grid3X3 size={15} />
@@ -197,7 +197,7 @@ export function ProjectGallery() {
                   onClick={() => goTo(i)}
                   className={`group relative rounded-[8px] overflow-hidden aspect-[4/3] focus:outline-none transition-all duration-200 ${
                     i === current
-                      ? "ring-2 ring-[#137fec] ring-offset-2 ring-offset-[#0a0f1a]"
+                      ? "ring-2 ring-[#137fec] ring-offset-2 ring-offset-[#f9fafb]"
                       : "opacity-60 hover:opacity-100"
                   }`}
                 >
@@ -327,7 +327,7 @@ export function ProjectGallery() {
                     aria-label={photo.alt}
                     className={`flex-none rounded-[8px] md:rounded-[10px] overflow-hidden transition-all duration-200 focus:outline-none ${
                       i === current
-                        ? "ring-2 ring-[#137fec] ring-offset-1 ring-offset-[#0a0f1a] opacity-100"
+                        ? "ring-2 ring-[#137fec] ring-offset-1 ring-offset-[#f9fafb] opacity-100"
                         : "opacity-40 hover:opacity-75"
                     }`}
                     style={{ width: "clamp(60px, 8vw, 96px)", height: "clamp(40px, 5.5vw, 64px)" }}
