@@ -20,116 +20,67 @@ import {
 import { SEOHead } from "../components/SEOHead";
 import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 
-// ── Tricone Bit Icon ──────────────────────────────────────────────────────────
+// ── Tricone Bit Icon (Lucide style) ──────────────────────────────────────────
 function TriconeBitIcon() {
   return (
-    <svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="81">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       {/* Drill pipe */}
-      <rect x="22" y="2" width="20" height="11" rx="3" fill="white" />
-      <line x1="28" y1="5" x2="28" y2="11" stroke="white" strokeOpacity="0.35" strokeWidth="1.5"/>
-      <line x1="32" y1="5" x2="32" y2="11" stroke="white" strokeOpacity="0.35" strokeWidth="1.5"/>
-      <line x1="36" y1="5" x2="36" y2="11" stroke="white" strokeOpacity="0.35" strokeWidth="1.5"/>
-      {/* Pipe bottom cap */}
-      <rect x="20" y="11" width="24" height="3" rx="1" fill="white" fillOpacity="0.6"/>
+      <rect x="8" y="1" width="8" height="4" rx="1" />
+      <line x1="10" y1="3" x2="10" y2="4" />
+      <line x1="12" y1="3" x2="12" y2="4" />
+      <line x1="14" y1="3" x2="14" y2="4" />
 
-      {/* Shoulder */}
-      <path d="M16 14 H48 L45 23 H19 Z" fill="white" fillOpacity="0.92"/>
+      {/* Connector */}
+      <line x1="8" y1="5" x2="6" y2="7" />
+      <line x1="16" y1="5" x2="18" y2="7" />
 
-      {/* Leg arms */}
-      <path d="M19 23 L11 38" stroke="white" strokeWidth="4.5" strokeLinecap="round"/>
-      <path d="M45 23 L53 38" stroke="white" strokeWidth="4.5" strokeLinecap="round"/>
-      <path d="M25 23 L22 39" stroke="white" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.85"/>
-      <path d="M39 23 L42 39" stroke="white" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.85"/>
+      {/* Left cone */}
+      <circle cx="6" cy="14" r="4" />
+      <line x1="6" y1="7" x2="6" y2="10" />
 
-      {/* Left cone: cx=11, cy=48, r=11 */}
-      <circle cx="11" cy="48" r="11" fill="white" fillOpacity="0.4" stroke="white" strokeWidth="1.5"/>
-      <circle cx="11" cy="38" r="1.8" fill="white" fillOpacity="0.8"/>
-      <circle cx="2"  cy="44" r="1.8" fill="white" fillOpacity="0.75"/>
-      <circle cx="2"  cy="52" r="1.8" fill="white" fillOpacity="0.75"/>
-      <circle cx="11" cy="58" r="1.8" fill="white" fillOpacity="0.8"/>
-      <circle cx="19" cy="44" r="1.5" fill="white" fillOpacity="0.55"/>
-      <circle cx="19" cy="52" r="1.5" fill="white" fillOpacity="0.55"/>
+      {/* Center cone */}
+      <circle cx="12" cy="15" r="5" />
+      <line x1="12" y1="5" x2="12" y2="10" />
 
-      {/* Center cone: cx=32, cy=51, r=14 */}
-      <circle cx="32" cy="51" r="14" fill="white" fillOpacity="0.6" stroke="white" strokeWidth="2"/>
-      <circle cx="32" cy="38" r="2.2" fill="white" fillOpacity="0.7"/>
-      <circle cx="20" cy="44" r="2.2" fill="white" fillOpacity="0.55"/>
-      <circle cx="44" cy="44" r="2.2" fill="white" fillOpacity="0.55"/>
-      <circle cx="19" cy="55" r="2.2" fill="white" fillOpacity="0.55"/>
-      <circle cx="45" cy="55" r="2.2" fill="white" fillOpacity="0.55"/>
-      <circle cx="32" cy="64" r="2.2" fill="white" fillOpacity="0.7"/>
-      {/* Center cone hub */}
-      <circle cx="32" cy="51" r="5" fill="white" fillOpacity="0.9"/>
-      <circle cx="32" cy="51" r="2" fill="white" fillOpacity="0.5"/>
-
-      {/* Right cone: cx=53, cy=48, r=11 */}
-      <circle cx="53" cy="48" r="11" fill="white" fillOpacity="0.4" stroke="white" strokeWidth="1.5"/>
-      <circle cx="53" cy="38" r="1.8" fill="white" fillOpacity="0.8"/>
-      <circle cx="62" cy="44" r="1.8" fill="white" fillOpacity="0.75"/>
-      <circle cx="62" cy="52" r="1.8" fill="white" fillOpacity="0.75"/>
-      <circle cx="53" cy="58" r="1.8" fill="white" fillOpacity="0.8"/>
-      <circle cx="45" cy="44" r="1.5" fill="white" fillOpacity="0.55"/>
-      <circle cx="45" cy="52" r="1.5" fill="white" fillOpacity="0.55"/>
-
-      {/* Ground / formation */}
-      <path d="M2 68 Q32 64 62 68" stroke="white" strokeOpacity="0.32" strokeWidth="1.5" strokeDasharray="4 3"/>
+      {/* Right cone */}
+      <circle cx="18" cy="14" r="4" />
+      <line x1="18" y1="7" x2="18" y2="10" />
     </svg>
   );
 }
 
-// ── PDC Bit Icon ──────────────────────────────────────────────────────────────
+// ── PDC Bit Icon (Lucide style) ────────────────────────────────────────────────
 function PDCBitIcon() {
-  const bladeAngles = [0, 120, 240];
-  const nozzleAngles = [60, 180, 300];
-  // Cutter positions along blade (unrotated, pointing up): r distances from center
-  const cutterRs = [12, 17, 22];
-
   return (
-    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
-      {/* Outer shell */}
-      <circle cx="32" cy="32" r="29" stroke="white" strokeWidth="2" fillOpacity="0" strokeOpacity="0.5"/>
-      {/* Mid reference ring */}
-      <circle cx="32" cy="32" r="20" stroke="white" strokeOpacity="0.2" strokeWidth="0.8" strokeDasharray="3 3"/>
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {/* Drill pipe */}
+      <rect x="8" y="1" width="8" height="4" rx="1" />
+      <line x1="10" y1="3" x2="10" y2="4" />
+      <line x1="12" y1="3" x2="12" y2="4" />
+      <line x1="14" y1="3" x2="14" y2="4" />
 
-      {/* 3 Blade arms */}
-      {bladeAngles.map((rot) => (
-        <g key={rot} transform={`rotate(${rot} 32 32)`}>
-          {/* Blade body: from r≈8 to r≈27, with width */}
-          <path
-            d="M29.5 24 L27.5 7 L36.5 6 L36.5 23.5 Z"
-            fill="white"
-            fillOpacity="0.65"
-            stroke="white"
-            strokeWidth="0.5"
-            strokeOpacity="0.5"
-          />
-          {/* PDC diamond cutters along blade */}
-          {cutterRs.map((r, j) => (
-            <g key={j} transform={`translate(31, ${32 - r})`}>
-              <circle r="3" fill="white" fillOpacity="0.9"/>
-              <rect x="-2.2" y="-2.2" width="4.4" height="4.4" rx="0.4"
-                fill="none" stroke="white" strokeOpacity="0.5" strokeWidth="0.8"
-                transform="rotate(45 0 0)"
-              />
-            </g>
-          ))}
-        </g>
-      ))}
+      {/* Connector */}
+      <line x1="8" y1="5" x2="6" y2="7" />
+      <line x1="16" y1="5" x2="18" y2="7" />
 
-      {/* Nozzle ports between blades */}
-      {nozzleAngles.map((rot) => (
-        <g key={rot} transform={`rotate(${rot} 32 32)`}>
-          <circle cx="32" cy="6" r="3.5" fill="white" fillOpacity="0.35" stroke="white" strokeWidth="1.2" strokeOpacity="0.6"/>
-          <circle cx="32" cy="6" r="1.5" fill="white" fillOpacity="0.7"/>
-        </g>
-      ))}
+      {/* Left blade */}
+      <path d="M 6 7 L 5 18" />
+      <path d="M 7 7 L 4 18" />
+
+      {/* Center blade */}
+      <path d="M 12 5 L 12 20" />
+
+      {/* Right blade */}
+      <path d="M 18 7 L 19 18" />
+      <path d="M 17 7 L 20 18" />
 
       {/* Center hub */}
-      <circle cx="32" cy="32" r="9" fill="white" fillOpacity="0.7" stroke="white" strokeWidth="1.5"/>
-      <circle cx="32" cy="32" r="4.5" fill="white" fillOpacity="0.95"/>
-      {/* Hub cross */}
-      <line x1="26" y1="32" x2="38" y2="32" stroke="white" strokeOpacity="0.4" strokeWidth="1.2"/>
-      <line x1="32" y1="26" x2="32" y2="38" stroke="white" strokeOpacity="0.4" strokeWidth="1.2"/>
+      <circle cx="12" cy="5" r="2" />
+
+      {/* Diamond cutters (small dots) */}
+      <circle cx="6" cy="10" r="1" fill="white" />
+      <circle cx="12" cy="12" r="1" fill="white" />
+      <circle cx="18" cy="10" r="1" fill="white" />
     </svg>
   );
 }

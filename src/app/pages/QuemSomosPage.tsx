@@ -4,6 +4,7 @@ import { MessageCircle } from "lucide-react";
 import svgPaths from "../../imports/svg-z6zitnfa74";
 import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 import { SEOHead } from "../components/SEOHead";
+import { ClientLogos } from "../components/ClientLogos";
 import { useCountUp } from "../hooks/useCountUp";
 
 const WHATSAPP_URL =
@@ -147,18 +148,6 @@ export function QuemSomosPage() {
             </motion.div>
 
             <div className="flex-1 relative w-full">
-              <div className="hidden md:block absolute flex inset-[-24.22px_-25.13px_-24.21px_-25.14px] items-center justify-center">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="flex-none h-[532px] w-[480px]"
-                >
-                  <div
-                    className="bg-[rgba(19,127,236,0.1)] rounded-[16px] size-full"
-                    style={{ transform: "rotate(-2deg)" }}
-                  />
-                </motion.div>
-              </div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
@@ -171,6 +160,77 @@ export function QuemSomosPage() {
                 />
               </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Works Section — Team and Equipment Photos */}
+      <section className="py-[64px] md:py-[96px] bg-[#f9fafb]">
+        <div className="max-w-[1280px] mx-auto px-[16px] md:px-[48px] lg:px-[96px]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-[48px] md:mb-[64px] text-center"
+          >
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[44px] text-[#111418] tracking-[-0.7px] leading-[32px] md:leading-[48px] mb-[12px]">
+              Nossas Obras em Ação
+            </h2>
+            <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] md:text-[18px] text-[#617589] leading-[26px] max-w-[680px] mx-auto">
+              Conheça a equipe qualificada e os equipamentos de última geração que tornam cada projeto um sucesso.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[32px] md:gap-[40px]">
+            {/* Team Photo */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.02 }}
+              className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.15)] overflow-hidden cursor-pointer h-[300px] md:h-[400px]"
+            >
+              <img
+                src="/fotos%20projetos/poco-artesiano-aereo-drone-chapeco-18.jpg"
+                alt="Equipe Cristal Poços — Profissionais qualificados"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-[24px]">
+                <p className="font-['Inter:Bold',sans-serif] font-bold text-[20px] text-white">
+                  Equipe Qualificada
+                </p>
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-white/80 mt-[8px]">
+                  Profissionais com +27 anos de expertise
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Equipment Photo */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.15)] overflow-hidden cursor-pointer h-[300px] md:h-[400px]"
+            >
+              <img
+                src="/fotos%20projetos/poco-artesiano-sonda-perfuracao-chapeco-02.jpg"
+                alt="Equipamentos Cristal Poços — Sonda de perfuração em obra"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-[24px]">
+                <p className="font-['Inter:Bold',sans-serif] font-bold text-[20px] text-white">
+                  Equipamentos de Ponta
+                </p>
+                <p className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-white/80 mt-[8px]">
+                  Tecnologia moderna e confiável em campo
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -270,6 +330,9 @@ export function QuemSomosPage() {
           </div>
         </div>
       </section>
+
+      {/* Client Logos Section */}
+      <ClientLogos />
 
       {/* CTA Section */}
       <section className="py-[64px] md:py-[96px]">
