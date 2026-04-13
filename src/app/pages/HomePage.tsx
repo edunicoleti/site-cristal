@@ -5,6 +5,7 @@ import imgSection from "figma:asset/ec85bce54266d7aaaf8f0e10d293c5227cd2f32f.png
 import fundoVideo from "../../assets/fundo-hero-cristal-compressed.mp4";
 import { BrazilMapInteractive } from "../components/BrazilMapInteractive";
 import { Partners } from "../components/Partners";
+import { ClientLogos } from "../components/ClientLogos";
 import { DrillingProcessUI } from "../components/DrillingProcessUI";
 import { SEOHead } from "../components/SEOHead";
 import { useCountUp } from "../hooks/useCountUp";
@@ -228,6 +229,9 @@ export function HomePage() {
 
       {/* Drilling Process Animation — oculto temporariamente, manter para uso futuro */}
       {/* <DrillingProcessUI /> */}
+
+      {/* Client Logos */}
+      <ClientLogos />
 
       {/* Coverage Section */}
       <section className="bg-white py-[64px] md:py-[96px]">
