@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 // ─── Static photo list ────────────────────────────────────────────────────────
-const BASE = "/cristalpocos/fotos%20projetos/";
+const BASE = "/fotos%20projetos/";
 
 const photos: { src: string; alt: string }[] = [
   { src: "poco-artesiano-aereo-drone-chapeco-01.jpg",        alt: "Vista aérea de poço artesiano em Chapecó SC" },
