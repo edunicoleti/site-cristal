@@ -74,7 +74,7 @@ export function Testimonials() {
           >
             Quem Confia na Cristal
           </p>
-          <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px]">
+          <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px]">
             O que nossos clientes dizem
           </h2>
           <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[80px] mx-auto" />

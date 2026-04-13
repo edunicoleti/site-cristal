@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(git reflog:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx tsc:*)",
+      "Bash(mv '02\\(1\\).JPG' 'poco-artesiano-perfuracao-sonda-equipamento-02.jpg')",
+      "Bash(mv '02.JPG' 'poco-artesiano-perfuracao-sonda-chapeco-01.jpg')",
+      "Bash(mv '05.JPG' 'poco-artesiano-obra-perfuracao-rural-01.jpg')",
+      "Bash(mv '06.JPG' 'poco-artesiano-instalacao-tubulacao-01.jpg')",
+      "Bash(mv '08.JPG' 'poco-artesiano-sonda-perfuracao-chapeco-02.jpg')",
+      "Bash(./node_modules/.bin/tsc --noEmit)",
+      "Bash(git add:*)"
+    ]
+  }
+}

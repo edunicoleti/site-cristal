@@ -99,7 +99,7 @@ export function ContatoPage() {
             <p className="font-['Inter:Bold',sans-serif] font-bold text-[12px] md:text-[14px] text-[#dbeafe] tracking-[2.8px] uppercase mb-[16px]">
               Entre em Contato
             </p>
-            <h1 className="font-['Inter:Black',sans-serif] font-black text-[32px] md:text-[48px] text-white tracking-[-0.8px] md:tracking-[-1.2px] leading-[36px] md:leading-[48px] mb-[24px]">
+            <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[32px] md:text-[48px] text-white tracking-[-0.8px] md:tracking-[-1.2px] leading-[36px] md:leading-[48px] mb-[24px]">
               Fale com Nossos Especialistas
             </h1>
             <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px]">
@@ -178,7 +178,7 @@ export function ContatoPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] mb-[24px]">
+              <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] mb-[24px]">
                 Envie sua Mensagem
               </h2>
               <form
@@ -357,7 +357,7 @@ export function ContatoPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] mb-[24px]">
+              <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] mb-[24px]">
                 Nossas Filiais
               </h2>
 
@@ -375,7 +375,7 @@ export function ContatoPage() {
                       <span className="font-['Inter:Bold',sans-serif] font-bold text-[12px] text-[#617589] uppercase tracking-wide">
                         Matriz
                       </span>
-                      <h3 className="font-['Inter:Black',sans-serif] font-black text-[20px] text-[#111418]">
+                      <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[20px] text-[#111418]">
                         Chapecó - SC
                       </h3>
                     </div>
@@ -405,7 +405,7 @@ export function ContatoPage() {
                       <span className="font-['Inter:Bold',sans-serif] font-bold text-[12px] text-[#617589] uppercase tracking-wide">
                         Filial
                       </span>
-                      <h3 className="font-['Inter:Black',sans-serif] font-black text-[20px] text-[#111418]">
+                      <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[20px] text-[#111418]">
                         Balsas - MA
                       </h3>
                     </div>
@@ -428,7 +428,7 @@ export function ContatoPage() {
                 whileHover={{ scale: 1.02 }}
                 className="mt-[24px] md:mt-[32px] bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-[16px] p-[28px] md:p-[32px] text-white"
               >
-                <h3 className="font-['Inter:Black',sans-serif] font-black text-[22px] md:text-[24px] mb-[12px]">
+                <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[22px] md:text-[24px] mb-[12px]">
                   Prefere WhatsApp?
                 </h3>
                 <p className="font-['Inter:Regular',sans-serif] text-[14px] opacity-90 mb-[20px]">
@@ -468,7 +468,7 @@ export function ContatoPage() {
             <p className="font-['Inter:Bold',sans-serif] font-bold text-[12px] md:text-[14px] text-[#137fec] tracking-[2.8px] uppercase mb-[8px] md:mb-[16px]">
               Presença Nacional
             </p>
-            <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px] md:mb-[16px]">
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px] md:mb-[16px]">
               Onde Atuamos
             </h2>
             <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[80px]" />

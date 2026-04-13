@@ -33,7 +33,7 @@ function StatItem({
   return (
     <div className="text-center" ref={ref}>
       <motion.div
-        className="font-['Inter:Black',sans-serif] font-black text-[40px] md:text-[48px] text-[#137fec]"
+        className="font-['Inter:Bold',sans-serif] font-bold text-[40px] md:text-[48px] text-[#137fec]"
         whileHover={{ scale: 1.08 }}
       >
         {display}
@@ -94,7 +94,7 @@ export function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-['Inter:Black',sans-serif] font-black text-[32px] sm:text-[40px] md:text-[60px] text-white tracking-[-0.8px] md:tracking-[-1.5px] leading-[38px] sm:leading-[46px] md:leading-[64px]"
+              className="font-['Inter:Bold',sans-serif] font-bold text-[32px] sm:text-[40px] md:text-[60px] text-white tracking-[-0.8px] md:tracking-[-1.5px] leading-[38px] sm:leading-[46px] md:leading-[64px]"
             >
               Melhore sua
               <br />
@@ -171,7 +171,7 @@ export function HomePage() {
             <p className="font-['Inter:Bold',sans-serif] font-bold text-[12px] md:text-[14px] text-[#137fec] tracking-[2.8px] uppercase mb-[8px]">
               Diferenciais Cristal
             </p>
-            <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px]">
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px]">
               Por que escolher a nossa empresa?
             </h2>
             <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[80px] mx-auto" />
@@ -241,7 +241,7 @@ export function HomePage() {
             <p className="font-['Inter:Bold',sans-serif] font-bold text-[12px] md:text-[14px] text-[#137fec] tracking-[2.8px] uppercase mb-[8px] md:mb-[16px]">
               Presença Nacional
             </p>
-            <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px] md:mb-[16px]">
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px] md:mb-[16px]">
               Onde Atuamos
             </h2>
             <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[80px]" />
@@ -264,13 +264,12 @@ export function HomePage() {
             />
 
             <div className="relative max-w-[768px] mx-auto text-center">
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px] max-w-[800px] mx-auto">
+              <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px] max-w-[800px] mx-auto">
                 Fale com nossos especialistas
               </h2>
 
               <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[24px] md:mb-[32px]">
-                Fale com nossos especialistas agora mesmo e garanta a melhor
-                captação para
+                Entre em contato agora mesmo e garanta a melhor captação para
                 <br className="hidden md:block" /> sua propriedade com quem é
                 referência no mercado.
               </p>

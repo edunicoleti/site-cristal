@@ -4,6 +4,7 @@ import { QuemSomosPage } from "./pages/QuemSomosPage";
 import { ServicosPage } from "./pages/ServicosPage";
 import { ContatoPage } from "./pages/ContatoPage";
 import { AdminPage } from "./pages/AdminPage";
+import { ProjetosPage } from "./pages/ProjetosPage";
 import { Layout } from "./components/Layout";
 
 export const router = createBrowserRouter([
@@ -31,6 +32,12 @@ export const router = createBrowserRouter([
         path: "admin", 
         element: <AdminPage /> 
       },
+      { 
+        path: "projetos", 
+        element: <ProjetosPage /> 
+      },
     ],
   },
-]);
+], {
+  basename: "/cristalpocos/"
+});

@@ -46,6 +46,7 @@ export function Header() {
     { path: "/", label: "Início" },
     { path: "/quem-somos", label: "Quem somos" },
     { path: "/servicos", label: "Serviços" },
+    { path: "/projetos", label: "Projetos" },
     { path: "/contato", label: "Contato" },
   ];
 

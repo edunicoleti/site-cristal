@@ -3,15 +3,8 @@ import { motion } from "motion/react";
 import { MessageCircle } from "lucide-react";
 import svgPaths from "../../imports/svg-z6zitnfa74";
 import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
-import imgSedeCristal from "figma:asset/c09dd4bf03d4b6a4a043f0ba702ed84e9d181e05.png";
-import imgAb6AXuAl6BxAw5F1XwwBaOsLsVePkjoKh6MQgcwzTkcH6Etvid6M1JMe80KdHcrqLx4U7ITepntN6PgKamwUbyAuwwqy9ZqNy7Yt73XVjGnLdbx9X4JXyLqIf8UsGizPoSzftMa4CWaIloeNby4Yfb4EQ1TeXp3AjkXkFPhW9RjNeYy3LvzdGNaFPqH9SdsPt8URvnwzWzM1GOlnUOvUBcNotbMiyaw2IsxM9LQKjXlOndfYySnjfjwwhYmTkaA8WKmPpalPnAbi0E from "figma:asset/fa0e2d147a58c6e2d212e1a94f7a89dba2806dc5.png";
-import imgAb6AXuCbfq8RbFgKUrm4GsZ2I0F4L66ETWlzN0A2OcEdt8MeQhdRmycItv3Owb2XIpEAmyLv3AdJ1VK82L5NWggQtNzwKcScIuts3RP7BFk0Qm72XQppssQwJyGx8Zupc4UvAne1CBrwm610SozOezyGi6UkedCjxLtodny7KxGftWmfWJscjMcToJyW7GmMMo3HdMv2EiDmll3QIiI7DiSxAt4QYos0E43N49Jw1UYeUaV3HXtFz63R7Zemdj7IxHk4PuEy from "figma:asset/034e49cb80791c49f75dd5cb7776dafe792ad22f.png";
-import imgAb6AXuC1HJmsRts2Qa3ViUb80ZXbjdA136MUcy6ZR9Dj2J2PzytQMyi4PmEs91ZQcOd99NMhiEVf7LedGgJJgk7Hrzod4PNCBhdWqjMfaKwUvYpmbvx2T5MQj6HjbnZpW4PWgyWe2ZhWl7U7NzuCxVwG829Muyt1Hkp8H37AUHrGuAaij7RAcqt6KIisCeF68ZtQk4GGsOSkEkjvEiYwqk6G2NVz1Tr7SgQyl0LvwdA5CiXs9XynGMimAej5ZqgFywgG5LNCuI2Ba from "figma:asset/23a6f4e738f76857fa5cfe7f38c13d3a0685cf1a.png";
-import imgAb6AXuDDcYwplx3ZheCuXpjk29Z92Bde0XuzsHxXwllXiofurF3SdaoJ8QA3PjMj5MbkRxl4SaYxywH7RZddnOo708WjuZaxt3VBdHi3Yi8PlkGsejvDhGhK7KRcYcka5XrVKiuTjHfA8M6ZFr1Q7ZftTQzLm2Obd9EHeciUsEPh4IpcG9Z2SsifMj1SozLoKhyJgvMa2TbljaT6RIuPs1V0LHd7Clj11Ya0AW6DmIoCnsgLdwU5KAk5GLhQjZsUChmi0P3X6U from "figma:asset/8c0c7e6b95e729c77009e44dbd72d72bad9fd401.png";
-import { Timeline } from "../components/Timeline";
 import { SEOHead } from "../components/SEOHead";
 import { useCountUp } from "../hooks/useCountUp";
-import { DrillingProcessUI } from "../components/DrillingProcessUI";
 
 const WHATSAPP_URL =
   "https://wa.me/5549999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
@@ -34,7 +27,7 @@ function StatItem({
       : count + suffix;
   return (
     <div className="text-center" ref={ref}>
-      <div className="font-['Inter:Black',sans-serif] font-black text-[32px] md:text-[48px] text-[#137fec]">
+      <div className="font-['Inter:Bold',sans-serif] font-bold text-[32px] md:text-[48px] text-[#137fec]">
         {display}
       </div>
       <div className="font-['Inter:Medium',sans-serif] font-medium text-[13px] md:text-[16px] text-[#617589] mt-[4px]">
@@ -48,7 +41,7 @@ export function QuemSomosPage() {
   return (
     <div className="relative bg-white">
       <SEOHead
-        title="Quem Somos — Cristal Poços | 25 Anos de Excelência"
+        title="Quem Somos — Cristal Poços | +27 Anos de Excelência"
         description="Fundada em 1998, a Cristal Poços é referência nacional em perfuração de poços artesianos. Conheça nossa história, missão e valores."
       />
 
@@ -84,10 +77,10 @@ export function QuemSomosPage() {
             </span>
           </motion.div>
 
-          <h1 className="font-['Inter:Black',sans-serif] font-black text-[36px] md:text-[60px] text-white tracking-[-2px] md:tracking-[-3px] leading-[38px] md:leading-[60px] mb-[16px]">
-            25 Anos de Excelência em
+          <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[36px] md:text-[60px] text-white tracking-[-2px] md:tracking-[-3px] leading-[38px] md:leading-[60px] mb-[16px]">
+            <span className="text-[#f97316]">+27 Anos</span> de Excelência em
             <br />
-            <span className="text-[#f97316]">Águas Subterrâneas</span>
+            Águas Subterrâneas
           </h1>
 
           <p className="font-['Inter:Light',sans-serif] font-light text-[17px] md:text-[20px] text-[#d1d5db] leading-[25px] md:leading-[28px] max-w-[658px] mx-auto">
@@ -100,11 +93,10 @@ export function QuemSomosPage() {
       {/* Stats Section — CountUp */}
       <section className="bg-white py-[48px] border-b border-[#e5e7eb]">
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-[24px] md:gap-[32px]">
-            <StatItem end={25} suffix="+" label="Anos de Expertise" />
-            <StatItem end={1200} suffix="+" label="Poços Artesianos" format="dot" />
-            <StatItem end={100} suffix="%" label="Legalizado" />
-            <StatItem end={24} suffix="h" label="Suporte Técnico" />
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-[24px] md:gap-[32px]">
+            <StatItem end={27} suffix="+" label="Anos de Experiência" />
+            <StatItem end={7000} suffix="+" label="Poços Perfurados" format="dot" />
+            <StatItem end={24} suffix="h" label="Assistência Técnica" />
           </div>
         </div>
       </section>
@@ -120,7 +112,7 @@ export function QuemSomosPage() {
               transition={{ duration: 0.6 }}
               className="flex-1"
             >
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] leading-[32px] md:leading-[40px] mb-[24px]">
+              <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] leading-[32px] md:leading-[40px] mb-[24px]">
                 Uma trajetória marcada pela{" "}
                 <span className="text-[#137fec] underline decoration-[#f97316]">
                   precisão técnica
@@ -167,20 +159,21 @@ export function QuemSomosPage() {
                   />
                 </motion.div>
               </div>
-              <motion.img
+              <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
-                src={imgSedeCristal}
-                alt="Sede Cristal Poços Artesianos"
-                className="relative rounded-[12px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full h-[300px] md:h-[500px] object-cover cursor-pointer"
-              />
+                className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full aspect-square overflow-hidden cursor-pointer"
+              >
+                <img
+                  src="/cristalpocos/sede-cristal-po%C3%A7os-artesianos-chapec%C3%B3.png"
+                  alt="Sede Cristal Poços Artesianos — Chapecó SC"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Interactive Drilling Process Section */}
-      <DrillingProcessUI />
 
       {/* Mission Vision Values Section */}
       <section className="bg-[#111418] py-[64px] md:py-[96px]">
@@ -278,76 +271,10 @@ export function QuemSomosPage() {
         </div>
       </section>
 
-      {/* Environmental Commitment Section */}
-      <section className="py-[64px] md:py-[96px]">
-        <div className="max-w-[1280px] mx-auto px-[16px] md:px-[48px] lg:px-[96px]">
-          <div className="flex flex-col md:flex-row gap-[48px] md:gap-[64px] items-start">
-            <div className="flex-1">
-              <div className="flex gap-[8px] items-center mb-[16px]">
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-                  <path d={svgPaths.p12cee600} fill="#137FEC" />
-                </svg>
-                <span className="font-['Inter:Bold',sans-serif] font-bold text-[14px] text-[#137fec] tracking-[1.4px] uppercase">
-                  Responsabilidade
-                </span>
-              </div>
-
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] leading-[34px] md:leading-[40px] mb-[16px]">
-                Compromisso com o
-                <br />
-                Meio Ambiente
-              </h2>
-
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] md:text-[18px] text-[#4b5563] leading-[26px] md:leading-[28px]">
-                Na Cristal Poços, acreditamos que a água é o nosso bem mais
-                precioso. Por isso, cada perfuração é precedida de estudos
-                geológicos rigorosos para evitar a contaminação de aquíferos e
-                garantir o{" "}
-                <span className="font-bold text-[#f97316]">uso sustentável</span>{" "}
-                dos recursos hídricos.
-              </p>
-
-              <div className="grid grid-cols-2 gap-[24px] mt-[32px]">
-                <div>
-                  <h4 className="font-['Inter:Bold',sans-serif] font-bold text-[14px] text-[#111418] mb-[8px]">
-                    Licenciamento
-                  </h4>
-                  <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-[#6b7280] leading-[18px]">
-                    Regularização total junto ao DAEE/IGAM.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-['Inter:Bold',sans-serif] font-bold text-[14px] text-[#111418] mb-[8px]">
-                    Gestão Hídrica
-                  </h4>
-                  <p className="font-['Inter:Regular',sans-serif] font-normal text-[12px] text-[#6b7280] leading-[18px]">
-                    Projetos sustentáveis com economia de recursos.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Images — responsivas com overlap apenas no desktop */}
-            <div className="flex-1 relative w-full md:pb-[60px]">
-              <img
-                src={imgAb6AXuC1HJmsRts2Qa3ViUb80ZXbjdA136MUcy6ZR9Dj2J2PzytQMyi4PmEs91ZQcOd99NMhiEVf7LedGgJJgk7Hrzod4PNCBhdWqjMfaKwUvYpmbvx2T5MQj6HjbnZpW4PWgyWe2ZhWl7U7NzuCxVwG829Muyt1Hkp8H37AUHrGuAaij7RAcqt6KIisCeF68ZtQk4GGsOSkEkjvEiYwqk6G2NVz1Tr7SgQyl0LvwdA5CiXs9XynGMimAej5ZqgFywgG5LNCuI2Ba}
-                alt="Meio Ambiente"
-                className="rounded-[16px] w-full h-[260px] md:h-[400px] object-cover shadow-lg"
-              />
-              <img
-                src={imgAb6AXuDDcYwplx3ZheCuXpjk29Z92Bde0XuzsHxXwllXiofurF3SdaoJ8QA3PjMj5MbkRxl4SaYxywH7RZddnOo708WjuZaxt3VBdHi3Yi8PlkGsejvDhGhK7KRcYcka5XrVKiuTjHfA8M6ZFr1Q7ZftTQzLm2Obd9EHeciUsEPh4IpcG9Z2SsifMj1SozLoKhyJgvMa2TbljaT6RIuPs1V0LHd7Clj11Ya0AW6DmIoCnsgLdwU5KAk5GLhQjZsUChmi0P3X6U}
-                alt="Sustentabilidade"
-                className="hidden md:block absolute bottom-0 left-[50px] rounded-[16px] w-[180px] h-[180px] object-cover shadow-xl border-4 border-white"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-[64px] md:py-[96px]">
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
-          <div className="bg-[#137fec] rounded-[24px] md:rounded-[40px] px-[24px] md:px-[64px] lg:px-[96px] py-[48px] md:py-[96px] text-center relative overflow-hidden">
+          <div className="bg-[#137fec] rounded-[24px] md:rounded-[40px] px-[24px] md:px-[64px] lg:px-[232px] py-[48px] md:py-[96px] relative overflow-hidden">
             <div
               className="absolute inset-0 opacity-10"
               style={{
@@ -356,14 +283,15 @@ export function QuemSomosPage() {
               }}
             />
 
-            <div className="relative">
-              <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] max-w-[800px] mx-auto">
-                Pronto para ter sua própria fonte de água cristalina?
+            <div className="relative max-w-[768px] mx-auto text-center">
+              <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px] max-w-[800px] mx-auto">
+                Fale com nossos especialistas
               </h2>
 
-              <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[32px] max-w-[700px] mx-auto">
-                Entre em contato agora mesmo e descubra como podemos ajudar você
-                a ter acesso contínuo e de qualidade à água.
+              <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[24px] md:mb-[32px]">
+                Entre em contato agora mesmo e garanta a melhor captação para
+                <br className="hidden md:block" /> sua propriedade com quem é
+                referência no mercado.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-[12px] md:gap-[16px] justify-center">
@@ -374,20 +302,25 @@ export function QuemSomosPage() {
                   >
                     <MessageCircle size={20} className="text-[#137fec]" />
                     <span className="font-['Inter:Bold',sans-serif] font-bold text-[16px] md:text-[18px] text-[#137fec]">
-                      Falar com Especialista
+                      Solicitar Orçamento Grátis
                     </span>
                   </Link>
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    to="/servicos"
-                    className="bg-[#f97316] flex gap-[12px] items-center justify-center px-[24px] md:px-[32px] py-[14px] md:py-[16px] rounded-[12px] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.2)] transition-shadow hover:shadow-[0px_10px_20px_-3px_rgba(249,115,22,0.5)]"
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#25D366] flex gap-[12px] items-center justify-center px-[24px] md:px-[32px] py-[14px] md:py-[16px] rounded-[12px] shadow-[0px_10px_15px_-3px_rgba(37,211,102,0.3),0px_4px_6px_-4px_rgba(37,211,102,0.3)] transition-shadow hover:shadow-[0px_10px_20px_-3px_rgba(37,211,102,0.5)]"
                   >
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M17.05 2.91C15.18 1.03 12.69 0 10.04 0C4.58 0 0.13 4.45 0.13 9.91C0.13 11.66 0.59 13.36 1.45 14.86L0.05 20L5.31 18.62C6.76 19.41 8.38 19.83 10.04 19.83C15.5 19.83 19.95 15.38 19.95 9.92C19.95 7.27 18.92 4.78 17.05 2.91ZM10.04 18.15C8.56 18.15 7.11 17.75 5.84 17L5.54 16.82L2.42 17.64L3.25 14.6L3.05 14.29C2.23 12.98 1.79 11.46 1.79 9.91C1.79 5.37 5.49 1.67 10.03 1.67C12.23 1.67 14.3 2.53 15.85 4.09C17.41 5.65 18.26 7.72 18.26 9.92C18.27 14.46 14.57 18.15 10.04 18.15ZM14.56 12.1C14.31 11.97 13.09 11.37 12.87 11.29C12.64 11.2 12.48 11.16 12.31 11.41C12.14 11.66 11.67 12.22 11.53 12.39C11.38 12.56 11.24 12.58 10.99 12.45C10.74 12.32 9.94 12.06 8.99 11.2C8.24 10.53 7.73 9.7 7.59 9.45C7.44 9.2 7.58 9.06 7.71 8.93C7.83 8.81 7.96 8.62 8.09 8.48C8.22 8.34 8.27 8.23 8.35 8.06C8.43 7.89 8.39 7.75 8.33 7.62C8.27 7.49 7.73 6.26 7.53 5.76C7.33 5.28 7.13 5.34 6.98 5.33H6.53C6.36 5.33 6.1 5.39 5.87 5.64C5.65 5.89 5 6.49 5 7.72C5 8.95 5.9 10.14 6.03 10.31C6.16 10.48 7.73 12.94 10.11 14.01C10.69 14.27 11.14 14.42 11.49 14.53C12.07 14.72 12.6 14.69 13.02 14.63C13.49 14.56 14.5 14.03 14.7 13.45C14.9 12.87 14.9 12.38 14.84 12.27C14.78 12.16 14.81 12.23 14.56 12.1Z" fill="white" />
+                    </svg>
                     <span className="font-['Inter:Bold',sans-serif] font-bold text-[16px] md:text-[18px] text-white">
-                      Ver Nossos Serviços
+                      Conversar no WhatsApp
                     </span>
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </div>
