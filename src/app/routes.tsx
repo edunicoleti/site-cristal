@@ -38,6 +38,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
-], {
-  basename: "/cristalpocos/"
-});
+]);
+

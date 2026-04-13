@@ -165,7 +165,7 @@ export function QuemSomosPage() {
                 className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full aspect-square overflow-hidden cursor-pointer"
               >
                 <img
-                  src="/cristalpocos/sede-cristal-po%C3%A7os-artesianos-chapec%C3%B3.png"
+                  src="/sede-cristal-po%C3%A7os-artesianos-chapec%C3%B3.png"
                   alt="Sede Cristal Poços Artesianos — Chapecó SC"
                   className="w-full h-full object-cover"
                 />
