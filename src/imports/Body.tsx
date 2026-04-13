@@ -799,7 +799,7 @@ function Margin() {
 function Heading() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Heading 1">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[60px] justify-center leading-[0] not-italic relative shrink-0 text-[60px] text-center text-white tracking-[-1.5px] w-[484.38px]">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[60px] justify-center leading-[0] not-italic relative shrink-0 text-[60px] text-center text-white tracking-[-1.5px] w-[484.38px]">
         <p className="leading-[60px] whitespace-pre-wrap">Nossos Serviços</p>
       </div>
     </div>
@@ -856,7 +856,7 @@ function HeroSection() {
 function Heading13() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 2">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black justify-center leading-[48px] not-italic relative shrink-0 text-[48px] text-white w-full whitespace-pre-wrap">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[48px] not-italic relative shrink-0 text-[48px] text-white w-full whitespace-pre-wrap">
         <p className="mb-0">Pronto para ter sua própria fonte</p>
         <p>de água?</p>
       </div>

@@ -21,7 +21,7 @@ function Background() {
 function Heading() {
   return (
     <div className="absolute content-stretch flex flex-col items-center left-[16px] right-[16px] top-[48px]" data-name="Heading 1">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[120px] justify-center leading-[60px] not-italic relative shrink-0 text-[60px] text-center text-white tracking-[-3px] w-[708.6px] whitespace-pre-wrap">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[120px] justify-center leading-[60px] not-italic relative shrink-0 text-[60px] text-center text-white tracking-[-3px] w-[708.6px] whitespace-pre-wrap">
         <p className="mb-0">25 Anos de Excelência em</p>
         <p className="text-[#f97316]">Águas Subterrâneas</p>
       </div>
@@ -67,11 +67,11 @@ function HeroSection() {
 function Heading1() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 2">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black justify-center leading-[0] not-italic relative shrink-0 text-[#111418] text-[36px] w-full whitespace-pre-wrap">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#111418] text-[36px] w-full whitespace-pre-wrap">
         <p className="leading-[40px] mb-0">Uma trajetória marcada</p>
         <p className="mb-0">
           <span className="leading-[40px]">{`pela `}</span>
-          <span className="[text-decoration-skip-ink:none] decoration-[#f97316] decoration-solid font-['Inter:Black',sans-serif] font-black leading-[40px] not-italic text-[#137fec] underline">precisão técnica</span>
+          <span className="[text-decoration-skip-ink:none] decoration-[#f97316] decoration-solid font-['Inter:Bold',sans-serif] font-bold leading-[40px] not-italic text-[#137fec] underline">precisão técnica</span>
           <span className="leading-[40px]">{` e`}</span>
         </p>
         <p className="leading-[40px]">inovação.</p>
@@ -474,7 +474,7 @@ function Container16() {
 function Heading6() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 2">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black justify-center leading-[40px] not-italic relative shrink-0 text-[#111418] text-[36px] w-full whitespace-pre-wrap">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[40px] not-italic relative shrink-0 text-[#111418] text-[36px] w-full whitespace-pre-wrap">
         <p className="mb-0">Compromisso com o</p>
         <p>Meio Ambiente</p>
       </div>
@@ -733,7 +733,7 @@ function Component() {
   return (
     <div className="relative shrink-0 w-full" data-name="1998">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-start pl-[40px] relative w-full">
-        <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[49.61px]">
+        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[49.61px]">
           <p className="leading-[28px] whitespace-pre-wrap">1998</p>
         </div>
         <Heading8 />
@@ -770,7 +770,7 @@ function Component1() {
   return (
     <div className="relative shrink-0 w-full" data-name="2008">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-start pl-[40px] relative w-full">
-        <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[54.95px]">
+        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[54.95px]">
           <p className="leading-[28px] whitespace-pre-wrap">2008</p>
         </div>
         <Heading9 />
@@ -807,7 +807,7 @@ function Component2() {
   return (
     <div className="relative shrink-0 w-full" data-name="2015">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-start pl-[40px] relative w-full">
-        <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[49.13px]">
+        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[49.13px]">
           <p className="leading-[28px] whitespace-pre-wrap">2015</p>
         </div>
         <Heading10 />
@@ -854,7 +854,7 @@ function Component3() {
   return (
     <div className="relative shrink-0 w-full" data-name="2023">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[4px] items-start pl-[40px] relative w-full">
-        <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[53.47px]">
+        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[28px] justify-center leading-[0] not-italic relative shrink-0 text-[#f97316] text-[20px] w-[53.47px]">
           <p className="leading-[28px] whitespace-pre-wrap">2023</p>
         </div>
         <Heading11 />
@@ -897,7 +897,7 @@ function SectionTimeline() {
 function Heading12() {
   return (
     <div className="content-stretch flex flex-col items-center px-[45.8px] relative shrink-0" data-name="Heading 2">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[96px] justify-center leading-[48px] not-italic relative shrink-0 text-[48px] text-center text-white w-[948.4px] whitespace-pre-wrap">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[96px] justify-center leading-[48px] not-italic relative shrink-0 text-[48px] text-center text-white w-[948.4px] whitespace-pre-wrap">
         <p className="mb-0">Pronto para garantir sua independência</p>
         <p>hídrica?</p>
       </div>
@@ -988,7 +988,7 @@ function SectionFinalCta() {
 function Container38() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#137fec] text-[36px] text-center w-[71.52px]">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#137fec] text-[36px] text-center w-[71.52px]">
         <p className="leading-[40px] whitespace-pre-wrap">25+</p>
       </div>
     </div>
@@ -1021,7 +1021,7 @@ function BackgroundHorizontalBorder() {
 function Container39() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#137fec] text-[36px] text-center w-[129.14px]">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#137fec] text-[36px] text-center w-[129.14px]">
         <p className="leading-[40px] whitespace-pre-wrap">1.200+</p>
       </div>
     </div>
@@ -1054,7 +1054,7 @@ function BackgroundHorizontalBorder1() {
 function Container40() {
   return (
     <div className="content-stretch flex flex-col items-center relative shrink-0" data-name="Container">
-      <div className="flex flex-col font-['Inter:Black',sans-serif] font-black h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#137fec] text-[36px] text-center w-[105.05px]">
+      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold h-[40px] justify-center leading-[0] not-italic relative shrink-0 text-[#137fec] text-[36px] text-center w-[105.05px]">
         <p className="leading-[40px] whitespace-pre-wrap">100%</p>
       </div>
     </div>

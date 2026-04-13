@@ -85,7 +85,7 @@ export function Timeline() {
             </span>
           </motion.div>
           
-          <h2 className="font-['Inter:Black',sans-serif] font-black text-[32px] md:text-[48px] text-[#111418] mb-[16px] tracking-[-1px]">
+          <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[32px] md:text-[48px] text-[#111418] mb-[16px] tracking-[-1px]">
             Nossa Evolução
           </h2>
           
@@ -127,7 +127,7 @@ export function Timeline() {
                         >
                           <div className="bg-white rounded-[20px] p-[32px] shadow-lg border-2 border-[#f0f0f0] hover:border-[#137fec]/30 transition-all">
                             <div className="flex items-center justify-end gap-[12px] mb-[12px]">
-                              <h3 className="font-['Inter:Black',sans-serif] font-black text-[24px] text-[#111418]">
+                              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[24px] text-[#111418]">
                                 {event.title}
                               </h3>
                               <div 
@@ -176,7 +176,7 @@ export function Timeline() {
                                   {event.icon}
                                 </div>
                               </div>
-                              <h3 className="font-['Inter:Black',sans-serif] font-black text-[24px] text-[#111418]">
+                              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[24px] text-[#111418]">
                                 {event.title}
                               </h3>
                             </div>
@@ -218,7 +218,7 @@ export function Timeline() {
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-['Inter:Black',sans-serif] font-black text-[18px] text-[#111418] mb-[4px]">
+                          <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[18px] text-[#111418] mb-[4px]">
                             {event.title}
                           </h3>
                           {event.stats && (
@@ -266,7 +266,7 @@ export function Timeline() {
                         className="size-[72px] md:size-[88px] rounded-full flex items-center justify-center shadow-xl border-4 border-white relative z-10"
                         style={{ backgroundColor: event.color }}
                       >
-                        <span className="font-['Inter:Black',sans-serif] font-black text-[18px] md:text-[22px] text-white">
+                        <span className="font-['Inter:Bold',sans-serif] font-bold text-[18px] md:text-[22px] text-white">
                           {event.year}
                         </span>
                       </div>
@@ -311,7 +311,7 @@ export function Timeline() {
                   whileHover={{ scale: 1.05 }}
                   className="text-center"
                 >
-                  <div className="font-['Inter:Black',sans-serif] font-black text-[32px] md:text-[48px] text-white mb-[8px]">
+                  <div className="font-['Inter:Bold',sans-serif] font-bold text-[32px] md:text-[48px] text-white mb-[8px]">
                     {stat.value}
                   </div>
                   <div className="font-['Inter:Medium',sans-serif] font-medium text-[13px] md:text-[16px] text-[#dbeafe]">

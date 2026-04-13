@@ -65,7 +65,7 @@ export function FAQ() {
           <p className="font-['Inter:Bold',sans-serif] font-bold text-[12px] md:text-[14px] text-[#137fec] tracking-[2.8px] uppercase mb-[8px]">
             Dúvidas Frequentes
           </p>
-          <h2 className="font-['Inter:Black',sans-serif] font-black text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px]">
+          <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[36px] text-[#111418] tracking-[-0.7px] md:tracking-[-0.9px] mb-[8px]">
             Perguntas e Respostas
           </h2>
           <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[80px] mx-auto mb-[16px]" />
@@ -102,7 +102,7 @@ export function FAQ() {
                     }`}
                   >
                     <span
-                      className={`font-['Inter:Black',sans-serif] font-black text-[11px] ${
+                      className={`font-['Inter:Bold',sans-serif] font-bold text-[11px] ${
                         openIndex === index ? "text-white" : "text-[#617589]"
                       }`}
                     >
