@@ -11,7 +11,31 @@
       "Bash(mv '06.JPG' 'poco-artesiano-instalacao-tubulacao-01.jpg')",
       "Bash(mv '08.JPG' 'poco-artesiano-sonda-perfuracao-chapeco-02.jpg')",
       "Bash(./node_modules/.bin/tsc --noEmit)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git rm:*)",
+      "Bash(pkill -f \"git\")",
+      "Bash(rm -f .git/index.lock)",
+      "Bash(git reset:*)",
+      "Bash(cmd /c \"del .git\\\\\\\\index.lock\")",
+      "Bash(powershell -Command \"Remove-Item -Force '.git/index.lock' -ErrorAction SilentlyContinue\")",
+      "Bash(taskkill /F /IM \"Code.exe\")",
+      "Bash(taskkill /F /IM \"git.exe\")",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(powershell -Command ':*)",
+      "Bash(pkill -f \"npm run dev\")",
+      "Bash(pkill -f \"vite\")",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:5174)",
+      "Bash(xargs -I {} bash -c 'echo \"=== {} ===\"; file \"{}\"; du -h \"{}\"')",
+      "Bash(xargs du:*)",
+      "Bash(convert --version)",
+      "Bash(bash /tmp/optimize_photos.sh)",
+      "Bash(curl -s http://localhost:5174/projetos)"
     ]
   }
 }

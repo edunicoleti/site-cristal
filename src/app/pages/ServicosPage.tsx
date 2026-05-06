@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
+import { WaterCTACard, WHATSAPP_URL, WhatsAppIcon } from "../components/WaterCTACard";
 import {
   MessageCircle,
   Wrench,
@@ -19,74 +20,18 @@ import {
 } from "lucide-react";
 import { SEOHead } from "../components/SEOHead";
 import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
+import triconePov from "../../assets/tricone-pov.png";
+import pdcPov from "../../assets/pdc-pov.png";
 
-// ── Tricone Bit Icon (Lucide style) ──────────────────────────────────────────
+// ── Ícones como imagens PNG reais das brocas ─────────────────────────────────
 function TriconeBitIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Drill pipe */}
-      <rect x="8" y="1" width="8" height="4" rx="1" />
-      <line x1="10" y1="3" x2="10" y2="4" />
-      <line x1="12" y1="3" x2="12" y2="4" />
-      <line x1="14" y1="3" x2="14" y2="4" />
-
-      {/* Connector */}
-      <line x1="8" y1="5" x2="6" y2="7" />
-      <line x1="16" y1="5" x2="18" y2="7" />
-
-      {/* Left cone */}
-      <circle cx="6" cy="14" r="4" />
-      <line x1="6" y1="7" x2="6" y2="10" />
-
-      {/* Center cone */}
-      <circle cx="12" cy="15" r="5" />
-      <line x1="12" y1="5" x2="12" y2="10" />
-
-      {/* Right cone */}
-      <circle cx="18" cy="14" r="4" />
-      <line x1="18" y1="7" x2="18" y2="10" />
-    </svg>
-  );
+  return <img src={triconePov} alt="Broca Tricone" width="72" height="72" className="object-contain" />;
 }
 
-// ── PDC Bit Icon (Lucide style) ────────────────────────────────────────────────
 function PDCBitIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="72" height="72" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      {/* Drill pipe */}
-      <rect x="8" y="1" width="8" height="4" rx="1" />
-      <line x1="10" y1="3" x2="10" y2="4" />
-      <line x1="12" y1="3" x2="12" y2="4" />
-      <line x1="14" y1="3" x2="14" y2="4" />
-
-      {/* Connector */}
-      <line x1="8" y1="5" x2="6" y2="7" />
-      <line x1="16" y1="5" x2="18" y2="7" />
-
-      {/* Left blade */}
-      <path d="M 6 7 L 5 18" />
-      <path d="M 7 7 L 4 18" />
-
-      {/* Center blade */}
-      <path d="M 12 5 L 12 20" />
-
-      {/* Right blade */}
-      <path d="M 18 7 L 19 18" />
-      <path d="M 17 7 L 20 18" />
-
-      {/* Center hub */}
-      <circle cx="12" cy="5" r="2" />
-
-      {/* Diamond cutters (small dots) */}
-      <circle cx="6" cy="10" r="1" fill="white" />
-      <circle cx="12" cy="12" r="1" fill="white" />
-      <circle cx="18" cy="10" r="1" fill="white" />
-    </svg>
-  );
+  return <img src={pdcPov} alt="Broca PDC" width="72" height="72" className="object-contain" />;
 }
 
-const WHATSAPP_URL =
-  "https://wa.me/5549999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
 
 const NAV_ITEMS = [
   { id: "perfuracao", label: "Perfuração" },
@@ -211,47 +156,43 @@ export function ServicosPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="rounded-[24px] overflow-hidden border border-[#bfdbfe] shadow-md hover:shadow-xl transition-all"
+              className="rounded-[24px] overflow-hidden border border-[#bfdbfe] shadow-md hover:shadow-xl transition-all flex flex-col"
             >
-              {/* Gradient header */}
-              <div className="bg-gradient-to-br from-[#0d5fb8] via-[#0d6fd4] to-[#137fec] p-[32px] md:p-[40px] relative overflow-hidden">
-                {/* Decorative bg rings */}
-                <div className="absolute -right-[60px] -top-[60px] w-[260px] h-[260px] rounded-full border-[50px] border-white opacity-[0.05]" />
-                <div className="absolute right-[20px] bottom-[-30px] w-[160px] h-[160px] rounded-full border-[30px] border-white opacity-[0.04]" />
-
-                {/* Top badges */}
-                <div className="flex items-center justify-between mb-[28px]">
-                  <span className="bg-white/20 backdrop-blur-sm text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1.4px] uppercase px-[14px] py-[6px] rounded-[9999px]">
+              {/* Hero image */}
+              <div className="relative h-[240px] overflow-hidden">
+                <img
+                  src={triconePov}
+                  alt="Broca Tricone"
+                  className="w-full h-full object-cover object-center scale-105"
+                />
+                {/* Gradient overlay bottom → blue */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0d5fb8] via-[#0d6fd4]/40 to-transparent" />
+                {/* Badges over image */}
+                <div className="absolute top-[16px] left-[16px] right-[16px] flex items-center justify-between">
+                  <span className="bg-black/50 backdrop-blur-sm text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1.4px] uppercase px-[14px] py-[6px] rounded-[9999px]">
                     Região Sul
                   </span>
-                  <span className="bg-white/15 text-white/90 text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1px] uppercase px-[12px] py-[6px] rounded-[9999px] border border-white/20">
+                  <span className="bg-[#137fec] text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1px] uppercase px-[12px] py-[6px] rounded-[9999px]">
                     Tricone Bit
-                  </span>
-                </div>
-
-                {/* Icon + Title — vertical layout */}
-                <div className="mb-[24px]">
-                  <div className="bg-white/15 backdrop-blur-sm rounded-[20px] p-[18px] border border-white/20 inline-flex mb-[20px]">
-                    <TriconeBitIcon />
-                  </div>
-                  <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[22px] md:text-[26px] text-white leading-[28px] md:leading-[32px] mb-[8px]">
-                    Sistema Roto Pneumático e Rotativo
-                  </h3>
-                  <p className="text-white/70 text-[14px] leading-[20px] max-w-[380px]">
-                    Broca de 3 cones rotativos com dentes de carboneto para romper formações cristalinas compactas
-                  </p>
-                </div>
-
-                {/* Key highlight chip */}
-                <div className="flex flex-wrap gap-[8px]">
-                  <span className="bg-white/15 border border-white/25 text-white text-[12px] font-['Inter:Medium',sans-serif] font-medium px-[12px] py-[5px] rounded-[9999px]">
-                    Aquífero Guarani
                   </span>
                 </div>
               </div>
 
-              {/* Body */}
-              <div className="bg-white p-[24px] md:p-[32px]">
+              {/* Info section */}
+              <div className="bg-gradient-to-br from-[#0d5fb8] to-[#137fec] px-[28px] pt-[24px] pb-[28px]">
+                <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[22px] md:text-[24px] text-white leading-[28px] mb-[8px]">
+                  Sistema Roto Pneumático e Rotativo
+                </h3>
+                <p className="text-white/75 text-[14px] leading-[21px] mb-[20px]">
+                  Broca de 3 cones rotativos com dentes de carboneto para romper formações cristalinas compactas
+                </p>
+                <span className="bg-white/15 border border-white/25 text-white text-[12px] font-['Inter:Medium',sans-serif] font-medium px-[12px] py-[5px] rounded-[9999px]">
+                  Aquífero Guarani
+                </span>
+              </div>
+
+              {/* Specs */}
+              <div className="bg-white p-[24px] md:p-[28px] mt-auto">
                 <div className="grid grid-cols-2 gap-[10px]">
                   {[
                     { label: "Profundidade", value: "Até 1.500 m" },
@@ -259,7 +200,7 @@ export function ServicosPage() {
                     { label: "Sistema", value: "Roto pneumático" },
                     { label: "Região", value: "Sul do Brasil" },
                   ].map(({ label, value }) => (
-                    <div key={label} className="bg-[#f6f7f8] rounded-[12px] px-[14px] py-[14px]">
+                    <div key={label} className="bg-[#f6f7f8] rounded-[12px] px-[14px] py-[12px]">
                       <p className="text-[10px] font-['Inter:Medium',sans-serif] font-medium text-[#9ca3af] uppercase tracking-[0.8px] mb-[4px]">{label}</p>
                       <p className="text-[14px] font-['Inter:Bold',sans-serif] font-bold text-[#111418]">{value}</p>
                     </div>
@@ -274,46 +215,43 @@ export function ServicosPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="rounded-[24px] overflow-hidden border border-[#fed7aa] shadow-md hover:shadow-xl transition-all"
+              className="rounded-[24px] overflow-hidden border border-[#fed7aa] shadow-md hover:shadow-xl transition-all flex flex-col"
             >
-              {/* Gradient header */}
-              <div className="bg-gradient-to-br from-[#c2500a] via-[#ea6c0a] to-[#f97316] p-[32px] md:p-[40px] relative overflow-hidden">
-                <div className="absolute -right-[60px] -top-[60px] w-[260px] h-[260px] rounded-full border-[50px] border-white opacity-[0.05]" />
-                <div className="absolute right-[20px] bottom-[-30px] w-[160px] h-[160px] rounded-full border-[30px] border-white opacity-[0.04]" />
-
-                {/* Top badges */}
-                <div className="flex items-center justify-between mb-[28px]">
-                  <span className="bg-white/20 backdrop-blur-sm text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1.4px] uppercase px-[14px] py-[6px] rounded-[9999px]">
+              {/* Hero image */}
+              <div className="relative h-[240px] overflow-hidden">
+                <img
+                  src={pdcPov}
+                  alt="Broca PDC"
+                  className="w-full h-full object-cover object-center scale-105"
+                />
+                {/* Gradient overlay bottom → orange */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#c2500a] via-[#ea6c0a]/40 to-transparent" />
+                {/* Badges over image */}
+                <div className="absolute top-[16px] left-[16px] right-[16px] flex items-center justify-between">
+                  <span className="bg-black/50 backdrop-blur-sm text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1.4px] uppercase px-[14px] py-[6px] rounded-[9999px]">
                     Centro-Oeste e Nordeste
                   </span>
-                  <span className="bg-white/15 text-white/90 text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1px] uppercase px-[12px] py-[6px] rounded-[9999px] border border-white/20">
+                  <span className="bg-[#f97316] text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1px] uppercase px-[12px] py-[6px] rounded-[9999px]">
                     PDC Bit
-                  </span>
-                </div>
-
-                {/* Icon + Title — vertical layout */}
-                <div className="mb-[24px]">
-                  <div className="bg-white/15 backdrop-blur-sm rounded-[20px] p-[18px] border border-white/20 inline-flex mb-[20px]">
-                    <PDCBitIcon />
-                  </div>
-                  <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[22px] md:text-[26px] text-white leading-[28px] md:leading-[32px] mb-[8px]">
-                    Sistema Rotativo com Fluídos
-                  </h3>
-                  <p className="text-white/70 text-[14px] leading-[20px] max-w-[380px]">
-                    Broca de diamante sintético (PDC) com lâminas em espiral e jatos de fluido para corte em formações sedimentares
-                  </p>
-                </div>
-
-                {/* Key highlight chip */}
-                <div className="flex flex-wrap gap-[8px]">
-                  <span className="bg-white/15 border border-white/25 text-white text-[12px] font-['Inter:Medium',sans-serif] font-medium px-[12px] py-[5px] rounded-[9999px]">
-                    Alta Vazão / Irrigação
                   </span>
                 </div>
               </div>
 
-              {/* Body */}
-              <div className="bg-white p-[24px] md:p-[32px]">
+              {/* Info section */}
+              <div className="bg-gradient-to-br from-[#c2500a] to-[#f97316] px-[28px] pt-[24px] pb-[28px]">
+                <h3 className="font-['Inter:Bold',sans-serif] font-bold text-[22px] md:text-[24px] text-white leading-[28px] mb-[8px]">
+                  Sistema Rotativo com Fluídos
+                </h3>
+                <p className="text-white/75 text-[14px] leading-[21px] mb-[20px]">
+                  Broca de diamante sintético (PDC) com lâminas em espiral e jatos de fluido para corte em formações sedimentares
+                </p>
+                <span className="bg-white/15 border border-white/25 text-white text-[12px] font-['Inter:Medium',sans-serif] font-medium px-[12px] py-[5px] rounded-[9999px]">
+                  Alta Vazão / Irrigação
+                </span>
+              </div>
+
+              {/* Specs */}
+              <div className="bg-white p-[24px] md:p-[28px] mt-auto">
                 <div className="grid grid-cols-2 gap-[10px]">
                   {[
                     { label: "Profundidade", value: "Até 1.200 m" },
@@ -321,7 +259,7 @@ export function ServicosPage() {
                     { label: "Sistema", value: "Rotativo fluídos" },
                     { label: "Região", value: "CO e Nordeste" },
                   ].map(({ label, value }) => (
-                    <div key={label} className="bg-[#f6f7f8] rounded-[12px] px-[14px] py-[14px]">
+                    <div key={label} className="bg-[#f6f7f8] rounded-[12px] px-[14px] py-[12px]">
                       <p className="text-[10px] font-['Inter:Medium',sans-serif] font-medium text-[#9ca3af] uppercase tracking-[0.8px] mb-[4px]">{label}</p>
                       <p className="text-[14px] font-['Inter:Bold',sans-serif] font-bold text-[#111418]">{value}</p>
                     </div>
@@ -696,53 +634,42 @@ export function ServicosPage() {
       {/* ─── CTA ─────────────────────────────────────────────────── */}
       <section className="py-[64px] md:py-[96px]">
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
-          <div className="bg-[#137fec] rounded-[24px] md:rounded-[40px] px-[24px] md:px-[64px] lg:px-[232px] py-[48px] md:py-[96px] relative overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage:
-                  "url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 1232 468\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><rect x=\"0\" y=\"0\" height=\"100%\" width=\"100%\" fill=\"url(%23grad)\" opacity=\"1\"/><defs><radialGradient id=\"grad\" gradientUnits=\"userSpaceOnUse\" cx=\"0\" cy=\"0\" r=\"10\" gradientTransform=\"matrix(165.52 0 0 62.876 -54824 -20826)\"><stop stop-color=\"rgba(255,255,255,1)\" offset=\"0.009304\"/><stop stop-color=\"rgba(255,255,255,0)\" offset=\"0.009304\"/></radialGradient></defs></svg>')",
-              }}
-            />
-            <div className="relative max-w-[768px] mx-auto text-center">
-              <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px]">
-                Fale com nossos especialistas
-              </h2>
-              <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[24px] md:mb-[32px]">
-                Entre em contato agora mesmo e garanta a melhor captação para
-                <br className="hidden md:block" /> sua propriedade com quem é
-                referência no mercado.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-[12px] md:gap-[16px] justify-center">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link
-                    to="/contato"
-                    className="bg-white flex gap-[12px] items-center justify-center px-[24px] md:px-[32px] py-[14px] md:py-[16px] rounded-[12px] transition-shadow hover:shadow-lg"
-                  >
-                    <MessageCircle size={20} className="text-[#137fec]" />
-                    <span className="font-['Inter:Bold',sans-serif] font-bold text-[16px] md:text-[18px] text-[#137fec]">
-                      Solicitar Orçamento Grátis
-                    </span>
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-[#25D366] flex gap-[12px] items-center justify-center px-[24px] md:px-[32px] py-[14px] md:py-[16px] rounded-[12px] shadow-[0px_10px_15px_-3px_rgba(37,211,102,0.3),0px_4px_6px_-4px_rgba(37,211,102,0.3)] transition-shadow hover:shadow-[0px_10px_20px_-3px_rgba(37,211,102,0.5)]"
-                  >
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M17.05 2.91C15.18 1.03 12.69 0 10.04 0C4.58 0 0.13 4.45 0.13 9.91C0.13 11.66 0.59 13.36 1.45 14.86L0.05 20L5.31 18.62C6.76 19.41 8.38 19.83 10.04 19.83C15.5 19.83 19.95 15.38 19.95 9.92C19.95 7.27 18.92 4.78 17.05 2.91ZM10.04 18.15C8.56 18.15 7.11 17.75 5.84 17L5.54 16.82L2.42 17.64L3.25 14.6L3.05 14.29C2.23 12.98 1.79 11.46 1.79 9.91C1.79 5.37 5.49 1.67 10.03 1.67C12.23 1.67 14.3 2.53 15.85 4.09C17.41 5.65 18.26 7.72 18.26 9.92C18.27 14.46 14.57 18.15 10.04 18.15ZM14.56 12.1C14.31 11.97 13.09 11.37 12.87 11.29C12.64 11.2 12.48 11.16 12.31 11.41C12.14 11.66 11.67 12.22 11.53 12.39C11.38 12.56 11.24 12.58 10.99 12.45C10.74 12.32 9.94 12.06 8.99 11.2C8.24 10.53 7.73 9.7 7.59 9.45C7.44 9.2 7.58 9.06 7.71 8.93C7.83 8.81 7.96 8.62 8.09 8.48C8.22 8.34 8.27 8.23 8.35 8.06C8.43 7.89 8.39 7.75 8.33 7.62C8.27 7.49 7.73 6.26 7.53 5.76C7.33 5.28 7.13 5.34 6.98 5.33H6.53C6.36 5.33 6.1 5.39 5.87 5.64C5.65 5.89 5 6.49 5 7.72C5 8.95 5.9 10.14 6.03 10.31C6.16 10.48 7.73 12.94 10.11 14.01C10.69 14.27 11.14 14.42 11.49 14.53C12.07 14.72 12.6 14.69 13.02 14.63C13.49 14.56 14.5 14.03 14.7 13.45C14.9 12.87 14.9 12.38 14.84 12.27C14.78 12.16 14.81 12.23 14.56 12.1Z" fill="white" />
-                    </svg>
-                    <span className="font-['Inter:Bold',sans-serif] font-bold text-[16px] md:text-[18px] text-white">
-                      Conversar no WhatsApp
-                    </span>
-                  </a>
-                </motion.div>
-              </div>
+          <WaterCTACard>
+            <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[28px] md:text-[48px] text-white tracking-[-0.7px] md:tracking-[-1.2px] leading-[32px] md:leading-[48px] mb-[24px] md:mb-[32px]">
+              Fale com nossos especialistas
+            </h2>
+            <p className="font-['Inter:Medium',sans-serif] font-medium text-[16px] md:text-[20px] text-[#dbeafe] leading-[24px] md:leading-[28px] mb-[24px] md:mb-[32px]">
+              Entre em contato agora mesmo e garanta a melhor captação para
+              <br className="hidden md:block" /> sua propriedade com quem é
+              referência no mercado.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-[12px] md:gap-[16px] justify-center">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/contato"
+                  className="bg-white flex gap-[12px] items-center justify-center px-[24px] md:px-[32px] py-[14px] md:py-[16px] rounded-[12px] transition-shadow hover:shadow-lg"
+                >
+                  <MessageCircle size={20} className="text-[#137fec]" />
+                  <span className="font-['Inter:Bold',sans-serif] font-bold text-[16px] md:text-[18px] text-[#137fec]">
+                    Solicitar Orçamento Grátis
+                  </span>
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#25D366] flex gap-[12px] items-center justify-center px-[24px] md:px-[32px] py-[14px] md:py-[16px] rounded-[12px] shadow-[0px_10px_15px_-3px_rgba(37,211,102,0.3),0px_4px_6px_-4px_rgba(37,211,102,0.3)] transition-shadow hover:shadow-[0px_10px_20px_-3px_rgba(37,211,102,0.5)]"
+                >
+                  <WhatsAppIcon />
+                  <span className="font-['Inter:Bold',sans-serif] font-bold text-[16px] md:text-[18px] text-white">
+                    Conversar no WhatsApp
+                  </span>
+                </a>
+              </motion.div>
             </div>
-          </div>
+          </WaterCTACard>
         </div>
       </section>
     </div>
