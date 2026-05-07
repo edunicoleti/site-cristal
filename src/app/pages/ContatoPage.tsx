@@ -7,7 +7,7 @@ import { BrazilMapInteractive } from "../components/BrazilMapInteractive";
 import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 
 const WHATSAPP_URL =
-  "https://wa.me/5549999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
+  "https://wa.me/5549984225555?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
 
 interface FormData {
   name: string;
@@ -119,19 +119,19 @@ export function ContatoPage() {
               {
                 icon: <Phone size={24} />,
                 title: "Telefone",
-                info: "+55 (49) 9999-9999",
+                info: "(49) 3323-0094 / (49) 98422-5555",
                 color: "#137fec",
               },
               {
                 icon: <Mail size={24} />,
                 title: "E-mail",
-                info: "contato@cristalpocos.com.br",
+                info: "rurik@cristalpocos.com.br",
                 color: "#f97316",
               },
               {
                 icon: <MapPin size={24} />,
                 title: "Localização",
-                info: "Chapecó - SC",
+                info: "Chapecó - SC / Balsas - MA",
                 color: "#137fec",
               },
               {
@@ -381,14 +381,14 @@ export function ContatoPage() {
                     </div>
                   </div>
                   <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#617589] mb-[12px] leading-[22px]">
-                    Rua Exemplo, 123 - Centro
+                    Rua Hermes da Fonseca, 400-D
                     <br />
-                    Chapecó - Santa Catarina
+                    Bairro São Cristóvão — Chapecó - SC
                     <br />
-                    CEP: 89800-000
+                    CEP: 89.804-015
                   </p>
                   <p className="font-['Inter:Bold',sans-serif] font-bold text-[14px] text-[#111418]">
-                    📞 +55 (49) 9999-9999
+                    📞 (49) 3323-0094 / (49) 98422-5555
                   </p>
                 </motion.div>
 
@@ -411,14 +411,14 @@ export function ContatoPage() {
                     </div>
                   </div>
                   <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#617589] mb-[12px] leading-[22px]">
-                    Avenida Exemplo, 456
+                    Avenida B - 03
                     <br />
-                    Balsas - Maranhão
+                    Distrito Industrial — Balsas - MA
                     <br />
-                    CEP: 65800-000
+                    CEP: 65.800-000
                   </p>
                   <p className="font-['Inter:Bold',sans-serif] font-bold text-[14px] text-[#111418]">
-                    📞 +55 (99) 9999-9999
+                    📞 (49) 98422-5555
                   </p>
                 </motion.div>
               </div>

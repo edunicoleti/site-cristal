@@ -170,7 +170,7 @@ export function ServicosPage() {
                 {/* Badges over image */}
                 <div className="absolute top-[16px] left-[16px] right-[16px] flex items-center justify-between">
                   <span className="bg-black/50 backdrop-blur-sm text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1.4px] uppercase px-[14px] py-[6px] rounded-[9999px]">
-                    Região Sul
+                    Região Sul e Sudoeste
                   </span>
                   <span className="bg-[#137fec] text-white text-[11px] font-['Inter:Bold',sans-serif] font-bold tracking-[1px] uppercase px-[12px] py-[6px] rounded-[9999px]">
                     Tricone Bit
@@ -198,7 +198,7 @@ export function ServicosPage() {
                     { label: "Profundidade", value: "Até 1.500 m" },
                     { label: "Diâmetros", value: '6½" a 24"' },
                     { label: "Sistema", value: "Roto pneumático" },
-                    { label: "Região", value: "Sul do Brasil" },
+                    { label: "Região", value: "Sul e Sudoeste" },
                   ].map(({ label, value }) => (
                     <div key={label} className="bg-[#f6f7f8] rounded-[12px] px-[14px] py-[12px]">
                       <p className="text-[10px] font-['Inter:Medium',sans-serif] font-medium text-[#9ca3af] uppercase tracking-[0.8px] mb-[4px]">{label}</p>

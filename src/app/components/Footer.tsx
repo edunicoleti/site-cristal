@@ -74,13 +74,16 @@ export function Footer() {
             </h3>
             <ul className="space-y-[12px]">
               <li className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-[#9ca3af]">
-                +55 (49) 9999-9999
+                (49) 3323-0094 / (49) 98422-5555
               </li>
               <li className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-[#9ca3af]">
-                contato@cristalpocos.com.br
+                rurik@cristalpocos.com.br
               </li>
               <li className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-[#9ca3af]">
-                Chapecó - SC
+                Matriz: Chapecó - SC
+              </li>
+              <li className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-[#9ca3af]">
+                Filial: Balsas - MA
               </li>
             </ul>
           </div>
