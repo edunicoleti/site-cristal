@@ -169,8 +169,8 @@ export function QuemSomosPage() {
               className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full overflow-hidden cursor-pointer"
             >
               <img
-                src="/fotos%20projetos/poco-artesiano-aereo-drone-chapeco-18.jpg"
-                alt="Equipe Cristal Poços — Profissionais qualificados"
+                src="/fotos%20projetos/perfuracao-campo.jpg"
+                alt="Perfuração de poço artesiano em área rural — Vista aérea Cristal Poços"
                 className="w-full h-full object-cover aspect-square rounded-[16px]"
               />
             </motion.div>
@@ -185,8 +185,8 @@ export function QuemSomosPage() {
               className="relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] w-full overflow-hidden cursor-pointer"
             >
               <img
-                src="/fotos%20projetos/poco-artesiano-sonda-perfuracao-chapeco-02.jpg"
-                alt="Equipamentos Cristal Poços — Sonda de perfuração em obra"
+                src="/fotos%20projetos/perfuracao-lago.jpg"
+                alt="Sonda de perfuração Cristal Poços em obra próxima a reservatório de água"
                 className="w-full h-full object-cover aspect-square rounded-[16px]"
               />
             </motion.div>
