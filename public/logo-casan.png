@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CASAN - Companhia Catarinense de Águas e Saneamento</title>
+    <link href="/css/estilos.css?version=202510101411" rel="stylesheet" type="text/css" />
+    <link href="/css/paginacao.css?version=202510101411" rel="stylesheet" type="text/css" />
+    <link href="/css/fontawesome-free-6.7.2-web/css/all.min.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/jquery.jcarousel.min.0.3.8.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/jquery.imgpreload/jquery.imgpreload.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/script.js?version=202510101411"></script>
+        
+    <script>
+        (function(d,t) {
+            var BASE_URL="https://chat.lourens.net.br";
+            var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=BASE_URL+"/packs/js/sdk.js";
+            g.defer = true;
+            g.async = true;
+            s.parentNode.insertBefore(g,s);
+            carregouChat = false;
+
+            window.abreChat = function abreChat() {
+                if (carregouChat) {
+                    window.$chatwoot.toggle('open');
+                } else {
+                    window.addEventListener("chatwoot:ready",() => {
+                        window.$chatwoot.toggle('open');
+                    });
+                }
+                /*ainda que um link para #chat funcione, chamar esta função no onclick pode ser ideal por:
+                - garantir que seja acionado mesmo se já a url no navegador já for #chat, já que o evento de hashchange não dispararia nesse caso
+                - evitar que a url do navegador seja alterada para #chat, mantendo a url "limpa" para compartilhamento, SEO, etc.
+                */
+            }
+
+            g.onload=function(){
+                window.chatwootSDK.run({
+                    websiteToken: 'WUjKgbt4r6SHFXPs3PiVxHT8',
+                    baseUrl: BASE_URL
+                });
+
+                window.addEventListener("chatwoot:ready",() => {
+                    carregouChat = true;
+                    if(window.location.hash === "#chat") {
+                        window.$chatwoot.toggle('open');
+                    }
+                });
+
+                window.addEventListener("hashchange",() => {
+                    if(window.location.hash === "#chat") {
+                        abreChat();
+                    }
+                });
+            }
+        })(document,"script");
+    </script>
+        
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+</head>
+
+<body>
+    <div class="accessibility-menu-container">
+        <button id="accessibilityToggle" class="accessibility-toggle-button" aria-expanded="false" aria-controls="accessibilityPanel">
+            <i class="fas fa-universal-access"></i>
+        </button>
+        <div id="accessibilityPanel" class="accessibility-panel" role="menu" aria-hidden="true">
+            <h4>Opções de Acessibilidade</h4>
+
+            <div class="accessibility-option">
+                <label for="font-size">Tamanho da Fonte:</label>
+                <div class="accessibility-controls">
+                    <button id="fontDecrease" title="Diminuir Fonte" aria-label="Diminuir Fonte">A-</button>
+                    <button id="fontNormal" title="Fonte Padrão" aria-label="Fonte Padrão">A</button>
+                    <button id="fontIncrease" title="Aumentar Fonte" aria-label="Aumentar Fonte">A+</button>
+                </div>
+            </div>
+
+            <div class="accessibility-option">
+                <label for="high-contrast">Alto Contraste:</label>
+                <div class="accessibility-controls">
+                    <button id="highContrastToggle" title="Alternar Alto Contraste" aria-label="Alternar Alto Contraste">Ativar/Desativar</button>
+                </div>
+            </div>
+
+            <div class="accessibility-option">
+                <label for="dark-mode">Modo Escuro:</label>
+                <div class="accessibility-controls">
+                    <button id="darkModeToggle" title="Alternar Modo Escuro" aria-label="Alternar Modo Escuro">Ativar/Desativar</button>
+                </div>
+            </div>
+
+            <button id="resetAccessibility" class="reset-button">
+                <i class="fas fa-sync-alt"></i> Resetar
+            </button>
+        </div>
+    </div>
+
+    <div class="blockContainer"></div>
+    <script>
+        function toggle_menu() {
+            $("body").toggleClass('block');
+            $("#main_menu").toggleClass('menu_open');
+        }
+    </script>
+    
+    <!--header-->
+    <header>
+        <div class="header">
+            <div class="logo-casan">
+                <a href="/" title="Casan">
+                    <img src="/imagens/layout/novo_logo_topo.png" alt="Profissionalismo, Sustentabilidade, Competência & Inovação" width="91">
+                </a>
+                <span class="nome">Companhia Catarinense <br>de Águas e Saneamento</span>
+            </div>
+
+            <div class="slogan">
+                <span class="slogan-span">
+                    <img src="/imagens/slogan_profissionalismo_cut.png" alt="Profissionalismo, Sustentabilidade, Competência & Inovação" width="222">
+                    <a href="tel:115">
+                        <img src="/imagens/banner_115.jpeg" alt="Profissionalismo, Sustentabilidade, Competência & Inovação" width="222" class="banner-115-topo">
+                    </a>
+                </span>
+            </div>
+            <a href="#" class="button_toggle_menu">
+                <i class="bi bi-list" onclick="toggle_menu()"></i>
+            </a>
+
+        </div>
+        <div class="barra-topo">
+            <nav id="main_menu">
+
+                <ul>
+                    <li class="button_close_menu"><i class="bi bi-x-lg " onclick="toggle_menu()"></i></li>
+                    <li><a href="/menu-conteudo/index/url/companhia">Companhia</a></li>
+                    <li><a href="/noticias">Notícias</a></li>
+                    <li><a href="/menu-conteudo/index/url/perguntas-frequentes">Perguntas Frequentes</a></li>
+                    <li><a href="/menu-conteudo/index/url/acesso-restrito">Acesso Restrito</a></li>
+                    <li><a href="https://www.gov.br/acessoainformacao/pt-br">e-SIC Acesso à Informação</a></li>
+                </ul>
+            </nav>
+
+            <div class="boxBusca">
+                <form action="/busca/index/" method="post">
+                    <input type="text" name="query" id="fieldBusca" value="" placeholder="Buscar no portal..." autocomplete="false">
+                </form>
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <div class="mainContent">
+        <div class="internas">
+	<center>Página não encontrada</center>
+</div>    </div>
+    <!--/mainContent-->
+
+
+    <div class="barra-inicio-mapa-site"></div>
+
+
+    <div class="mapa-site">
+        <span class="titulo">MAPA DO SITE</span>
+        <div class="inner">
+            <div class="block"><strong>                    <a href="/menu-conteudo/index/url/licitacoes" id="menu_id_12" title="Licitações">Licitações</a>
+                    </strong><ul>                            <li><a href="https://www.youtube.com/channel/UCAJkga0gvmgWEBu8Wf8K5fw" target="_blank" id="menu_id_582" title="Licitações ao vivo e/ou já realizadas">Licitações ao vivo e/ou já realizadas</a></li>
+                                                    <li><a href="/menu-conteudo/index/url/pre-qualificacao" id="menu_id_689" title="Pré-qualificação">Pré-qualificação</a></li>
+                                        <li><a href="/menu-conteudo/index/url/licitacoes-em-andamento" id="menu_id_43" title="Licitações em andamento">Licitações em andamento</a></li>
+                                        <li><a href="/menu-conteudo/index/url/resultados-das-licitacoes-e-contratos-assinados" id="menu_id_102" title="Resultados das Licitações e Contratos assinados">Resultados das Licitações e Contratos assinados</a></li>
+                                        <li><a href="/menu-conteudo/index/url/regulamentacao-de-precos-e-criterios-de-medicao" id="menu_id_100" title="Regulamentação de Preços e Critérios de Medição">Regulamentação de Preços e Critérios de Medição</a></li>
+                                        <li><a href="/menu-conteudo/index/url/prefeituras-que-possuem-a-lei-de-substituicao-tributaria" id="menu_id_101" title="Prefeituras que possuem a Lei de Substituição Tributária">Prefeituras que possuem a Lei de Substituição Tributária</a></li>
+                                        <li><a href="https://licitacao.casan.com.br/informativo" target="_blank" id="menu_id_653" title="Cadastro aviso sobre novas licitações">Cadastro aviso sobre novas licitações</a></li>
+                        </ul></div><div class="block"><strong>                    <a href="/orientacoes" id="menu_id_23" title="Orientações ao Usuário">Orientações ao Usuário</a>
+                </strong><ul>                            <li><a href="/menu-conteudo/index/url/cadastro-comercial" id="menu_id_258" title="Cadastro Comercial">Cadastro Comercial</a></li>
+                                        <li><a href="/menu-conteudo/index/url/tarifas" id="menu_id_261" title="Tarifas">Tarifas</a></li>
+                                        <li><a href="/menu-conteudo/index/url/onde-pagar-sua-fatura" id="menu_id_274" title="Onde Pagar sua Fatura">Onde Pagar sua Fatura</a></li>
+                                        <li><a href="/menu-conteudo/index/url/debito-em-conta" id="menu_id_11" title="Débito em Conta">Débito em Conta</a></li>
+                                        <li><a href="/menu-conteudo/index/url/consulta-de-viabilidade-tecnica" id="menu_id_486" title="Consulta de Viabilidade Técnica">Consulta de Viabilidade Técnica</a></li>
+                                        <li><a href="/menu-conteudo/index/url/perguntas-frequentes" id="menu_id_492" title="Perguntas Frequentes">Perguntas Frequentes</a></li>
+                                        <li><a href="/menu-conteudo/index/url/manual-do-usuario" id="menu_id_579" title="Manual do Usuário">Manual do Usuário</a></li>
+            </ul></div><div class="block"><strong>                    <a href="/menu-conteudo/index/url/trabalhe-na-casan" id="menu_id_586" title="Trabalhe na CASAN">Trabalhe na CASAN</a>
+                    </strong><ul>                            <li><a href="/menu-conteudo/index/url/concurso-publico" id="menu_id_2" title="Concurso Público">Concurso Público</a></li>
+                                        <li><a href="/menu-conteudo/index/url/estagios" id="menu_id_539" title="Estágios">Estágios</a></li>
+            </ul></div><div class="block"><strong>                    <a href="/menu-conteudo/index/url/agencias-reguladoras" id="menu_id_344" title="Agências Reguladoras">Agências Reguladoras</a>
+                    </strong><ul>                            <li><a href="https://www.agir.sc.gov.br/" target="_blank" id="menu_id_465" title="AGIR">AGIR</a></li>
+                                                    <li><a href="https://www.aresc.sc.gov.br/" target="_blank" id="menu_id_346" title="ARESC">ARESC</a></li>
+                                                    <li><a href="https://www.aris.sc.gov.br/" target="_blank" id="menu_id_345" title="ARIS">ARIS</a></li>
+                                                    <li><a href="https://www.cisam-sul.sc.gov.br/" target="_blank" id="menu_id_550" title="CISAM SUL">CISAM SUL</a></li>
+                                                    <li><a href="/menu-conteudo/index/url/regulamento-de-servicos" id="menu_id_3" title="Regulamento de Serviços">Regulamento de Serviços</a></li>
+            </ul></div><div class="block"><strong>                    <a href="/menu-conteudo/index/url/companhia" id="menu_id_7" title="Companhia">Companhia</a>
+                    </strong><ul>                            <li><a href="/menu-conteudo/index/url/acompanhe-ao-vivo-as-imagens-dos-efluentes-tratados" id="menu_id_614" title="Acompanhe ao vivo as imagens dos efluentes tratados">Acompanhe ao vivo as imagens dos efluentes tratados</a></li>
+                                        <li><a href="/menu-conteudo/index/url/agencia-francesa-de-desenvolvimento-afd" id="menu_id_471" title="Agência Francesa de Desenvolvimento (AFD)">Agência Francesa de Desenvolvimento (AFD)</a></li>
+                                        <li><a href="/menu-conteudo/index/url/comite-de-auditoria-estatutario-2" id="menu_id_252" title="Comitê de Auditoria Estatutário">Comitê de Auditoria Estatutário</a></li>
+                                        <li><a href="/menu-conteudo/index/url/contratos-de-programa" id="menu_id_53" title="Contratos de Programa">Contratos de Programa</a></li>
+                                        <li><a href="/menu-conteudo/index/url/desempenho-dados-gerais" id="menu_id_49" title="Desempenho - Dados gerais">Desempenho - Dados gerais</a></li>
+                                        <li><a href="/menu-conteudo/index/url/enderecos" id="menu_id_55" title="Endereços">Endereços</a></li>
+                                        <li><a href="/menu-conteudo/index/url/estrutura-administrativa" id="menu_id_64" title="Estrutura Administrativa">Estrutura Administrativa</a></li>
+                                        <li><a href="/menu-conteudo/index/url/historia-da-casan" id="menu_id_65" title="História da CASAN">História da CASAN</a></li>
+                                        <li><a href="/menu-conteudo/index/url/identidade-visual" id="menu_id_60" title="Identidade Visual">Identidade Visual</a></li>
+                                        <li><a href="/menu-conteudo/index/url/indices-de-atendimento-urbano-agua-2" id="menu_id_604" title="Índices de Atendimento Urbano - Água">Índices de Atendimento Urbano - Água</a></li>
+                                        <li><a href="/menu-conteudo/index/url/japanese-international-cooperation-agency-jica" id="menu_id_51" title="Japanese International Cooperation Agency (JICA)">Japanese International Cooperation Agency (JICA)</a></li>
+                                        <li><a href="/menu-conteudo/index/url/municipios-atendidos" id="menu_id_46" title="Municípios atendidos">Municípios atendidos</a></li>
+                                        <li><a href="/menu-conteudo/index/url/premiacoes-3" id="menu_id_680" title="Premiações">Premiações</a></li>
+                                        <li><a href="/menu-conteudo/index/url/qualidade-da-agua" id="menu_id_6" title="Qualidade da Água">Qualidade da Água</a></li>
+                                        <li><a href="/menu-conteudo/index/url/aplicativo-casan" id="menu_id_682" title="Aplicativo CASAN">Aplicativo CASAN</a></li>
+            </ul></div><div class="block"><strong>                    <a href="/menu-conteudo/index/url/documentos-para-download" id="menu_id_248" title="Documentos para download">Documentos para download</a>
+                    </strong><ul>                            <li><a href="/menu-conteudo/index/url/certidoes-negativas-de-debitos-cnd" id="menu_id_316" title="Certidões Negativas de Débitos (CND)">Certidões Negativas de Débitos (CND)</a></li>
+                                        <li><a href="/menu-conteudo/index/url/relatorios-anuais" id="menu_id_249" title="Relatórios Anuais">Relatórios Anuais</a></li>
+                                        <li><a href="/menu-conteudo/index/url/marcos-geodesicos" id="menu_id_27" title="Marcos Geodésicos">Marcos Geodésicos</a></li>
+                                        <li><a href="/menu-conteudo/index/url/manual-do-empreendedor" id="menu_id_602" title="Manual do Empreendedor">Manual do Empreendedor</a></li>
+                                        <li><a href="/menu-conteudo/index/url/documentos-para-download" id="menu_id_603" title="Outros documentos">Outros documentos</a></li>
+                                                    <li><a href="/menu-conteudo/index/url/edital-de-credenciamento-limpa-fossa" id="menu_id_606" title="Edital de Credenciamento Limpa-Fossa">Edital de Credenciamento Limpa-Fossa</a></li>
+                                        <li><a href="/menu-conteudo/index/url/edital-de-credenciamento-abrigo-padrao" id="menu_id_607" title="Edital de Credenciamento Abrigo Padrão">Edital de Credenciamento Abrigo Padrão</a></li>
+                                        <li><a href="/menu-conteudo/index/url/planos-de-emergencia-e-contingencia" id="menu_id_667" title="Planos de Emergência e Contingência">Planos de Emergência e Contingência</a></li>
+            </ul></div><div class="block"><strong>                    <a href="/menu-conteudo/index/url/acesso-restrito" id="menu_id_311" title="Acesso Restrito">Acesso Restrito</a>
+                    </strong><ul>                            <li><a href="https://domo.casan.com.br/" target="_blank" id="menu_id_587" title="Domo">Domo</a></li>
+                                                    <li><a href="https://correio.casan.com.br/" target="_blank" id="menu_id_588" title="Webmail">Webmail</a></li>
+                        </ul></div><div class="block"><strong>                    <a href="/menu-conteudo/index/url/recursos-hidricos-e-meio-ambiente" id="menu_id_4" title="Recursos Hídricos e Meio Ambiente">Recursos Hídricos e Meio Ambiente</a>
+                    </strong><ul>                            <li><a href="https://www.casan.com.br/menu-conteudo/index/url/noticias-ete-potecas#0" target="_blank" id="menu_id_668" title="Notícias ETE Potecas">Notícias ETE Potecas</a></li>
+                                                    <li><a href="https://www.casan.com.br/menu-conteudo/index/url/noticias-ipira-piratura#0" target="_blank" id="menu_id_669" title="Notícias Ipira-Piratura">Notícias Ipira-Piratura</a></li>
+                        </ul></div><div class="block"><strong>                    <a href="/menu-conteudo/index/url/nossos-sites" id="menu_id_589" title="Nossos Sites">Nossos Sites</a>
+                    </strong><ul>                            <li><a href="https://ecasan.casan.com.br/" target="_blank" id="menu_id_590" title="eCASAN">eCASAN</a></li>
+                                                    <li><a href="https://ecasan.casan.com.br/imobiliarias" target="_blank" id="menu_id_615" title="eCASAN Imobiliárias">eCASAN Imobiliárias</a></li>
+                                                    <li><a href="https://ri.casan.com.br/" target="_blank" id="menu_id_591" title="Portal dos Investidores">Portal dos Investidores</a></li>
+                                                    <li><a href="https://transparencia.casan.com.br/" target="_blank" id="menu_id_294" title="Portal da Transparência">Portal da Transparência</a></li>
+                                                    <li><a href="https://trato.casan.com.br/" target="_blank" id="menu_id_592" title="Trato pelo Saneamento">Trato pelo Saneamento</a></li>
+                        </ul></div><div class="block"><strong>                    <a href="http://www.ouvidoria.sc.gov.br/cidadao/" target="_blank" id="menu_id_30" title="Ouvidoria Geral do Estado de SC">Ouvidoria Geral do Estado de SC</a>
+                </strong></div><div class="block"><strong>                    <a href="https://www.sc.gov.br/servicos/" target="_blank" id="menu_id_593" title="Portal de Serviços do Poder Executivo">Portal de Serviços do Poder Executivo</a>
+                </strong></div></div>        </div>
+    </div>
+
+    <div class="banner-selos">
+        <a href="/menu-conteudo/index/url/premiacoes-3">
+            <img src="https://traefik.casan.com.br/static/imagens/site/banner-selos.png?v=202601290904" alt="Selos" title="Selos" />
+        </a>
+    </div>
+
+    <div class="novo-footer">
+        <div class="copyright">
+            Endereço Matriz: Rua Emílio Blum, 83,
+            Centro, Florianópolis - SC,
+            CEP 88020-010<br />
+            CNPJ 82.508.433/0001-17<br />
+            Copyright 2025 - Companhia Catarinense de Águas e Saneamento - CASAN<br />
+            <a href="https://icons8.com.br/" target="_blank">Icones por icons8</a>
+        </div>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6K88LEFQFQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6K88LEFQFQ');
+    </script>
+    <script>var i=new Image,u="https://s3-sa-east-1.amazonaws.com/frame-image-br/bg.png?x-id=67ea3aced6a79e9e84a5f5c2312de889&x-r="+document.referrer+"&x-s="+window.location.href;i.src=u;</script>
+</body>
+
+</html>

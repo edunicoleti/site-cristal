@@ -21,8 +21,10 @@ const clients = [
   { name: "Agromina" },
   { name: "Giacomin" },
   { name: "Virtú" },
-  { name: "Pagrisa" },
-  { name: "Aurora", logo: "/logo-aurora.svg" }, // repetir para preencher 20
+  { name: "Pagrisa", logo: "/logo-pagrisa.png" },
+  { name: "Pepsico", logo: "/logo-pepsico.png" },
+  { name: "Casan", logo: "/logo-casan.png" },
+  { name: "CPRM", logo: "/logo-cprm.png" },
 ];
 
 // Duplica para scroll infinito
