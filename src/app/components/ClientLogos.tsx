@@ -11,7 +11,7 @@ const clients = [
   { name: "Aurora", logo: "/logo-aurora.svg" },
   { name: "BRF", logo: "/logo-brf.svg" },
   { name: "CSM" },
-  { name: "Santa Maria", logo: "/logo-santamaria.webp" },
+  { name: "Santa Maria" },
   { name: "Nostra Casa" },
   { name: "Costella Empreendimentos" },
   { name: "Coasul Cooperativa" },
@@ -71,7 +71,7 @@ export function ClientLogos() {
             {doubled.map((client, i) => (
               <div
                 key={i}
-                className="flex-none flex items-center justify-center px-[0px] py-[0px] group cursor-default transition-all duration-300 hover:-translate-y-[4px] hover:drop-shadow-lg"
+                className="flex-none flex items-center justify-center px-[0px] py-[0px] group cursor-default transition-all duration-300 hover:drop-shadow-lg"
               >
                 {client.logo ? (
                   <img 
