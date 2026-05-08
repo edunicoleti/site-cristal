@@ -3,15 +3,15 @@ import { motion } from "motion/react";
 
 // ─── Dados dos clientes reais ───────────────────────────────────────────────────
 const clients = [
-  { name: "Alfa" },
-  { name: "Bugio Ecofrigo Frigorífico" },
-  { name: "RUDOLPH FOODS BRASIL" },
+  { name: "Alfa", logo: "/logo-alfa.png" },
+  { name: "Bugio Ecofrigo Frigorífico", logo: "/logo-bugio.svg" },
+  { name: "RUDOLPH FOODS BRASIL", logo: "/logo-rudolph.png" },
   { name: "APC do Brasil" },
   { name: "Tirol" },
-  { name: "Aurora" },
-  { name: "BRF" },
+  { name: "Aurora", logo: "/logo-aurora.svg" },
+  { name: "BRF", logo: "/logo-brf.svg" },
   { name: "CSM" },
-  { name: "Santa Maria" },
+  { name: "Santa Maria", logo: "/logo-santamaria.webp" },
   { name: "Nostra Casa" },
   { name: "Costella Empreendimentos" },
   { name: "Coasul Cooperativa" },
@@ -22,7 +22,7 @@ const clients = [
   { name: "Giacomin" },
   { name: "Virtú" },
   { name: "Pagrisa" },
-  { name: "Aurora" }, // repetir para preencher 20
+  { name: "Aurora", logo: "/logo-aurora.svg" }, // repetir para preencher 20
 ];
 
 // Duplica para scroll infinito
@@ -71,11 +71,19 @@ export function ClientLogos() {
             {doubled.map((client, i) => (
               <div
                 key={i}
-                className="flex-none flex items-center px-[0px] py-[0px] group cursor-default transition-all duration-300 hover:-translate-y-[4px] hover:drop-shadow-lg"
+                className="flex-none flex items-center justify-center px-[0px] py-[0px] group cursor-default transition-all duration-300 hover:-translate-y-[4px] hover:drop-shadow-lg"
               >
-                <span className="font-['Inter:Medium',sans-serif] font-medium text-[18px] md:text-[22px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] whitespace-nowrap transition-colors duration-300">
-                  {client.name}
-                </span>
+                {client.logo ? (
+                  <img 
+                    src={client.logo} 
+                    alt={client.name} 
+                    className="h-[36px] md:h-[44px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" 
+                  />
+                ) : (
+                  <span className="font-['Inter:Medium',sans-serif] font-medium text-[18px] md:text-[22px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] whitespace-nowrap transition-colors duration-300">
+                    {client.name}
+                  </span>
+                )}
               </div>
             ))}
           </motion.div>
