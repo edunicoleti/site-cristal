@@ -13,7 +13,7 @@ const commercialPartners: PartnerData[] = [
   {
     abbr: "Vanbro",
     fullName: "Tubos Geomecânicos",
-    logoUrl: "",
+    logoUrl: "/logo-vanbro.png",
     bgColor: "#f8fafc",
     accentColor: "#475569",
     tag: "Fornecedor",
@@ -21,7 +21,7 @@ const commercialPartners: PartnerData[] = [
   {
     abbr: "Franklin Electric",
     fullName: "Sistemas de Bombeamento",
-    logoUrl: "",
+    logoUrl: "/logo-franklin.png",
     bgColor: "#f0fdfa",
     accentColor: "#0f766e",
     tag: "Fornecedor",
