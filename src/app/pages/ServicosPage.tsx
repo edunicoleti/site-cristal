@@ -112,12 +112,12 @@ export function ServicosPage() {
       {/* Sticky Anchor Nav */}
       <div className="sticky top-[78px] z-30 bg-white border-b border-[#e5e7eb] shadow-sm">
         <div className="max-w-[1280px] mx-auto px-[16px] md:px-[24px]">
-          <div className="flex gap-0 overflow-x-auto">
+          <div className="grid grid-cols-2 md:flex md:gap-0">
             {NAV_ITEMS.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`shrink-0 px-[20px] md:px-[28px] py-[16px] font-['Inter:Medium',sans-serif] font-medium text-[14px] md:text-[15px] border-b-[3px] transition-all ${
+                className={`w-full md:w-auto px-[8px] md:px-[28px] py-[12px] md:py-[16px] font-['Inter:Medium',sans-serif] font-medium text-[13px] md:text-[15px] border-b-[3px] transition-all ${
                   activeSection === id
                     ? "border-[#137fec] text-[#137fec]"
                     : "border-transparent text-[#617589] hover:text-[#111418]"
