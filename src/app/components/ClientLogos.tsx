@@ -13,7 +13,7 @@ const clients = [
   { name: "CSM", logo: "/logo-csm.png", invert: true },
   { name: "Santa Maria", logo: "/logo clientes/logo santa maria.svg" },
   { name: "Nostra Casa", logo: "/logo clientes/nostracasa.avif" },
-  { name: "Costella Empreendimentos", logo: "/logo clientes/costella.jpg" },
+  { name: "Costella Empreendimentos", logo: "/logo clientes/costella.jpg", customClass: "mix-blend-multiply contrast-125 brightness-110" },
   { name: "Coasul Cooperativa", logo: "/logo clientes/logo coasul.svg" },
   { name: "Tradição - Cooperativa Agroindustrial", logo: "/logo clientes/tradicao coop.webp" },
   { name: "Inpasa Brasil", logo: "/logo clientes/logo-inpasa-r.png" },
@@ -77,7 +77,7 @@ export function ClientLogos() {
                   <img 
                     src={client.logo} 
                     alt={client.name} 
-                    className={`h-[36px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${client.invert ? 'invert' : ''}`} 
+                    className={`h-[36px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
                   />
                 ) : (
                   <span className="font-['Inter:Medium',sans-serif] font-medium text-[18px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] whitespace-nowrap transition-colors duration-300">
@@ -102,7 +102,7 @@ export function ClientLogos() {
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className={`h-[44px] max-w-[160px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${client.invert ? 'invert' : ''}`} 
+                  className={`h-[44px] max-w-[160px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
                 />
               ) : (
                 <span className="font-['Inter:Medium',sans-serif] font-medium text-[20px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] text-center transition-colors duration-300">
