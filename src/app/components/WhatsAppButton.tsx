@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 const WHATSAPP_URL =
-  "https://wa.me/5549999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
+  "https://wa.me/5549984225555?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano.";
 
 export function WhatsAppButton() {
   return (

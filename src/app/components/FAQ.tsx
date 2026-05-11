@@ -159,7 +159,7 @@ export function FAQ() {
             Não encontrou sua dúvida?
           </p>
           <a
-            href="https://wa.me/5549999999999?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano."
+            href="https://wa.me/5549984225555?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20perfura%C3%A7%C3%A3o%20de%20po%C3%A7o%20artesiano."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-[8px] bg-[#137fec] text-white font-['Inter:Bold',sans-serif] font-bold text-[15px] px-[24px] py-[12px] rounded-[10px] hover:bg-[#0c5fb8] transition-colors"
