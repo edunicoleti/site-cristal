@@ -143,7 +143,7 @@ export function ServicosPage() {
               Perfuração
             </h2>
             <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] md:text-[18px] text-[#617589] leading-[26px] max-w-[680px]">
-              Atuamos em todo território nacional com autonomia e tecnologia específica para cada região, garantindo o melhor resultado para cada tipo de terreno e aquífero.
+              Atuamos em todo território nacional com autonomia e tecnologia específica para cada região, garantindo o melhor resultado para seu projeto em cada tipo de terreno e aquífero.
             </p>
             <div className="bg-[#f97316] h-[4px] rounded-[9999px] w-[64px] mt-[20px]" />
           </motion.div>

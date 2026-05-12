@@ -4,13 +4,15 @@ import { motion } from "motion/react";
 // ─── Dados dos clientes reais ───────────────────────────────────────────────────
 const clients = [
   { name: "Alfa", logo: "/logo-alfa.png" },
-  { name: "Bugio Ecofrigo Frigorífico", logo: "/logo-bugio.svg" },
+  { name: "Ecofrigo", logo: "/logo clientes/logo ecofrigo colorida.png" },
   { name: "RUDOLPH FOODS BRASIL", logo: "/logo-rudolph.png" },
   { name: "APC do Brasil", logo: "/logo clientes/apc.webp", invert: true },
   { name: "Tirol", logo: "/logo clientes/Logo_da_Lacticínios_Tirol.svg.png" },
   { name: "Aurora", logo: "/logo-aurora.svg" },
   { name: "BRF", logo: "/logo-brf.svg" },
-  { name: "CSM", logo: "/logo-csm.png", invert: true },
+  { name: "CSM", logo: "/logo clientes/logo CSM correta.png" },
+  { name: "Fazenda Alto Paraíso", logo: "/logo clientes/fazendo alto paraiso.jpg", customClass: "mix-blend-multiply" },
+  { name: "Agropecuária Seis Irmãos", logo: "/logo clientes/seis irmaos.jpeg", customClass: "mix-blend-multiply" },
   { name: "Santa Maria", logo: "/logo clientes/logo santa maria.svg" },
   { name: "Nostra Casa", logo: "/logo clientes/nostracasa.avif" },
   { name: "Costella Empreendimentos", logo: "/logo clientes/costella.jpg", customClass: "mix-blend-multiply contrast-125 brightness-110" },
@@ -77,7 +79,7 @@ export function ClientLogos() {
                   <img 
                     src={client.logo} 
                     alt={client.name} 
-                    className={`h-[36px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
+                    className={`h-[36px] object-contain transition-transform duration-300 group-hover:scale-110 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
                   />
                 ) : (
                   <span className="font-['Inter:Medium',sans-serif] font-medium text-[18px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] whitespace-nowrap transition-colors duration-300">
@@ -102,7 +104,7 @@ export function ClientLogos() {
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className={`h-[44px] max-w-[160px] object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
+                  className={`h-[44px] max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-110 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
                 />
               ) : (
                 <span className="font-['Inter:Medium',sans-serif] font-medium text-[20px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] text-center transition-colors duration-300">

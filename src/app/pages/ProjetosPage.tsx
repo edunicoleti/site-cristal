@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { ProjectGallery } from "../components/ProjectGallery";
 import { SEOHead } from "../components/SEOHead";
+import { ClientLogos } from "../components/ClientLogos";
+import { CommercialPartners } from "../components/CommercialPartners";
 import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 
 export function ProjetosPage() {
@@ -60,6 +62,12 @@ export function ProjetosPage() {
 
       {/* Gallery */}
       <ProjectGallery />
+
+      {/* Client Logos Section */}
+      <ClientLogos />
+
+      {/* Commercial Partners Section */}
+      <CommercialPartners />
     </div>
   );
 }

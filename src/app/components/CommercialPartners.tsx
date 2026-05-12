@@ -12,7 +12,7 @@ const commercialPartners: PartnerData[] = [
   },
   {
     abbr: "Vanbro",
-    fullName: "Tubos Geomecânicos",
+    fullName: "Bombas Submersas",
     logoUrl: "/logo clientes/vambro.avif",
     bgColor: "#f8fafc",
     accentColor: "#475569",
@@ -20,7 +20,7 @@ const commercialPartners: PartnerData[] = [
   },
   {
     abbr: "Franklin Electric",
-    fullName: "Sistemas de Bombeamento",
+    fullName: "Bombas Submersas",
     logoUrl: "/logo clientes/franlin eletric.png",
     bgColor: "#f0fdfa",
     accentColor: "#0f766e",

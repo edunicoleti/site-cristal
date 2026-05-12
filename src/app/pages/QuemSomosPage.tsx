@@ -5,8 +5,6 @@ import { WaterCTACard, WHATSAPP_URL, WhatsAppIcon } from "../components/WaterCTA
 import svgPaths from "../../imports/svg-z6zitnfa74";
 import fundoVideo from "../../assets/fundo-hero-cristal.mp4";
 import { SEOHead } from "../components/SEOHead";
-import { ClientLogos } from "../components/ClientLogos";
-import { CommercialPartners } from "../components/CommercialPartners";
 import { useCountUp } from "../hooks/useCountUp";
 
 
@@ -290,12 +288,6 @@ export function QuemSomosPage() {
           </div>
         </div>
       </section>
-
-      {/* Client Logos Section */}
-      <ClientLogos />
-
-      {/* Commercial Partners Section */}
-      <CommercialPartners />
 
       {/* CTA Section */}
       <section className="py-[64px] md:py-[96px]">
