@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cristalpocos.com.br/sitemap.xml
