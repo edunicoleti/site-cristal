@@ -8,7 +8,7 @@ const clients = [
   { name: "RUDOLPH FOODS BRASIL", logo: "/logo-rudolph.png" },
   { name: "APC do Brasil", logo: "/logo clientes/apc.webp", invert: true, customClass: "!h-[56px] md:!h-[68px] !max-w-[200px]" },
   { name: "Tirol", logo: "/logo clientes/Logo_da_Lacticínios_Tirol.svg.png" },
-  { name: "Aurora", logo: "/logo-aurora.svg", customClass: "!h-[56px] md:!h-[72px] !max-w-[200px]" },
+  { name: "Aurora", logo: "/logo-aurora.svg", customClass: "!h-[48px] md:!h-[60px] !max-w-[200px]" },
   { name: "BRF", logo: "/logo-brf.svg" },
   { name: "CSM", logo: "/logo clientes/logo CSM correta.png" },
   { name: "Fazenda Alto Paraíso", logo: "/logo clientes/fazendo alto paraiso.jpg", customClass: "mix-blend-multiply !h-[48px] md:!h-[64px] !max-w-[200px]" },
