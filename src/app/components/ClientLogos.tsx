@@ -50,45 +50,35 @@ export function ClientLogos() {
         </motion.div>
       </div>
 
-      {/* Mobile: Marquee track */}
-      <div className="relative md:hidden">
+      {/* Mobile: Interactive scrollable track */}
+      <div className="relative md:hidden -mx-[16px] px-[16px]">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-[80px] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-[80px] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-[40px] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-[40px] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         {/* Scroll container */}
-        <div className="flex overflow-hidden">
-          <motion.div
-            ref={trackRef}
-            className="flex gap-[48px]"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              duration: isHovering ? 0 : 32,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            {doubled.map((client, i) => (
-              <div
-                key={i}
-                className="flex-none flex items-center justify-center group cursor-default transition-all duration-300 hover:drop-shadow-lg"
-              >
-                {client.logo ? (
-                  <img 
-                    src={client.logo} 
-                    alt={client.name} 
-                    className={`h-[36px] object-contain transition-transform duration-300 group-hover:scale-110 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
-                  />
-                ) : (
-                  <span className="font-['Inter:Medium',sans-serif] font-medium text-[18px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] whitespace-nowrap transition-colors duration-300">
-                    {client.name}
-                  </span>
-                )}
-              </div>
-            ))}
-          </motion.div>
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-[48px] py-[16px] px-[24px] scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <style dangerouslySetInnerHTML={{__html: `
+            .scrollbar-hide::-webkit-scrollbar { display: none; }
+          `}} />
+          {clients.map((client, i) => (
+            <div
+              key={i}
+              className="flex-none snap-center flex items-center justify-center group cursor-default transition-all duration-300"
+            >
+              {client.logo ? (
+                <img 
+                  src={client.logo} 
+                  alt={client.name} 
+                  className={`h-[40px] object-contain transition-transform duration-300 group-hover:scale-110 ${client.invert ? 'invert' : ''} ${client.customClass || ''}`} 
+                />
+              ) : (
+                <span className="font-['Inter:Medium',sans-serif] font-medium text-[18px] text-[#374151] group-hover:text-[#111418] tracking-[0.3px] whitespace-nowrap transition-colors duration-300 group-hover:scale-110">
+                  {client.name}
+                </span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -98,7 +88,7 @@ export function ClientLogos() {
           {clients.map((client, i) => (
             <div
               key={i}
-              className="flex items-center justify-center w-full group cursor-default transition-all duration-300 hover:drop-shadow-lg"
+              className="flex items-center justify-center w-full group cursor-default transition-all duration-300"
             >
               {client.logo ? (
                 <img 
