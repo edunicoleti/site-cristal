@@ -19,7 +19,7 @@ const clients = [
   { name: "Coasul Cooperativa", logo: "/logo clientes/logo coasul.svg" },
   { name: "Tradição - Cooperativa Agroindustrial", logo: "/logo clientes/tradicao coop.webp" },
   { name: "Inpasa Brasil", logo: "/logo clientes/logo-inpasa-r.png" },
-  { name: "Agromina", logo: "/logo clientes/agrominas.jpg", invert: true },
+  { name: "Agromina", logo: "/logo clientes/agromina correta.jfif", customClass: "mix-blend-multiply" },
   { name: "Virtú", logo: "/logo clientes/logo virtu.svg" },
   { name: "Pagrisa", logo: "/logo-pagrisa.png", invert: true },
   { name: "Pepsico", logo: "/logo-pepsico.png" },
