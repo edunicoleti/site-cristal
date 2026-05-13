@@ -20,7 +20,7 @@ const clients = [
   { name: "Tradição - Cooperativa Agroindustrial", logo: "/logo clientes/tradicao coop.webp" },
   { name: "Inpasa Brasil", logo: "/logo clientes/logo-inpasa-r.png" },
   { name: "Agromina", logo: "/logo clientes/agromina correta.jfif", customClass: "mix-blend-multiply !h-[80px] md:!h-[100px] !max-w-[250px]" },
-  { name: "Virtú", logo: "/logo clientes/logo virtu.svg" },
+  { name: "Virtú", logo: "/logo clientes/logo virtu.svg?v=2" },
   { name: "Pagrisa", logo: "/logo-pagrisa.png", invert: true, customClass: "!h-[56px] md:!h-[72px] !max-w-[200px]" },
   { name: "Pepsico", logo: "/logo-pepsico.png" },
   { name: "Casan", logo: "/logo clientes/casan logo.png", customClass: "!h-[48px] md:!h-[60px] !max-w-[200px]" },
